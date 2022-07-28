@@ -38,7 +38,7 @@
             	   </div>
             	</div>
             	<a href="#">회원가입</a>
-            	<input type="submit" class="btn" value="로그인">
+            	<input type="button" class="btn" value="로그인" onclick="location.href='main.do'">
             </form>
         </div>
     </div>

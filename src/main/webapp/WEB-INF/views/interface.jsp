@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
+
 <!-- nav bar -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nav bar</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,6 @@
 	crossorigin="anonymous"></script>
 <script src="main.js" defer></script>
 <!-- nav bar end -->
-
 <!-- 제품 리스트 -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,28 +68,23 @@
 	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
-<!-- 페이지 footer 끝-->
 </head>
 
-
-
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div id="status">&nbsp;</div>
-	</div>
-
+	<!-- nav bar -->
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo.png" alt=""></a>
+			 <a href="main.do"><img src="images/foruslogo.png" alt=""></a>
 		</div>
 
 		<ul class="navbar__menu">
-			<strong><li><a href="login.do">로그인</a></li></strong>
-			<strong><li><a href="buy.do">결제하기</a></li></strong>
-			<strong><li><a href="detail.do">제품상세페이지</a></li></strong>
-			<strong><li><a href="">고객센터</a></li></strong>
+			<li><a href="login.do">로그인</a></li>
+			<li><a href="">회원관리</a></li>
+			<li><a href="">게시글관리</a></li>
+			<li><a href="">챌린지관리</a></li>
+			<li><a href="">고객센터</a></li>
 		</ul>
+
 		<ul class="navbar__icons">
 			<li><i class="fab fa-twitter"></i></li>
 			<li><i class="fab fa-facebook-f"></i></li>
@@ -99,128 +93,7 @@
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
-
-
-
-	<!-- ================ trending product section start ================= -->
-	<section class="section-margin calc-60px">
-		<div class="container">
-			<div class="section-intro pb-60px">
-				<h4><b>Earth Box(송암아파트)</b></h4>
-				<h3>
-					제품 <span class="section-intro__style">목록</span>
-				</h3>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product1.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button type="button" onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.1</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>손목 시계</b></a>
-							</h4>
-							<p class="card-product__price">￦1억</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product2.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button type="button" onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.2</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>핸드크림</b></a>
-							</h4>
-							<p class="card-product__price">￦10억</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product3.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button type="button" onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.3</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>조명</b></a>
-							</h4>
-							<p class="card-product__price">￦4억</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product4.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button type="button" onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.4</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>향수</b></a>
-							</h4>
-							<p class="card-product__price">￦764억</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-	</section>
-	<!-- ================ trending product section end ================= -->
-
-
-
-
+	<!-- footer -->
 	<footer>
 		<div class="container">
 			<div class="container">
@@ -268,14 +141,6 @@
 
 
 
-
-
-
-
-
-
-
-
 	<!-- =========================
      SCRIPTS 
 ============================== -->
@@ -289,5 +154,4 @@
 	<script src="js/script.js"></script>
 	<script src="js/shopmain.js"></script
 </body>
-
 </html>
