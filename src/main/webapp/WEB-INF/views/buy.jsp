@@ -256,10 +256,10 @@
 								<td>
 									<div class="shipping_box">
 										<ul class="list">
-											<li><a href="#">Flat Rate: $5.00</a></li>
-											<li><a href="#">Free Shipping</a></li>
-											<li><a href="#">Flat Rate: $10.00</a></li>
-											<li class="active"><a href="#">Local Delivery: $2.00</a></li>
+											<li><a href="#">신용카드</a></li>
+											<li><a href="#">가상 계좌</a></li>
+											<li><a href="#">카카오페이</a></li>
+											<li class="active"><a href="#">네이버페이</a></li>
 										</ul>
 										<h6>
 											Calculate Shipping <i class="fa fa-caret-down"
@@ -359,3 +359,14 @@
 	<script src="js/shopmain.js"></script
 </body>
 </html>
+
+
+
+
+
+
+
+DB정보
+ㅇㄷ있음?
+로컬임?
+잠시만
