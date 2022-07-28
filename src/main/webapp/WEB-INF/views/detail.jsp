@@ -70,6 +70,9 @@
 
 <body>
 	<!-- nav bar -->
+	<!-- Preloader -->
+
+
 	<nav class="navbar">
 		<div class="navbar__logo">
 			<a href="main.do"><img src="images/foruslogo.png" alt=""></a>
