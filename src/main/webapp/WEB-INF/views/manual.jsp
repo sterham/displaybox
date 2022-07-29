@@ -66,11 +66,11 @@
 </head>
 
 <body>
-
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do"><img src="images/foruslogo2.png" width="75px"
+				height="70px">EARTH BOX</a>
 		</div>
 
 		<ul class="navbar__menu">
@@ -85,60 +85,17 @@
 		</a>
 	</nav>
 	<!---------------------------- nav bar 끝 ------------------>
-	<!-- benner -->
-	<div class="container h-100">
-		<div class="blog-banner">
-			<div class="text-center">
-				<h1>(정품풀박스)(정가32.6억)(상태SS) 다니엘 웰링턴 시계(32mm) + 팔찌 새상품</h1>
-			</div>
-		</div>
-	</div>
 
-	<!-- 제품 내용 -->
+	<!---------------------------- 이용 안내 시작 ----------------->
 	
-		<div class="container">
-			<div class="row s_product_inner">
-				<div class="col-lg-6">
-					<img class="col-lg-6" src="img/product/product1.png" alt="">
-					<div class="owl-carousel owl-theme s_Product_carousel">
-						<div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div>
-						<!-- <div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div>
-						<div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div> -->
-					</div>
-				</div>
-				<div class="col-lg-5 offset-lg-1">
-					<div class="s_product_text">
-						<h2>￦100,000,000</h2>
-						<ul class="list">
-							<li><a class="active" href="#"><span>박스 번호</span>: No.1</a></li>
-							<li><a href="#"><span>상품 유형</span>: 손목 시계</a></li>
-						</ul>
-						<p>이성경 시계로 유명한 다니엘웰링턴 시계 판매합니다. 작년에 구입했고 로즈골드 시계랑 같이 구매했는데 얜
-							거의 착용하지 않아서 새거나 다름없어요~ 박스, 보증서, 시계, 팔찌까지 모두 있어용~! 예쁘게 착용하실 분은 거서
-							가져가세요</p>
-						<div class="product_count">
-							<button
-								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-								class="increase items-count" type="button">
-							</button>
-							<button
-								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-								class="reduced items-count" type="button">
-							</button>
-							<a class="button primary-btn" href="buy.do">구매 하기</a>
-							<a class="button primary-btn" href="main.do">뒤로 가기</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<img src="images/manualimg.png" width="900px" height="900px">
+	
+	
+	
+	<!---------------------------- 이용 안내 시작 ----------------->
+	
+
+
 	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
 		<div class="container">
@@ -146,7 +103,8 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
+							<img src="images/foruslogo.png" width="90px" height="90px">EARTH
+							BOX
 						</div>
 					</div>
 				</div>
@@ -188,12 +146,9 @@
 
 
 
+	<!-- ========================= SCRIPTS ============================== -->
 
-	<!-- =========================
-     SCRIPTS 
-============================== -->
-	
-	</script>
+
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.nicescroll.js"></script>

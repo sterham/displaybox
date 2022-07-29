@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- nav bar -->
+<!-- nav bar 파일-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nav bar</title>
 <link rel="stylesheet" href="style.css">
@@ -18,7 +18,7 @@
 <script src="main.js" defer></script>
 <!-- nav bar end -->
 
-<!-- 제품 리스트 -->
+<!-- 제품 리스트 파일-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
 <!-- 제품 리스트 끝 -->
 
-<!-- 페이지 footer -->
+<!-- 페이지 footer 파일 -->
 <!-- Google Font -->
 <link
 	href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800'
@@ -61,52 +61,45 @@
 <link rel="stylesheet" href="css/shopstyle.css">
 <!-- Responsive CSS -->
 <link href="css/responsive.css" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="js/lte-ie7.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
 <!-- 페이지 footer 끝-->
 </head>
 
 
-
 <body>
-	<!-- Preloader -->
+
+	<!----------------------------- 로딩중 ------------------------>
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
 	</div>
+	<!----------------------------- 로딩끝 ------------------------>
 
+	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo.png" alt=""></a>
+			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 
 		<ul class="navbar__menu">
 			<strong><li><a href="login.do">로그인</a></li></strong>
-			<strong><li><a href="buy.do">결제하기</a></li></strong>
-			<strong><li><a href="detail.do">제품상세페이지</a></li></strong>
-			<strong><li><a href="">고객센터</a></li></strong>
+			<strong><li><a href="buy.do">장바구니</a></li></strong>
+			<strong><li><a href="manual.do">이용방법</a></li></strong>
+			<strong><li><a href="">마이페이지</a></li></strong>
 		</ul>
-		<ul class="navbar__icons">
-			<li><i class="fab fa-twitter"></i></li>
-			<li><i class="fab fa-facebook-f"></i></li>
-		</ul>
+
 
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
+	<!---------------------------- nav bar 끝 ------------------>
+	
 
-
-
-	<!-- ================ trending product section start ================= -->
+	<!---------------------------- 제품 리스트 시작 ---------------->
 	<section class="section-margin calc-60px">
 		<div class="container">
 			<div class="section-intro pb-60px">
-				<h4><b>Earth Box(송암아파트)</b></h4>
+				<h4>
+					<b>Earth Box(송암아파트)</b>
+				</h4>
 				<h3>
 					제품 <span class="section-intro__style">목록</span>
 				</h3>
@@ -115,9 +108,10 @@
 				<div class="col-md-6 col-lg-4 col-xl-3">
 					<div class="card text-center card-product">
 						<div class="card-product__img">
-							<img class="card-img" src="img/product/product1.png" alt="">
+							<img class="card-img" src="img/product/product1.png" alt="" >
 							<ul class="card-product__imgOverlay">
-								<li><button type="button" onclick="location.href='detail.do'">
+								<li><button type="button"
+										onclick="location.href='detail.do'">
 										<i class="ti-search"></i>
 									</button></li>
 								<li><button>
@@ -142,7 +136,8 @@
 						<div class="card-product__img">
 							<img class="card-img" src="img/product/product2.png" alt="">
 							<ul class="card-product__imgOverlay">
-								<li><button type="button" onclick="location.href='detail.do'">
+								<li><button type="button"
+										onclick="location.href='detail.do'">
 										<i class="ti-search"></i>
 									</button></li>
 								<li><button>
@@ -167,7 +162,8 @@
 						<div class="card-product__img">
 							<img class="card-img" src="img/product/product3.png" alt="">
 							<ul class="card-product__imgOverlay">
-								<li><button type="button" onclick="location.href='detail.do'">
+								<li><button type="button"
+										onclick="location.href='detail.do'">
 										<i class="ti-search"></i>
 									</button></li>
 								<li><button>
@@ -192,7 +188,8 @@
 						<div class="card-product__img">
 							<img class="card-img" src="img/product/product4.png" alt="">
 							<ul class="card-product__imgOverlay">
-								<li><button type="button" onclick="location.href='detail.do'">
+								<li><button type="button"
+										onclick="location.href='detail.do'">
 										<i class="ti-search"></i>
 									</button></li>
 								<li><button>
@@ -216,18 +213,17 @@
 		</div>
 		</div>
 	</section>
-	<!-- ================ trending product section end ================= -->
+	<!---------------------------- 제품 리스트 끝 ---------------->
 
 
-
-
+	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
 		<div class="container">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" alt="">
+							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
 						</div>
 					</div>
 				</div>
@@ -265,20 +261,12 @@
 			</div>
 		</div>
 	</footer>
+	<!-- ------------------------- footer 끝 ------------------>
 
 
 
 
-
-
-
-
-
-
-
-	<!-- =========================
-     SCRIPTS 
-============================== -->
+	<!-- ========================= SCRIPTS  ============================== -->
 
 
 	<script src="js/jquery.min.js"></script>

@@ -17,8 +17,8 @@
 		</div>
 		<div class="login-content">
 			<form action="index.html">
-				<img src="img/avatar.svg">
-				<h2 class="title">Welcome</h2>
+				<img src="images/foruslogo.png"  width="300px" height="300px" style= margin-right:100px;>
+				<h2 class="title">EARTH BOX</h2>
            		<div class="input-div one">
            		   <div class="i">
            		   		<i class="fas fa-user"></i>

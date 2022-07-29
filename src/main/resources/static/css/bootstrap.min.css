@@ -2531,7 +2531,7 @@ pre code {
     }
 
     .col-lg-6 {
-        width: 50%
+        width: 90%
     }
 
     .col-lg-5 {
@@ -5168,7 +5168,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 
 @media (min-width:768px) {
     .navbar-left {
-        float: left 
+        float: left
     }
 
     .navbar-right {

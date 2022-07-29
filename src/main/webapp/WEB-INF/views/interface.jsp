@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 
-<!-- nav bar -->
+<!-- nav bar 파일-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nav bar</title>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +18,8 @@
 	crossorigin="anonymous"></script>
 <script src="main.js" defer></script>
 <!-- nav bar end -->
-<!-- 제품 리스트 -->
+
+<!-- 제품 리스트 파일-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +35,7 @@
 <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
 <!-- 제품 리스트 끝 -->
 
-<!-- 페이지 footer -->
+<!-- 페이지 footer 파일 -->
 <!-- Google Font -->
 <link
 	href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800'
@@ -60,47 +62,40 @@
 <link rel="stylesheet" href="css/shopstyle.css">
 <!-- Responsive CSS -->
 <link href="css/responsive.css" rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="js/lte-ie7.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
+<!-- 페이지 footer 끝-->
 </head>
 
 <body>
-	<!-- nav bar -->
+	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			 <a href="main.do"><img src="images/foruslogo.png" alt=""></a>
+			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 
 		<ul class="navbar__menu">
-			<li><a href="login.do">로그인</a></li>
-			<li><a href="">회원관리</a></li>
-			<li><a href="">게시글관리</a></li>
-			<li><a href="">챌린지관리</a></li>
-			<li><a href="">고객센터</a></li>
+			<strong><li><a href="login.do">로그인</a></li></strong>
+			<strong><li><a href="buy.do">장바구니</a></li></strong>
+			<strong><li><a href="detail.do">사용설명서</a></li></strong>
+			<strong><li><a href="">마이페이지</a></li></strong>
 		</ul>
 
-		<ul class="navbar__icons">
-			<li><i class="fab fa-twitter"></i></li>
-			<li><i class="fab fa-facebook-f"></i></li>
-		</ul>
 
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
-	<!-- footer -->
+	<!---------------------------- nav bar 끝 ------------------>
+	
+	
+	
+	
+	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
 		<div class="container">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" alt="">
+							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
 						</div>
 					</div>
 				</div>
@@ -138,12 +133,11 @@
 			</div>
 		</div>
 	</footer>
+	<!-- ------------------------- footer 끝 ------------------>
 
 
 
-	<!-- =========================
-     SCRIPTS 
-============================== -->
+	<!-- ========================= SCRIPTS ============================== -->
 
 
 	<script src="js/jquery.min.js"></script>

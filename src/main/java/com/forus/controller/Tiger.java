@@ -44,4 +44,16 @@ public class Tiger {
 		System.out.println("구매 완료 페이지");
 		return "buycomplete";
 	}
+	
+	@RequestMapping("/interface.do")
+	public String f6() {
+		System.out.println("인터페이스 실행");
+		return "interface";
+	}
+	
+	@RequestMapping("/manual.do")
+	public String f7() {
+		System.out.println("고객센터 실행");
+		return "manual";
+	}
 }
