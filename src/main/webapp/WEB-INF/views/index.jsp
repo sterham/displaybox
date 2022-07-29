@@ -14,8 +14,7 @@
 	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
 	rel="stylesheet">
 <script src="https://kit.fontawesome.com/b17d4fa9e7.js"
-	crossorigin="anonymous"></script>
-<script src="main.js" defer></script>
+	crossorigin="anonymous"></script>쓰ㅜ함? 어
 <!-- nav bar end -->
 
 <!-- 제품 리스트 파일-->
@@ -24,7 +23,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Aroma Shop - Home</title>
-<link rel="icon" href="img/Fevicon.png" type="image/png">
+<link rel="icon" href="img/forusico.png" type="image/png">
 <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min2.css">
 <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
 <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
@@ -83,7 +82,7 @@
 			<strong><li><a href="login.do">로그인</a></li></strong>
 			<strong><li><a href="buy.do">장바구니</a></li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li><a href="">마이페이지</a></li></strong>
+			<strong><li><a href="">제품 찾아가기</a></li></strong>
 		</ul>
 
 
@@ -209,12 +208,44 @@
 						</div>
 					</div>
 				</div>
+				
+				<!-- test -->
+				<div class="col-md-6 col-lg-4 col-xl-3">
+					<div class="card text-center card-product">
+						<div class="card-product__img">
+							<img class="card-img" src="img/product/product4.png" alt="">
+							<ul class="card-product__imgOverlay">
+								<li><button type="button"
+										onclick="location.href='detail.do'">
+										<i class="ti-search"></i>
+									</button></li>
+								<li><button>
+										<i class="ti-shopping-cart"></i>
+									</button></li>
+								<li><button>
+										<i class="ti-heart"></i>
+									</button></li>
+							</ul>
+						</div>
+						<div class="card-body">
+							<p>No.${resultList.g_seq}</p>
+							<h4 class="card-product__title">
+								<a href="single-product.html"><b>${resultList.g_name}</b></a>
+							</h4>
+							<p class="card-product__price">￦${resultList.g_price}</p>
+						</div>
+					</div>
+				</div>
+				<!-- testEnd -->
 			</div>
 		</div>
 		</div>
 	</section>
 	<!---------------------------- 제품 리스트 끝 ---------------->
-
+	
+	<div>
+	${resultList.g_seq}
+	</div>
 
 	<!-- ------------------------- footer 시작 ------------------>
 	<footer>

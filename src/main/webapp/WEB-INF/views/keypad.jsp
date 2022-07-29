@@ -21,8 +21,8 @@
 
 <!-- 제품 리스트 파일-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Aroma Shop - Home</title>
 <link rel="icon" href="img/forusico.png" type="image/png">
@@ -69,8 +69,7 @@
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo2.png" width="75px"
-				height="70px">EARTH BOX</a>
+			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 
 		<ul class="navbar__menu">
@@ -85,152 +84,18 @@
 		</a>
 	</nav>
 	<!---------------------------- nav bar 끝 ------------------>
-
-
-	<!-------------------- 주문 완료 -------------------------------->
-
-	<div class="container h-100">
-		<div class="text-center">
-			<h1>구매가 정상적으로 완료되었습니다.</h1>
-		</div>
-	</div>
-
-	<!-- 주문완료 -->
-	<div class="orderInfo">
-
-		<br /> <br /> <br />
-		<p align="center">
-			<strong>고객님의 결제가 완료 되었습니다.</strong> 제품 호출은 <a
-				href="" style="color: #507050"><b>사용설명서</b></a> 를 통하여 확인 가능합니다.
-		</p>
-		<br />
-		<!----------------------------- 주문 목록 시작 --------------------------->
-		<section class="cart_area">
-			<div class="container">
-				<div class="cart_inner">
-					<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col"><b>제품</b></th>
-									<th scope="col"><b>가격</b></th>
-									<th scope="col"><b>수량</b></th>
-									<th scope="col"><b>합계</b></th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<div class="media">
-											<div class="d-flex">
-												<img src="img/product/product1.png" alt="">
-											</div>
-											<div class="media-body">
-												<p>손목 시계</p>
-											</div>
-										</div>
-									</td>
-									<td>
-										<h5>￦100,000</h5>
-									</td>
-									<td>
-										<div class="product_count">
-											<input type="text" name="qty" id="sst" maxlength="12"
-												value="1" title="Quantity:" class="input-text qty">
-											<button
-												onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-												class="increase items-count" type="button">
-												<i class="lnr lnr-chevron-up"></i>
-											</button>
-											<button
-												onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-												class="reduced items-count" type="button">
-												<i class="lnr lnr-chevron-down"></i>
-											</button>
-										</div>
-									</td>
-									<td>
-										<h5>￦100,000</h5>
-									</td>
-								</tr>
-
-								</div>
-								</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!---------------------------- 주문 목록 끝 --------------------->
-	</div>
-	<!-- 결제정보 -->
-	<div class="orderArea" align="center">
-		<div class="title">
-			<h2>결제정보</h2>
-			<br />
-		</div>
-		<div class="boardView">
-			<table class="table" align="center">
-				<thead>
-					<tr>
-						<th scope="col">최종결제금액</th>
-						<th scope="col" text-align=left>￦100,000,000</th>
-						<th scope="col"></th>
-						<th scope="col"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">결제수단</th>
-						<th scope="col" text-align=left>카카오 페이</th>
-						<th scope="col"></th>
-						<th scope="col"></th>
-					</tr>
-				</tbody>
-				<tbody>
-					<tr>
-						<th scope="row">박스 번호</th>
-						<th scope="col" text-align=left>No.1</th>
-						<th scope="col"></th>
-						<th scope="col"></th>
-					</tr>
-				</tbody>
-				<tbody>
-					<tr>
-						<th scope="row">박스 비밀번호</th>
-						<th scope="col" text-align=left>3527</th>
-						<th scope="col"></th>
-						<th scope="col"></th>
-					</tr>
-				</tbody>	
-			</table>
-		</div>
-	</div>
-	<br /><br />
-	<p align="center">
-	<a class="button primary-btn" href="main.do">첫 화면</a>
-		<a class="button primary-btn" href="">박스열기</a> <a
-			class="button primary-btn" href="">마이페이지</a>
-	</p>
-
-	<!-------------------- 주문 완료 끝 -------------------------------->
-
-
-
-
-
-
-
+	
+	
+	
+	
+	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
 		<div class="container">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" width="90px" height="90px">EARTH
-							BOX
+							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
 						</div>
 					</div>
 				</div>
@@ -272,8 +137,7 @@
 
 
 
-
-	<!-- ========================= SCRIPTS  ============================== -->
+	<!-- ========================= SCRIPTS ============================== -->
 
 
 	<script src="js/jquery.min.js"></script>
