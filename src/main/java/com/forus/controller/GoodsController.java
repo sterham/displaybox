@@ -1,27 +1,38 @@
 package com.forus.controller;
 
+
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.forus.mapper.GoodsMapper;
+import com.forus.domain.GoodsVO;
 import com.forus.service.GoodsService;
 
 @Controller
-public class Tiger {
+public class GoodsController {
 
 	@Autowired
 	private GoodsService service;
 	
 	@RequestMapping("/main.do")
-	public ModelAndView f0() {
-		ModelAndView mav = new ModelAndView("index");
-		mav.addObject("resultList", service.findAllList().get(0));
-		System.out.println("템플릿 실행");
-		System.out.println(service.findAllList().get(0));
-		return mav;
+	public String mainGoodsList(Model model) {
+		List<GoodsVO> list = service.findAllList();
+		model.addAttribute("list", list);
+		System.out.println(list);
+		return "index";
+	}
+	
+	@RequestMapping("/detail.do")
+	public String detailGoodsList() {
+		System.out.println("제품 상세페이지 실행");
+		return "detail";
 	}
 
 	@RequestMapping("/login.do")
@@ -31,11 +42,6 @@ public class Tiger {
 		return "login";
 	}
 
-	@RequestMapping("/detail.do")
-	public String f2() {
-		System.out.println("제품 상세페이지 실행");
-		return "detail";
-	}
 
 	@RequestMapping("/test.do")
 	public String f3() {

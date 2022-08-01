@@ -2,9 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.forus.mapper.GoodsMapper">
+	
+	<!-- 1. mainPage에 내보낼 전체 상품리스트 -->
 	<select id="mainGoodsList" resultType="com.forus.domain.GoodsVO">
 		select *
-		from goods_tb
+		from goods_tb where loc_seq in
+		(select loc_seq from g_location_tb 
+		where v_machine_seq=6)
 	</select>
+
 </mapper>
 

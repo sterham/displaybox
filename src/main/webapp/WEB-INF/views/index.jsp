@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
 	href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
 	rel="stylesheet">
 <script src="https://kit.fontawesome.com/b17d4fa9e7.js"
-	crossorigin="anonymous"></script>쓰ㅜ함? 어
+	crossorigin="anonymous"></script>
 <!-- nav bar end -->
 
 <!-- 제품 리스트 파일-->
@@ -104,147 +105,46 @@
 				</h3>
 			</div>
 			<div class="row">
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product1.png" alt="" >
-							<ul class="card-product__imgOverlay">
-								<li><button type="button"
-										onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.1</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>손목 시계</b></a>
-							</h4>
-							<p class="card-product__price">￦1억</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product2.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button type="button"
-										onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.2</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>핸드크림</b></a>
-							</h4>
-							<p class="card-product__price">￦10억</p>
+				<!-- 제품리스트 출력 -->
+				<!-- forEach문 사용 -->
+				<c:forEach items="${list }" var="goodsVo">
+					<div class="col-md-6 col-lg-4 col-xl-3">
+						<div class="card text-center card-product">
+							<div class="card-product__img">
+													<!-- 상품 사진 출력 -->
+								<img class="card-img" src=${goodsVo.g_img} alt="">
+								<ul class="card-product__imgOverlay">
+								<!-- 상세 페이지 보기 -->
+									<li><button type="button" onclick="location.href='detail.do'"><i class="ti-search"></i></button></li>
+								<!-- 장바구니 -->	
+									<li><button><i class="ti-shopping-cart"></i></button></li>
+								<!-- 관심 상품 -->	
+									<li><button><i class="ti-heart"></i></button></li>
+								</ul>
+							</div>
+							<div class="card-body">
+								<!-- 박스 번호 출력 -->
+								<p>No.${goodsVo.gc_seq}</p>
+								<h4 class="card-product__title">
+																	<!-- 상품 이름 출력 -->
+									<a href="single-product.html"><b>${goodsVo.g_name}</b></a>
+								</h4>
+																<!-- 상품 가격 출력 -->
+								<p class="card-product__price">￦ ${goodsVo.g_price}</p>
+							</div>
 						</div>
 					</div>
+				</c:forEach>
+				<!-- 제품리스트 출력 끝 -->
 				</div>
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product3.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button type="button"
-										onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.3</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>조명</b></a>
-							</h4>
-							<p class="card-product__price">￦4억</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product4.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button type="button"
-										onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.4</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>향수</b></a>
-							</h4>
-							<p class="card-product__price">￦764억</p>
-						</div>
-					</div>
-				</div>
-				
-				<!-- test -->
-				<div class="col-md-6 col-lg-4 col-xl-3">
-					<div class="card text-center card-product">
-						<div class="card-product__img">
-							<img class="card-img" src="img/product/product4.png" alt="">
-							<ul class="card-product__imgOverlay">
-								<li><button type="button"
-										onclick="location.href='detail.do'">
-										<i class="ti-search"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-shopping-cart"></i>
-									</button></li>
-								<li><button>
-										<i class="ti-heart"></i>
-									</button></li>
-							</ul>
-						</div>
-						<div class="card-body">
-							<p>No.${resultList.g_seq}</p>
-							<h4 class="card-product__title">
-								<a href="single-product.html"><b>${resultList.g_name}</b></a>
-							</h4>
-							<p class="card-product__price">￦${resultList.g_price}</p>
-						</div>
-					</div>
-				</div>
-				<!-- testEnd -->
 			</div>
+		</div>
 		</div>
 		</div>
 	</section>
 	<!---------------------------- 제품 리스트 끝 ---------------->
 	
 	<div>
-	${resultList.g_seq}
 	</div>
 
 	<!-- ------------------------- footer 시작 ------------------>

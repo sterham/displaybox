@@ -13,7 +13,9 @@ public class GoodsService {
 	@Autowired
 	private GoodsMapper mapper;
 	
+	// 1. main.dp
 	public List<GoodsVO> findAllList(){
 		return mapper.mainGoodsList();
 	}
+
 }
