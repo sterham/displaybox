@@ -1,7 +1,5 @@
 package com.forus.controller;
 
-
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +18,7 @@ public class GoodsController {
 
 	@Autowired
 	private GoodsService service;
-	
+
 	@RequestMapping("/main.do")
 	public String mainGoodsList(Model model) {
 		List<GoodsVO> list = service.findAllList();
@@ -28,7 +26,7 @@ public class GoodsController {
 		System.out.println(list);
 		return "index";
 	}
-	
+
 	@RequestMapping("/detail.do")
 	public String detailGoodsList() {
 		System.out.println("제품 상세페이지 실행");
@@ -41,7 +39,6 @@ public class GoodsController {
 		System.out.println("로그인 페이지 실행");
 		return "login";
 	}
-
 
 	@RequestMapping("/test.do")
 	public String f3() {
@@ -83,5 +80,11 @@ public class GoodsController {
 	public String f9() {
 		System.out.println("텍스트 실행");
 		return "text";
+	}
+
+	@RequestMapping("/")
+	public String f10() {
+		System.out.println("초기화면 실행");
+		return "start";
 	}
 }
