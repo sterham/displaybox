@@ -123,15 +123,15 @@
 									<td>
 										<div class="media">
 											<div class="d-flex">
-												<img src="img/product/product1.png" alt="">
+												<img src=${vo.g_img} alt="">
 											</div>
 											<div class="media-body">
-												<p>손목 시계</p>
+												<p>${vo.g_name }</p>
 											</div>
 										</div>
 									</td>
 									<td>
-										<h5>￦100,000</h5>
+										<h5>￦${vo.g_price }</h5>
 									</td>
 									<td>
 										<div class="product_count">
@@ -150,7 +150,7 @@
 										</div>
 									</td>
 									<td>
-										<h5>￦100,000</h5>
+										<h5>￦${vo.g_price }</h5>
 									</td>
 								</tr>
 
@@ -176,7 +176,7 @@
 				<thead>
 					<tr>
 						<th scope="col">최종결제금액</th>
-						<th scope="col" text-align=left>￦100,000,000</th>
+						<th scope="col" text-align=left>￦${vo.g_price }</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>

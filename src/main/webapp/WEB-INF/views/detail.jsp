@@ -89,7 +89,7 @@
 	<div class="container h-100">
 		<div class="blog-banner">
 			<div class="text-center">
-				<h1>(정품풀박스)(정가32.6억)(상태SS) 다니엘 웰링턴 시계(32mm) + 팔찌 새상품</h1>
+				<h1>${vo.g_name }</h1>
 			</div>
 		</div>
 	</div>
@@ -99,7 +99,7 @@
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
-					<img class="col-lg-6" src="img/product/product1.png" alt="">
+					<img class="col-lg-6" src=${vo.g_img} alt="">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
 							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
@@ -114,14 +114,12 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h2>￦100,000,000</h2>
+						<h2>￦ ${vo.g_price }</h2>
 						<ul class="list">
-							<li><a class="active" href="#"><span>박스 번호</span>: No.1</a></li>
+							<li><a class="active" href="#"><span>박스 번호</span> : NO. ${vo.gc_seq }</a></li>
 							<li><a href="#"><span>상품 유형</span>: 손목 시계</a></li>
 						</ul>
-						<p>이성경 시계로 유명한 다니엘웰링턴 시계 판매합니다. 작년에 구입했고 로즈골드 시계랑 같이 구매했는데 얜
-							거의 착용하지 않아서 새거나 다름없어요~ 박스, 보증서, 시계, 팔찌까지 모두 있어용~! 예쁘게 착용하실 분은 거서
-							가져가세요</p>
+						<p>${vo.g_info }</p>
 						<div class="product_count">
 							<button
 								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
@@ -131,7 +129,7 @@
 								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 								class="reduced items-count" type="button">
 							</button>
-							<a class="button primary-btn" href="buy.do">구매 하기</a>
+							<a class="button primary-btn" href="buy.do?g_seq=${vo.g_seq }">구매 하기</a>
 							<a class="button primary-btn" href="main.do">뒤로 가기</a>
 						</div>
 					</div>

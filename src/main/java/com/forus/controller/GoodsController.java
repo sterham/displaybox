@@ -27,11 +27,24 @@ public class GoodsController {
 		return "index";
 	}
 
-	@RequestMapping("/detail.do")
-	public String detailGoodsList() {
-		System.out.println("제품 상세페이지 실행");
-		return "detail";
-	}
+	// 2. 제품 상세 페이지
+		@RequestMapping("/detail.do")
+		public String detailGoodsList(int g_seq, Model model) {
+			System.out.println("제품 상세페이지 실행");
+			GoodsVO goods = service.detailGoods(g_seq);
+			model.addAttribute("vo", goods);
+			System.out.println(goods);
+			return "detail";
+		}
+
+		// 3. 제품 구매 페이지
+		@RequestMapping("/buy.do")
+		public String buyGoods(int g_seq, Model model) {
+			System.out.println("구매하기 실행");
+			GoodsVO goods = service.detailGoods(g_seq);
+			model.addAttribute("vo", goods);
+			return "buy";
+		}
 
 	@RequestMapping("/login.do")
 	public String f1() {
@@ -46,11 +59,6 @@ public class GoodsController {
 		return "test";
 	}
 
-	@RequestMapping("/buy.do")
-	public String f4() {
-		System.out.println("구매하기 실행");
-		return "buy";
-	}
 
 	@RequestMapping("/buycom.do")
 	public String f5() {

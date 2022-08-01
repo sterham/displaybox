@@ -17,5 +17,20 @@ public class GoodsService {
 	public List<GoodsVO> findAllList(){
 		return mapper.mainGoodsList();
 	}
+	// 2. detail.do
+	public GoodsVO detailGoods(int g_seq){
+		return mapper.goodsDetail(g_seq);
+	}
+	
+	// 3. buy.do
+	public GoodsVO buyGoods(int g_seq){
+		return mapper.goodsDetail(g_seq);
+	}
+	
+	// 4. buycompleteContent.do
+	public GoodsVO byGoodsComplete(int g_seq) {
+		return mapper.goodsDetail(g_seq);
+	}
+	
 
 }

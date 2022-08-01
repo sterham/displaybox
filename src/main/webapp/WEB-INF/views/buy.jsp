@@ -125,15 +125,15 @@
 								<td>
 									<div class="media">
 										<div class="d-flex">
-											<img src="img/product/product1.png" alt="">
+											<img src=${vo.g_img } alt="">
 										</div>
 										<div class="media-body">
-											<p>손목 시계</p>
+											<p>${vo.g_name }</p>
 										</div>
 									</div>
 								</td>
 								<td>
-									<h5>￦100,000</h5>
+									<h5>￦${vo.g_price}</h5>
 								</td>
 								<td>
 									<div class="product_count">
@@ -152,77 +152,11 @@
 									</div>
 								</td>
 								<td>
-									<h5>￦100,000</h5>
+									<h5>￦${vo.g_price }</h5>
 								</td>
 							</tr>
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/product2.png" alt="">
-										</div>
-										<div class="media-body">
-											<p>핸드 크림</p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>￦245,000</h5>
-								</td>
-								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="12"
-											value="1" title="Quantity:" class="input-text qty">
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-											class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-											class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>￦245,000</h5>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/product3.png" alt="">
-										</div>
-										<div class="media-body">
-											<p>조명</p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>￦170,000</h5>
-								</td>
-								<td>
-									<div class="product_count">
-										<input type="text" name="qty" id="sst" maxlength="12"
-											value="1" title="Quantity:" class="input-text qty">
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-											class="increase items-count" type="button">
-											<i class="lnr lnr-chevron-up"></i>
-										</button>
-										<button
-											onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-											class="reduced items-count" type="button">
-											<i class="lnr lnr-chevron-down"></i>
-										</button>
-									</div>
-								</td>
-								<td>
-									<h5>￦170,000</h5>
-								</td>
-							</tr>
+							
+							
 
 							<tr class="bottom_button">
 								<td><h5>포인트</h5></td>
@@ -231,8 +165,7 @@
 								<td>
 									<div class="cupon_text d-flex align-items-center">
 										<a class="button" href="#">쿠폰조회 및 적용</a> <input type="text"
-											placeholder="사용할 포인트"> <a class="primary-btn"
-											href="#">적용</a>
+											placeholder="사용할 포인트"> <a class="primary-btn" href="#">적용</a>
 									</div>
 								</td>
 							</tr>
@@ -241,7 +174,7 @@
 								<td></td>
 								<td></td>
 								<td>
-									<h5>￦700,000</h5>
+									<h5>￦${vo.g_price }</h5>
 								</td>
 							</tr>
 							<tr class="shipping_area">
@@ -260,16 +193,7 @@
 											Calculate Shipping <i class="fa fa-caret-down"
 												aria-hidden="true"></i>
 										</h6>
-										<select class="shipping_select">
-											<option value="1">Bangladesh</option>
-											<option value="2">India</option>
-											<option value="4">Pakistan</option>
-										</select> <select class="shipping_select">
-											<option value="1">Select a State</option>
-											<option value="2">Select a State</option>
-											<option value="4">Select a State</option>
-										</select> <input type="text" placeholder="Postcode/Zipcode"> <a
-											class="gray_btn" href="#">Update Details</a>
+										
 									</div>
 								</td>
 							</tr>
@@ -281,7 +205,7 @@
 								<td>
 									<div class="checkout_btn_inner d-flex align-items-center">
 										<a class="gray_btn" href="main.do">쇼핑 계속하기</a> <a
-											class="primary-btn ml-2" href="buycom.do">결제 하기</a>
+											class="primary-btn ml-2" href="buycom.do?g_seq=${vo.g_seq }">결제 하기</a>
 									</div>
 								</td>
 							</tr>

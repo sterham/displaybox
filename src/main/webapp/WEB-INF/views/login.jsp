@@ -39,7 +39,7 @@
             	   </div>
             	</div>
             	<a href="#">회원가입</a>
-            	<input type="button" class="btn" value="로그인" onclick="location.href='main.do'">
+            	<input type="button" class="btn" value="로그인" onclick="location.href='buycomplete.do'">
             </form>
         </div>
     </div>

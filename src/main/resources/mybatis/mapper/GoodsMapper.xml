@@ -11,5 +11,12 @@
 		where v_machine_seq=6)
 	</select>
 
+	<!-- 2. 선택한 상품 1개 상세페이지 -->
+	<select id="goodsDetail" resultType="com.forus.domain.GoodsVO">
+		select *
+		from goods_tb 
+		where g_seq = #{g_seq}
+	</select>
+	
 </mapper>
 

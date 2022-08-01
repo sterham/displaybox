@@ -115,7 +115,7 @@
 								<img class="card-img" src=${goodsVo.g_img} alt="">
 								<ul class="card-product__imgOverlay">
 								<!-- 상세 페이지 보기 -->
-									<li><button type="button" onclick="location.href='detail.do'"><i class="ti-search"></i></button></li>
+									<li><button type="button" onclick="location.href='detail.do?g_seq=${goodsVo.g_seq}'"><i class="ti-search"></i></button></li>
 								<!-- 장바구니 -->	
 									<li><button><i class="ti-shopping-cart"></i></button></li>
 								<!-- 관심 상품 -->	

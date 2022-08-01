@@ -11,5 +11,9 @@ public interface GoodsMapper {
 	
 	// 1. 상품리스트
 	public List<GoodsVO> mainGoodsList();
+	
+	// 2. 상품 상세 페이지
+	public GoodsVO goodsDetail(int g_seq);
+	
 
 }
