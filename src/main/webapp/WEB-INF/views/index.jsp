@@ -81,9 +81,9 @@
 
 		<ul class="navbar__menu">
 			<strong><li><a href="login.do">로그인</a></li></strong>
-			<strong><li><a href="buy.do">장바구니</a></li></strong>
+			<strong><li><a href="keypad.do">박스열기</a></li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li><a href="">제품 찾아가기</a></li></strong>
+			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
 		</ul>
 
 
@@ -117,7 +117,7 @@
 								<!-- 상세 페이지 보기 -->
 									<li><button type="button" onclick="location.href='detail.do?g_seq=${goodsVo.g_seq}'"><i class="ti-search"></i></button></li>
 								<!-- 장바구니 -->	
-									<li><button><i class="ti-shopping-cart"></i></button></li>
+									<li><button type="button" onclick="location.href='buy.do?g_seq=${goodsVo.g_seq}'"><i class="ti-shopping-cart"></i></button></li>
 								<!-- 관심 상품 -->	
 									<li><button><i class="ti-heart"></i></button></li>
 								</ul>

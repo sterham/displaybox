@@ -53,12 +53,6 @@ public class GoodsController {
 		return "login";
 	}
 
-	@RequestMapping("/test.do")
-	public String f3() {
-		System.out.println("테스트 페이지 실행");
-		return "test";
-	}
-
 
 	@RequestMapping("/buycom.do")
 	public String f5() {
@@ -94,5 +88,11 @@ public class GoodsController {
 	public String f10() {
 		System.out.println("초기화면 실행");
 		return "start";
+	}
+	
+	@RequestMapping("/orderlist.do")
+	public String f11() {
+		System.out.println("주문내역 실행");
+		return "orderlist";
 	}
 }

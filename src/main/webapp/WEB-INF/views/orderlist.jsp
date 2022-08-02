@@ -63,15 +63,13 @@
 <!-- Responsive CSS -->
 <link href="css/responsive.css" rel="stylesheet">
 <!-- 페이지 footer 끝-->
-
 </head>
 
 <body>
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo2.png" width="75px"
-				height="70px">EARTH BOX</a>
+			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 
 		<ul class="navbar__menu">
@@ -82,24 +80,20 @@
 		</ul>
 
 
-
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
 	<!---------------------------- nav bar 끝 ------------------>
-
-
+	
 	<!---------------------------- 배너 시작 --------------------->
 	<div class="container h-100">
 		<div class="text-center">
-			<h1>제품 구매</h1>
-			</nav>
+			<h1>주문 내역</h1>
 		</div>
 	</div>
 	</div>
 	<!---------------------------- 배너 끝 --------------------->
-
-
+	
 	<!---------------------------- 장바구니 시작 --------------------->
 	<section class="cart_area">
 		<div class="container">
@@ -108,10 +102,10 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col" style="text-align: left !important;"><b>제품</b></th>
+								<th scope="col"><b>제품</b></th>
+								<th scope="col"><b>박스번호</b></th>
 								<th scope="col"><b>가격</b></th>
-								<th scope="col"><b>수량</b></th>
-								<th scope="col"><b>합계</b></th>
+								<th scope="col"><b>구매날짜</b></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -119,78 +113,21 @@
 								<td>
 									<div class="media">
 										<div class="d-flex">
-											<img src=${vo.g_img } width="250px" height="250px">
+											<img src="cart/cart3.png" width="250px" height="250px">
 										</div>
 										<div class="media-body">
-											<p>${vo.g_name }</p>
+											<p>손목시계</p>
 										</div>
 									</div>
 								</td>
 								<td>
-									<h5>￦${vo.g_price}</h5>
+									<h5>1234</h5>
 								</td>
 								<td>
-									<h5>1</h5>
+									<h5>1135억</h5>
 								</td>
 								<td>
-									<h5>￦${vo.g_price }</h5>
-								</td>
-							</tr>
-
-
-
-							<tr class="bottom_button">
-								<td><h5 style="text-align: left !important;">포인트</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="cupon_text d-flex align-items-center">
-										<a class="button">현재포인트</a> <input type="text"
-											placeholder="사용할 포인트"> <a class="primary-btn"
-											href="#">적용</a>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td><h5 style="text-align: left !important;">총 결제 금액</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<h5>￦${vo.g_price }</h5>
-								</td>
-							</tr>
-							<tr class="shipping_area">
-								<td class="d-none d-md-block"><h5
-										style="text-align: left !important;">결제 방법</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="shipping_box">
-										<ul class="list">
-											<li><a href="#">신용카드</a></li>
-											<li><a href="#">가상 계좌</a></li>
-											<li><a href="#">카카오페이</a></li>
-											<li class="active"><a href="#">네이버페이</a></li>
-										</ul>
-										<h6>
-											Calculate Shipping <i class="fa fa-caret-down"
-												aria-hidden="true"></i>
-										</h6>
-
-									</div>
-								</td>
-							</tr>
-							<tr class="out_button_area">
-								<td class="d-none-l"></td>
-								<td class=""></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="checkout_btn_inner d-flex align-items-center">
-										<a class="gray_btn" href="main.do">뒤로가기</a> <a
-											class="primary-btn ml-2" href="buycom.do?g_seq=${vo.g_seq }">결제
-											하기</a>
-									</div>
+									<h5>2022-08-01</h5>
 								</td>
 							</tr>
 						</tbody>
@@ -199,7 +136,11 @@
 			</div>
 		</div>
 	</section>
-	<!---------------------------- 장바구니 끝 --------------------->
+	<br/><br/><br/><br/><br/>
+	<p align="center">
+	<a class="button primary-btn" href="main.do">뒤로가기</a>
+		<a class="button primary-btn" href="keypad.do">박스열기</a>
+	</p>
 	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
 		<div class="container">
@@ -207,8 +148,7 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" width="90px" height="90px">EARTH
-							BOX
+							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
 						</div>
 					</div>
 				</div>
@@ -250,7 +190,7 @@
 
 
 
-	<!-- ========================= SCRIPTS  ============================== -->
+	<!-- ========================= SCRIPTS ============================== -->
 
 
 	<script src="js/jquery.min.js"></script>
@@ -262,11 +202,3 @@
 	<script src="js/shopmain.js"></script
 </body>
 </html>
-
-
-
-
-
-
-
-DB정보 ㅇㄷ있음? 로컬임? 잠시만

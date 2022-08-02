@@ -75,9 +75,9 @@
 
 		<ul class="navbar__menu">
 			<strong><li><a href="login.do">로그인</a></li></strong>
-			<strong><li><a href="buy.do">장바구니</a></li></strong>
-			<strong><li><a href="menual.do">사용설명서</a></li></strong>
-			<strong><li><a href="">마이페이지</a></li></strong>
+			<strong><li><a href="keypad.do">박스열기</a></li></strong>
+			<strong><li><a href="manual.do">이용방법</a></li></strong>
+			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
 		</ul>
 
 
@@ -101,7 +101,7 @@
 		<br /> <br /> <br />
 		<p align="center">
 			<strong>고객님의 결제가 완료 되었습니다.</strong> 제품 호출은 <a
-				href="" style="color: #507050"><b>사용설명서</b></a> 를 통하여 확인 가능합니다.
+				href="" style="color: #507050"><b>이용방법</b></a> 를 통하여 확인 가능합니다.
 		</p>
 		<br />
 		<!----------------------------- 주문 목록 시작 --------------------------->
@@ -123,7 +123,7 @@
 									<td>
 										<div class="media">
 											<div class="d-flex">
-												<img src=${vo.g_img} alt="">
+												<img src=${vo.g_img } alt="">
 											</div>
 											<div class="media-body">
 												<p>${vo.g_name }</p>
@@ -134,20 +134,7 @@
 										<h5>￦${vo.g_price }</h5>
 									</td>
 									<td>
-										<div class="product_count">
-											<input type="text" name="qty" id="sst" maxlength="12"
-												value="1" title="Quantity:" class="input-text qty">
-											<button
-												onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-												class="increase items-count" type="button">
-												<i class="lnr lnr-chevron-up"></i>
-											</button>
-											<button
-												onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-												class="reduced items-count" type="button">
-												<i class="lnr lnr-chevron-down"></i>
-											</button>
-										</div>
+										<h5>1</h5>
 									</td>
 									<td>
 										<h5>￦${vo.g_price }</h5>
@@ -171,36 +158,37 @@
 			<h2>결제정보</h2>
 			<br />
 		</div>
-		<div class="boardView">
-			<table class="table" align="center">
+		
+		<div class="container h-100">
+			<table class="text-center">
 				<thead>
 					<tr>
-						<th scope="col">최종결제금액</th>
-						<th scope="col" text-align=left>￦${vo.g_price }</th>
+						<th scope="col">최종결제금액: </th>
+						<th scope="col" class="imp">￦${vo.g_price }</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<th scope="row">결제수단</th>
-						<th scope="col" text-align=left>카카오 페이</th>
+						<th scope="row">결제수단 : </th>
+						<th scope="col" class="imp">카카오 페이</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
 				</tbody>
 				<tbody>
 					<tr>
-						<th scope="row">박스 번호</th>
-						<th scope="col" text-align=left>No.1</th>
+						<th scope="row">박스번호 : </th>
+						<th scope="col" class="imp";>No.1</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
 				</tbody>
 				<tbody>
 					<tr>
-						<th scope="row">박스 비밀번호</th>
-						<th scope="col" text-align=left>3527</th>
+						<th scope="row">박스비밀번호 : </th>
+						<th scope="col" class="imp">3527</th>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
@@ -210,9 +198,9 @@
 	</div>
 	<br /><br />
 	<p align="center">
-	<a class="button primary-btn" href="main.do">첫 화면</a>
-		<a class="button primary-btn" href="">박스열기</a> <a
-			class="button primary-btn" href="">마이페이지</a>
+	<a class="button primary-btn" href="main.do">뒤로가기</a>
+		<a class="button primary-btn" href="keypad.do">박스열기</a> <a
+			class="button primary-btn" href="orderlist.do">주문내역</a>
 	</p>
 
 	<!-------------------- 주문 완료 끝 -------------------------------->

@@ -2531,7 +2531,7 @@ pre code {
     }
 
     .col-lg-6 {
-        width: 90%
+        width: 100%
     }
 
     .col-lg-5 {
@@ -6735,6 +6735,10 @@ a.list-group-item-danger.active:focus {
     text-shadow: 0 1px 0 #fff;
     filter: alpha(opacity=20);
     opacity: .2
+}
+
+.imp {
+    text-align: right !important;
 }
 
 .close:hover,

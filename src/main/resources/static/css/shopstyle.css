@@ -3926,14 +3926,16 @@ a {
     font-weight: 500;
     font-family: "Oswald", sans-serif;
     color: #222;
-    border-bottom: 0px !important
+    border-bottom: 0px !important;
+    text-align: center;
 }
 
 .cart_inner .table tbody tr td {
     padding-top: 30px;
     padding-bottom: 30px;
     vertical-align: middle;
-    align-self: center
+    align-self: center;
+    text-align: center;
 }
 
 .cart_inner .table tbody tr td .media .d-flex {
@@ -4089,7 +4091,7 @@ a {
     height: 40px;
     line-height: 38px;
     text-transform: uppercase;
-    background: #384aeb;
+    background: #557050;
     padding: 0px 38px;
     margin-right: 5px;
     margin-left: 10px;
@@ -4222,7 +4224,7 @@ a {
     padding: 0px 44px;
     line-height: 38px;
     text-transform: capitalize;
-    background: #384aeb;
+    background: #557050;
     border-radius: 30px;
     color: #fff;
     font-weight: 500
@@ -4297,7 +4299,7 @@ a {
     font-family: "Roboto", sans-serif;
     font-size: 40px;
     font-weight: 700;
-    color: #384aeb;
+    color: #557050;
     margin-bottom: 10px
 }
 
