@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsVO;
 import com.forus.mapper.GoodsMapper;
 
@@ -17,6 +18,7 @@ public class GoodsService {
 	public List<GoodsVO> findAllList(){
 		return mapper.mainGoodsList();
 	}
+	
 	// 2. detail.do
 	public GoodsVO detailGoods(int g_seq){
 		return mapper.goodsDetail(g_seq);
@@ -27,10 +29,13 @@ public class GoodsService {
 		return mapper.goodsDetail(g_seq);
 	}
 	
-	// 4. buycompleteContent.do
-	public GoodsVO byGoodsComplete(int g_seq) {
-		return mapper.goodsDetail(g_seq);
+	// 4. goodsStatusUpdate.do
+	public int goodsStatusUpdate(int g_seq) {
+		return mapper.goodsStatusUpdate(g_seq);
 	}
 	
-
+	// 5. buycomplete.do
+	public GoodsBuyCompleteVO buyComplete(int g_seq){
+		return mapper.goodsComplete(g_seq);
+	}
 }

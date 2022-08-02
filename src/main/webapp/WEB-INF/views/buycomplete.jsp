@@ -90,7 +90,7 @@
 	<!-------------------- 주문 완료 -------------------------------->
 
 	<div class="container h-100">
-		<div class="text-center">
+		<div class="text-center"><br><br>
 			<h1>구매가 정상적으로 완료되었습니다.</h1>
 		</div>
 	</div>
@@ -98,9 +98,10 @@
 	<!-- 주문완료 -->
 	<div class="orderInfo">
 
+		
 		<br /> <br /> <br />
 		<p align="center">
-			<strong>고객님의 결제가 완료 되었습니다.</strong> 제품 호출은 <a
+			<strong>고객님의 결제가 완료 되었습니다.</strong><br> 제품 호출은 <a
 				href="" style="color: #507050"><b>이용방법</b></a> 를 통하여 확인 가능합니다.
 		</p>
 		<br />
@@ -123,7 +124,7 @@
 									<td>
 										<div class="media">
 											<div class="d-flex">
-												<img src=${vo.g_img } alt="">
+												<img src="${vo.g_img}" alt="">
 											</div>
 											<div class="media-body">
 												<p>${vo.g_name }</p>
@@ -155,44 +156,38 @@
 	<!-- 결제정보 -->
 	<div class="orderArea" align="center">
 		<div class="title">
-			<h2>결제정보</h2>
+			<h3>결제정보</h3>
 			<br />
 		</div>
 		
 		<div class="container h-100">
-			<table class="text-center">
-				<thead>
+			<table class="table table-hover table-striped table-borderd" width='1000px'>
+			
 					<tr>
-						<th scope="col">최종결제금액: </th>
-						<th scope="col" class="imp">￦${vo.g_price }</th>
+						<th scope="col">최종결제금액 </th>
+						<td scope="col">￦${vo.g_price }</td>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
-				</thead>
-				<tbody>
 					<tr>
-						<th scope="row">결제수단 : </th>
-						<th scope="col" class="imp">카카오 페이</th>
+						<th scope="row">결제수단 </th>
+						<td scope="col">카카오 페이</td>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
-				</tbody>
-				<tbody>
 					<tr>
-						<th scope="row">박스번호 : </th>
-						<th scope="col" class="imp";>No.1</th>
+						<th scope="row">박스번호 </th>
+						<td scope="col">${vo.v_machine_space_no }</td>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
-				</tbody>
-				<tbody>
 					<tr>
-						<th scope="row">박스비밀번호 : </th>
-						<th scope="col" class="imp">3527</th>
+						<th scope="row">박스비밀번호 </th>
+						<td scope="col">${vo.v_machine_pw}</td>
 						<th scope="col"></th>
 						<th scope="col"></th>
 					</tr>
-				</tbody>	
+					
 			</table>
 		</div>
 	</div>

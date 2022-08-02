@@ -187,9 +187,9 @@
 								<td></td>
 								<td>
 									<div class="checkout_btn_inner d-flex align-items-center">
-										<a class="gray_btn" href="main.do">뒤로가기</a> <a
-											class="primary-btn ml-2" href="buycom.do?g_seq=${vo.g_seq }">결제
-											하기</a>
+										<a class="gray_btn" href="main.do">뒤로가기</a> 
+										<!-- <a href="#" class="primary-btn ml-2" onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</a> -->
+										<button type="button" class="primary-btn ml-2" onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</button>
 									</div>
 								</td>
 							</tr>
@@ -207,8 +207,7 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" width="90px" height="90px">EARTH
-							BOX
+							<img src="images/foruslogo.png" width="90px" height="90px">EARTHBOX
 						</div>
 					</div>
 				</div>
@@ -236,9 +235,7 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="copyright_text   wow fadeInUp animated">
-							<p>
-								문의 전화 <i class="fa fa-love"></i><a
-									href="https://bootstrapthemes.co">010-1234-5678</a>
+							<p>문의 전화 <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">010-1234-5678</a>
 							</p>
 						</div>
 					</div>
@@ -259,7 +256,25 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.js"></script>
 	<script src="js/script.js"></script>
-	<script src="js/shopmain.js"></script
+	<script src="js/shopmain.js"></script>
+	<script>
+	
+	  function goodsStatusUpdate(g_seq){
+		  
+	 
+		$.ajax({
+			url : "goodsStatusUpdate.do",
+			type : "post",
+			data : {"g_seq" : g_seq},
+			success : function(data){
+				 location.href="/buycom.do?g_seq=${vo.g_seq }"
+						console.log("성공")
+			},
+			error : function(){alert('error')} 
+		});
+  }
+	</script>
+	
 </body>
 </html>
 
@@ -269,4 +284,4 @@
 
 
 
-DB정보 ㅇㄷ있음? 로컬임? 잠시만
+

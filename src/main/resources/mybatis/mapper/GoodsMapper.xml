@@ -6,11 +6,14 @@
 	<!-- 1. mainPage에 내보낼 전체 상품리스트 -->
 	<select id="mainGoodsList" resultType="com.forus.domain.GoodsVO">
 		select *
-		from goods_tb where loc_seq in
-		(select loc_seq from g_location_tb 
-		where v_machine_seq=6)
+		from goods_tb 
+		where g_status='판매'
+		and loc_seq in
+			(select loc_seq 
+			from g_location_tb 
+			where v_machine_seq=6) 
 	</select>
-
+	
 	<!-- 2. 선택한 상품 1개 상세페이지 -->
 	<select id="goodsDetail" resultType="com.forus.domain.GoodsVO">
 		select *
@@ -18,5 +21,21 @@
 		where g_seq = #{g_seq}
 	</select>
 	
+	<!-- 3. 상품 결제 완료 후 판매 상품 상태 '완료'로 바꾸기 -->
+	<update id="goodsStatusUpdate" parameterType="com.forus.domain.GoodsVO">
+		update goods_tb
+		set g_status='완료'
+		where g_seq = #{g_seq}
+	</update>
+	
+	<!-- 4. 결제 완료 상품 정보 -->
+	<select id="goodsComplete" parameterType="int"  resultType="com.forus.domain.GoodsBuyCompleteVO">
+		select g.g_seq, g.g_name, g.g_img as g_img, g.g_price,  l.v_machine_pw, l.v_machine_space_no
+		from goods_tb g, g_location_tb l 
+		where g.loc_seq = l.loc_seq
+        and g_seq = #{g_seq}
+	</select>
+
+
 </mapper>
 
