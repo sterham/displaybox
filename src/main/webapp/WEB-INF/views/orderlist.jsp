@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +74,7 @@
 		</div>
 
 		<ul class="navbar__menu">
-			<strong><li><a href="login.do">로그인</a></li></strong>
+			<strong><li><a href="viewDisplayLogin.doogin.do">로그인</a></li></strong>
 			<strong><li><a href="keypad.do">박스열기</a></li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
 			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
@@ -109,6 +110,8 @@
 							</tr>
 						</thead>
 						<tbody>
+						<c:forEach items="${vo }" var="vo">
+						
 							<tr>
 								<td>
 									<div class="media">
@@ -131,6 +134,7 @@
 								</td>
 							</tr>
 						</tbody>
+							</c:forEach>
 					</table>
 				</div>
 			</div>

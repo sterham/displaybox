@@ -74,7 +74,7 @@
 		</div>
 
 		<ul class="navbar__menu">
-			<strong><li><a href="login.do">로그인</a></li></strong>
+			<strong><li><a href="viewDisplayLogin.do">로그인</a></li></strong>
 			<strong><li><a href="keypad.do">박스열기</a></li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
 			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
@@ -265,6 +265,24 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.js"></script>
 	<script src="js/script.js"></script>
-	<script src="js/shopmain.js"></script
+	<script src="js/shopmain.js"></script>
+	<script>
+	
+	  function goodsStatusUpdate(g_seq){
+		  
+	 
+		$.ajax({
+			url : "goodsStatusUpdate.do",
+			type : "post",
+			data : {"g_seq" : g_seq},
+			success : function(data){
+				 location.href="/buycom.do?g_seq=${vo.g_seq }"
+						console.log("성공")
+			},
+			error : function(){alert('error')} 
+		});
+	  }
+	  
+	</script>
 </body>
 </html>

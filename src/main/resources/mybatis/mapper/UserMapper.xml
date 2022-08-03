@@ -3,7 +3,7 @@
 
 <mapper namespace="com.forus.mapper.UserMapper">
 	
-	<!-- 로그인 -->
+	<!-- 앱 구매자 로그인 -->
 	<select id="loginUser" parameterType="com.forus.domain.UserVO" resultType="com.forus.domain.UserVO">
 		select *
 		from user_tb
@@ -17,6 +17,13 @@
 		where g.loc_seq = l.loc_seq
 		and g.consumer_id = u.user_id
         and user_id = #{user_id}
+	</select>
+	
+	<!-- 디스플레이 구매자 로그인 -->
+	<select id="displayLogin" parameterType="com.forus.domain.DisplayLoginVO" resultType="com.forus.domain.DisplayLoginVO">
+		select *
+		from user_tb
+		where user_id = #{user_id}
 	</select>
 	
 </mapper>

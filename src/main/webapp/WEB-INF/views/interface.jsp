@@ -73,7 +73,7 @@
 		</div>
 
 		<ul class="navbar__menu">
-			<strong><li><a href="login.do">로그인</a></li></strong>
+			<strong><li><a href="viewDisplayLogin.do">로그인</a></li></strong>
 			<strong><li><a href="buy.do">장바구니</a></li></strong>
 			<strong><li><a href="menual.do">사용설명서</a></li></strong>
 			<strong><li><a href="">마이페이지</a></li></strong>

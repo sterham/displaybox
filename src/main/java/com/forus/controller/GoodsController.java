@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.forus.domain.DisplayLoginVO;
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
 import com.forus.domain.GoodsOrderListVO;
@@ -62,6 +63,34 @@ public class GoodsController {
 		System.out.println(goods);
 		return "detail";
 	}
+	
+	// 2-1. displayLogin form 페이지 이동
+	@RequestMapping("/viewDisplayLogin.do")
+	public String displaylogin() {
+		return "displaylogin";
+	}
+	
+	// 2-2. displayLogin 기능 수행
+	@RequestMapping("/displayLogin.do")
+	   public ModelAndView displayLogin(DisplayLoginVO vo, ModelMap model) throws Exception {
+	      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	      System.out.println("디스플레이 로그인 페이지 진입");
+	      System.out.println(vo.getUser_id());
+	      DisplayLoginVO result = userService.displayLoginUser(vo);
+	      System.out.println("디스플레이 로그인 확인" + result);
+	      
+	      // 암호키를 복호화 함 
+	      encoder.matches(vo.getUser_pw(), result.getUser_pw());
+	      if(encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
+	         model.addAttribute("user_addr", result.getUser_addr());
+	         model.addAttribute("user_id",result.getUser_id() );
+	         System.out.println("My model: " + model.getAttribute("user_addr"));
+	         return new ModelAndView("redirect:/main.do", model);
+	      }else {
+	         return new ModelAndView("displaylogin");
+	      }
+	   
+	   }
 
 	// 3. 제품 구매 페이지
 	@RequestMapping("/buy.do")
@@ -113,7 +142,7 @@ public class GoodsController {
 	      encoder.matches(vo.getUser_pw(), result.getUser_pw());
 	      if(encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
 	         model.addAttribute("user_addr", result.getUser_addr());
-	         model.addAttribute("user_id",result.getUser_id() );
+	         model.addAttribute("user_id", result.getUser_id() );
 	         System.out.println("My model: " + model.getAttribute("user_addr"));
 	         return new ModelAndView("redirect:/orderlist.do", model);
 	      }else {
@@ -126,7 +155,7 @@ public class GoodsController {
 	@RequestMapping("/orderlist.do")
 	public String userOrderList(String user_id, Model model) {
 		System.out.println("주문내역 실행");
-		GoodsOrderListVO vo = userService.userOrderList(user_id);
+		 List<GoodsOrderListVO> vo = userService.userOrderList(user_id);
 		model.addAttribute("vo", vo);
 		return "orderlist";
 	}

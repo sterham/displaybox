@@ -7,8 +7,8 @@
 	<select id="mainGoodsList" resultType="com.forus.domain.GoodsVO">
 		select *
 		from goods_tb 
-		where g_status='판매'
-		or g_status='구매'
+		where (g_status='판매'
+		or g_status='구매')
 		and loc_seq in
 			(select loc_seq 
 			from g_location_tb 
@@ -44,6 +44,7 @@
 		where g.loc_seq = l.loc_seq
         and g_seq = #{g_seq}
 	</select>
+	
 
 
 </mapper>

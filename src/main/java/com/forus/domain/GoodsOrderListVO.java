@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GoodsOrderListVO {
 
-	//select g.g_name, g.g_img, g.g_price, g.consumer_id, l.v_machine_pw, l.v_machine_space_no, u.user_id
+	// OrderList에 필요한 요소
 	
 	private String g_name;
 	private String g_img;

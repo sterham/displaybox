@@ -25,5 +25,6 @@ public interface GoodsMapper {
 	
 	// 5. 상품 판매 완료
 	public GoodsBuyCompleteVO goodsComplete(int g_seq);
+	
 
 }
