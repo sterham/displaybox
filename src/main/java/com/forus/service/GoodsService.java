@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.forus.domain.GoodsBuyCompleteVO;
+import com.forus.domain.GoodsBuyVO;
 import com.forus.domain.GoodsVO;
 import com.forus.mapper.GoodsMapper;
 
@@ -14,7 +15,7 @@ public class GoodsService {
 	@Autowired
 	private GoodsMapper mapper;
 	
-	// 1. main.dp
+	// 1. main.do
 	public List<GoodsVO> findAllList(){
 		return mapper.mainGoodsList();
 	}
@@ -25,8 +26,8 @@ public class GoodsService {
 	}
 	
 	// 3. buy.do
-	public GoodsVO buyGoods(int g_seq){
-		return mapper.goodsDetail(g_seq);
+	public GoodsBuyVO buyGoods(int g_seq){
+		return mapper.goodsBuy(g_seq);
 	}
 	
 	// 4. goodsStatusUpdate.do

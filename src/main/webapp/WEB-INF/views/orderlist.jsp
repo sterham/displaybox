@@ -103,7 +103,7 @@
 						<thead>
 							<tr>
 								<th scope="col"><b>제품</b></th>
-								<th scope="col"><b>박스번호</b></th>
+								<th scope="col"><b>비밀번호</b></th>
 								<th scope="col"><b>가격</b></th>
 								<th scope="col"><b>구매날짜</b></th>
 							</tr>
@@ -113,21 +113,21 @@
 								<td>
 									<div class="media">
 										<div class="d-flex">
-											<img src="cart/cart3.png" width="250px" height="250px">
+											<img src="${vo.g_img }" width="250px" height="250px">
 										</div>
 										<div class="media-body">
-											<p>손목시계</p>
+											<p>${vo.g_name }</p>
 										</div>
 									</div>
 								</td>
 								<td>
-									<h5>1234</h5>
+									<h5>${vo.v_machine_pw }</h5>
 								</td>
 								<td>
-									<h5>1135억</h5>
+									<h5>${vo.g_price }</h5>
 								</td>
 								<td>
-									<h5>2022-08-01</h5>
+									<h5>${vo.g_regdate }</h5>
 								</td>
 							</tr>
 						</tbody>

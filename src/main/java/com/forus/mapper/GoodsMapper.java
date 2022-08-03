@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.forus.domain.GoodsBuyCompleteVO;
+import com.forus.domain.GoodsBuyVO;
 import com.forus.domain.GoodsVO;
 
 @Mapper
@@ -16,10 +17,13 @@ public interface GoodsMapper {
 	// 2. 상품 상세 페이지
 	public GoodsVO goodsDetail(int g_seq);
 	
-	// 3. 상품 상태 판매 -> 완료로 변경
+	// 3. 상품 구매 페이지
+	public GoodsBuyVO goodsBuy(int g_seq);
+	
+	// 4. 상품 상태 판매 -> 완료로 변경
 	public int goodsStatusUpdate(int g_seq);
 	
-	// 4. 상품 판매 완료
+	// 5. 상품 판매 완료
 	public GoodsBuyCompleteVO goodsComplete(int g_seq);
 
 }

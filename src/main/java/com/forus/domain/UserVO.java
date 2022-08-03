@@ -3,6 +3,7 @@ package com.forus.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
 @NoArgsConstructor
@@ -10,7 +11,10 @@ import lombok.NoArgsConstructor;
 public class UserVO {
 	
 	// 회원 정보 vo
+	
+	@NonNull
 	private String user_id;
+	@NonNull
 	private String user_pw;
 	private String user_nick;
 	private String user_nm;

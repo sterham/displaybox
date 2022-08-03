@@ -145,7 +145,7 @@
 								<td></td>
 								<td>
 									<div class="cupon_text d-flex align-items-center">
-										<a class="button">현재포인트</a> <input type="text"
+										<a class="button">현재포인트 ${vo.user_point }</a> <input type="text"
 											placeholder="사용할 포인트"> <a class="primary-btn"
 											href="#">적용</a>
 									</div>
@@ -187,7 +187,7 @@
 								<td></td>
 								<td>
 									<div class="checkout_btn_inner d-flex align-items-center">
-										<a class="gray_btn" href="main.do">뒤로가기</a> 
+										<a class="gray_btn" href="detail.do">뒤로가기</a> 
 										<!-- <a href="#" class="primary-btn ml-2" onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</a> -->
 										<button type="button" class="primary-btn ml-2" onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</button>
 									</div>

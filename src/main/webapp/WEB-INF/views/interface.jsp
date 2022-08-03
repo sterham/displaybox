@@ -74,9 +74,9 @@
 
 		<ul class="navbar__menu">
 			<strong><li><a href="login.do">로그인</a></li></strong>
-			<strong><li><a href="keypad.do">박스열기</a></li></strong>
-			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
+			<strong><li><a href="buy.do">장바구니</a></li></strong>
+			<strong><li><a href="menual.do">사용설명서</a></li></strong>
+			<strong><li><a href="">마이페이지</a></li></strong>
 		</ul>
 
 

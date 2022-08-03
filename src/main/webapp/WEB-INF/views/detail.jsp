@@ -75,9 +75,9 @@
 
 		<ul class="navbar__menu">
 			<strong><li><a href="login.do">로그인</a></li></strong>
-			<strong><li><a href="keypad.do">박스열기</a></li></strong>
-			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
+			<strong><li><a href="buy.do">장바구니</a></li></strong>
+			<strong><li><a href="detail.do">사용설명서</a></li></strong>
+			<strong><li><a href="">마이페이지</a></li></strong>
 		</ul>
 
 
@@ -90,16 +90,17 @@
 		<div class="blog-banner">
 			<div class="text-center">
 				<h1>${vo.g_name }</h1>
+				<br>
 			</div>
 		</div>
 	</div>
-	<br/><br/>
+
 	<!-- 제품 내용 -->
 	
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
-					<img class="col-lg-6" src=${vo.g_img} width=100%; height=100%;>
+					<img class="col-lg-6" src=${vo.g_img} alt="">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
 							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
@@ -117,7 +118,6 @@
 						<h2>￦ ${vo.g_price }</h2>
 						<ul class="list">
 							<li><a class="active" href="#"><span>박스 번호</span> : NO. ${vo.gc_seq }</a></li>
-							<li><a href="#"><span>상품 유형</span>: 손목 시계</a></li>
 						</ul>
 						<p>${vo.g_info }</p>
 						<div class="product_count">

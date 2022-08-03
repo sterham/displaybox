@@ -2,29 +2,40 @@ package com.forus.controller;
 
 
 
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.forus.domain.GoodsBuyCompleteVO;
+import com.forus.domain.GoodsBuyVO;
+import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.GoodsVO;
+import com.forus.domain.UserVO;
 import com.forus.service.GoodsService;
+import com.forus.service.UserService;
 
 @Controller
 public class GoodsController {
 
 	@Autowired
-	private GoodsService service;
+	private GoodsService goodsService;
+	@Autowired
+	private UserService userService;
 	
 	// 초기화면
 	@RequestMapping("/")
@@ -36,7 +47,7 @@ public class GoodsController {
 	// 1. main 상품리스트
 	@RequestMapping("/main.do")
 	public String mainGoodsList(Model model) {
-		List<GoodsVO> list = service.findAllList();
+		List<GoodsVO> list = goodsService.findAllList();
 		model.addAttribute("list", list);
 		System.out.println(list);
 		return "index";
@@ -46,7 +57,7 @@ public class GoodsController {
 	@RequestMapping("/detail.do")
 	public String detailGoodsList(int g_seq, Model model) {
 		System.out.println("제품 상세페이지 실행");
-		GoodsVO goods = service.detailGoods(g_seq);
+		GoodsVO goods = goodsService.detailGoods(g_seq);
 		model.addAttribute("vo", goods);
 		System.out.println(goods);
 		return "detail";
@@ -56,7 +67,7 @@ public class GoodsController {
 	@RequestMapping("/buy.do")
 	public String buyGoods(int g_seq, Model model) {
 		System.out.println("구매 페이지 실행");
-		GoodsVO goods = service.detailGoods(g_seq);
+		GoodsBuyVO goods = goodsService.buyGoods(g_seq);
 		model.addAttribute("vo", goods);
 		return "buy";
 	}
@@ -67,8 +78,8 @@ public class GoodsController {
 		
 		// 통신 됨
 		System.out.println("g_seq : " + g_seq);
-		service.goodsStatusUpdate(g_seq);
-		GoodsVO vo = service.detailGoods(g_seq);
+		goodsService.goodsStatusUpdate(g_seq);
+		GoodsVO vo = goodsService.detailGoods(g_seq);
 		System.out.println(vo);
 		return vo;
 	}
@@ -78,19 +89,49 @@ public class GoodsController {
 	public String buyGoodsComplete(int g_seq, Model model) {
 		System.out.println("구매 완료 페이지");
 		
-		GoodsBuyCompleteVO vo = (GoodsBuyCompleteVO) service.buyComplete(g_seq);
+		GoodsBuyCompleteVO vo = (GoodsBuyCompleteVO) goodsService.buyComplete(g_seq);
 		model.addAttribute("vo", vo);
 		System.out.println(vo);
 		
 		return "buycomplete";
 	}
 	
-	@RequestMapping("/login.do")
-	public String f1() {
-
-		System.out.println("로그인 페이지 실행");
+	@RequestMapping("/viewLogin.do")
+	public String login() {
 		return "login";
 	}
+	// 6. login 페이지
+	@RequestMapping("/login.do")
+	   public ModelAndView userLogin(UserVO vo, ModelMap model) throws Exception {
+	      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	      System.out.println("로그인 페이지 진입");
+	      System.out.println(vo.getUser_id());
+	      UserVO result = userService.loginUser(vo);
+	      System.out.println("로그인 확인" + result);
+	      
+	      // 암호키를 복호화 함 
+	      encoder.matches(vo.getUser_pw(), result.getUser_pw());
+	      if(encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
+	         model.addAttribute("user_addr", result.getUser_addr());
+	         model.addAttribute("user_id",result.getUser_id() );
+	         System.out.println("My model: " + model.getAttribute("user_addr"));
+	         return new ModelAndView("redirect:/orderlist.do", model);
+	      }else {
+	         return new ModelAndView("login");
+	      }
+	   
+	   }
+
+	// 7. 주문한 내역 불러오는 페이지
+	@RequestMapping("/orderlist.do")
+	public String userOrderList(String user_id, Model model) {
+		System.out.println("주문내역 실행");
+		GoodsOrderListVO vo = userService.userOrderList(user_id);
+		model.addAttribute("vo", vo);
+		return "orderlist";
+	}
+
+
 
 
 	@RequestMapping("/interface.do")
@@ -100,13 +141,13 @@ public class GoodsController {
 	}
 
 	@RequestMapping("/manual.do")
-	public String f7() {
+	public String manualOpen() {
 		System.out.println("이용방법 실행");
 		return "manual";
 	}
 
 	@RequestMapping("/keypad.do")
-	public String f8() {
+	public String keypadOpen() {
 		System.out.println("다이얼 실행");
 		return "keypad";
 	}
@@ -117,10 +158,6 @@ public class GoodsController {
 		return "text";
 	}
 
-	@RequestMapping("/orderlist.do")
-	public String f11() {
-		System.out.println("주문내역 실행");
-		return "orderlist";
-	}
+	
 }
 

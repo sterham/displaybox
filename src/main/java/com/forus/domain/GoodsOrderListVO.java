@@ -7,19 +7,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GoodsVO {
+public class GoodsOrderListVO {
+
+	//select g.g_name, g.g_img, g.g_price, g.consumer_id, l.v_machine_pw, l.v_machine_space_no, u.user_id
 	
-	// 상품 정보 vo
-	private int g_seq;
-	private int gc_seq;
-	private int loc_seq;
 	private String g_name;
-	private String g_info;
 	private String g_img;
 	private int g_price;
-	private String g_status;
 	private String g_regdate;
-	private String seller_id;
 	private String consumer_id;
-
+	private int v_machine_pw;
+	private int v_machine_space_no;
+	private String user_id;
+	
 }

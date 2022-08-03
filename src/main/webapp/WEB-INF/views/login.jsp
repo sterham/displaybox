@@ -17,7 +17,7 @@
 			<img src="img/bg.svg">
 		</div>
 		<div class="login-content">
-			<form action="index.html">
+			<form action="login.do">
 				<img src="images/foruslogo.png"  width="300px" height="300px" style= margin-right:100px;>
 				<h2 class="title">EARTH BOX</h2>
            		<div class="input-div one">
@@ -26,7 +26,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>아이디</h5>
-           		   		<input type="text" class="input">
+           		   		<input type="text" name = "user_id" class="input">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -35,11 +35,10 @@
            		   </div>
            		   <div class="div">
            		    	<h5>비밀번호</h5>
-           		    	<input type="password" class="input">
+           		    	<input type="password" name = "user_pw" class="input">
             	   </div>
             	</div>
-            	<a href="#">회원가입</a>
-            	<input type="button" class="btn" value="로그인" onclick="location.href='buycomplete.do'">
+            	<input type="submit" class="btn" value="로그인">
             </form>
         </div>
     </div>

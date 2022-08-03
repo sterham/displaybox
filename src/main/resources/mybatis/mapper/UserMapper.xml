@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.forus.mapper.UserMapper">
+	
+	<!-- 로그인 -->
+	<select id="loginUser" parameterType="com.forus.domain.UserVO" resultType="com.forus.domain.UserVO">
+		select *
+		from user_tb
+		where user_id = #{user_id}
+	</select>
+	
+	<!-- 주문리스트 불러오기 -->
+	<select id="userOrderList" resultType="com.forus.domain.GoodsOrderListVO">
+		select g.g_name, g.g_img, g.g_price, g.consumer_id, g.g_regdate, l.v_machine_pw, l.v_machine_space_no, u.user_id
+		from goods_tb g, g_location_tb l, user_tb u
+		where g.loc_seq = l.loc_seq
+		and g.consumer_id = u.user_id
+        and user_id = #{user_id}
+	</select>
+	
+</mapper>
+
