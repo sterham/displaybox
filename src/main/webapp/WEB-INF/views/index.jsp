@@ -76,23 +76,17 @@
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
-
 		<ul class="navbar__menu">
 			<strong><li><a href="viewDisplayLogin.do">로그인</a></li></strong>
-			<strong><li><a href="keypad.do">박스열기</a></li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
 			<strong><li><a href="viewLogin.do">주문내역</a></li></strong>
 		</ul>
-
-
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
 	<!---------------------------- nav bar 끝 ------------------>
-	
-
 	<!---------------------------- 제품 리스트 시작 ---------------->
 	<section class="section-margin calc-60px">
 		<div class="container">
@@ -115,9 +109,9 @@
 								<img class="card-img" src=${goodsVo.g_img} alt="">
 								<ul class="card-product__imgOverlay">
 								<!-- 상세 페이지 보기 -->
-									<li><button type="button" onclick="location.href='detail.do?g_seq=${goodsVo.g_seq}'"><i class="ti-search"></i></button></li>
+									<li><button type="button" onclick="location.href='viewDisplayLogin.do'"><i class="ti-search"></i></button></li>
 								<!-- 장바구니 -->	
-									<li><button type="button" onclick="location.href='buy.do?g_seq=${goodsVo.g_seq}'"><i class="ti-shopping-cart"></i></button></li>
+									<li><button type="button" onclick="location.href='viewDisplayLogin.do'"><i class="ti-shopping-cart"></i></button></li>
 								<!-- 관심 상품 -->	
 									<li><button><i class="ti-heart"></i></button></li>
 								</ul>

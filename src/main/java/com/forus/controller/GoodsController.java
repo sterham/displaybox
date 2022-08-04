@@ -46,7 +46,7 @@ public class GoodsController {
 	}
 	
 	// 1. main 상품리스트
-	@RequestMapping("/main.do")
+	@RequestMapping("/index.do")
 	public String mainGoodsList(Model model) {
 		List<GoodsVO> list = goodsService.findAllList();
 		model.addAttribute("list", list);
@@ -54,6 +54,13 @@ public class GoodsController {
 		return "index";
 	}
 	
+	@RequestMapping("/main.do")
+	public String mainGoodsList1(Model model) {
+		List<GoodsVO> list = goodsService.findAllList();
+		model.addAttribute("list", list);
+		System.out.println(list);
+		return "main";
+	}
 	// 2. 제품 상세 페이지
 	@RequestMapping("/detail.do")
 	public String detailGoodsList(int g_seq, Model model) {

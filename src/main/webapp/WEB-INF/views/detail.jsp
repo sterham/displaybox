@@ -100,7 +100,7 @@
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
-					<img class="col-lg-6" src=${vo.g_img} alt="">
+					<img class="col-lg-6" src=${vo.g_img} alt="" style ="width:350px; height:350px; margin-top: 60px;margin-right: 100px;">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
 							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
@@ -129,8 +129,8 @@
 								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 								class="reduced items-count" type="button">
 							</button>
-							<a class="button primary-btn" href="buy.do?g_seq=${vo.g_seq }">구매 하기</a>
 							<a class="button primary-btn" href="main.do">뒤로 가기</a>
+							<a class="button primary-btn" href="buy.do?g_seq=${vo.g_seq }">구매 하기</a>
 						</div>
 					</div>
 				</div>

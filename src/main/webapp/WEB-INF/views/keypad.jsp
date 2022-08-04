@@ -119,6 +119,20 @@ div {
 }
 
 
+.block{
+	float: left;
+	font-size: 120px;
+	font-weight: 600;
+	width: 33.33%;
+	border: 5px solid #fff;
+	border-radius: 50px;
+	padding: 12px 0;
+	cursor: pointer;
+	background-color:#fff;
+	color: #fff;
+}
+
+
 </style>
 </head>
 
@@ -139,10 +153,12 @@ div {
 			<button class="number">7</button>
 			<button class="number">8</button>
 			<button class="number">9</button>
+			<button class="block">a</button>
 			<button class="number">0</button>
+			<button class="number" style="font-size: 114px;">⏎</button>
+			<button class="block">d</button>
 		</div>
 	</div>
-
 	<div class="buttonsection">
 		<button class="back" type="button" onclick="location.href='main.do'">뒤로가기</button>
 		<button class="check" type="button" onclick="location.href='orderlist.do'">박스번호조회</button>

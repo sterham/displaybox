@@ -193,9 +193,7 @@
 	</div>
 	<br /><br />
 	<p align="center">
-	<a class="button primary-btn" href="main.do">뒤로가기</a>
 		<a class="button primary-btn" href="keypad.do">박스열기</a> <a
-			class="button primary-btn" href="orderlist.do">주문내역</a>
 	</p>
 
 	<!-------------------- 주문 완료 끝 -------------------------------->

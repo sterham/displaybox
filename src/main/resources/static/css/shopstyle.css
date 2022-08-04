@@ -4115,7 +4115,7 @@ a {
 }
 
 .cart_inner .table tbody tr.shipping_area .shipping_box .list li {
-    margin-bottom: 12px
+    margin-bottom: 0px
 }
 
 .cart_inner .table tbody tr.shipping_area .shipping_box .list li:last-child {
@@ -4200,11 +4200,11 @@ a {
 }
 
 .cart_inner .table tbody tr.shipping_area .shipping_box input {
-    height: 40px;
+    height: 20px;
     outline: none;
     background: #f1f6f7;
     border: 1px solid #eeeeee;
-    width: 100%;
+    width: 10%;
     font-size: 14px;
     color: #999999;
     padding: 0px 15px;

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-
+<meta charset="utf-8">
 <!-- nav bar 파일-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nav bar</title>
@@ -16,7 +16,6 @@
 	rel="stylesheet">
 <script src="https://kit.fontawesome.com/b17d4fa9e7.js"
 	crossorigin="anonymous"></script>
-<script src="main.js" defer></script>
 <!-- nav bar end -->
 
 <!-- 제품 리스트 파일-->
@@ -63,142 +62,86 @@
 <!-- Responsive CSS -->
 <link href="css/responsive.css" rel="stylesheet">
 <!-- 페이지 footer 끝-->
-
 </head>
 
+
 <body>
+
+	<!----------------------------- 로딩중 ------------------------>
+	<div id="preloader">
+		<div id="status">&nbsp;</div>
+	</div>
+	<!----------------------------- 로딩끝 ------------------------>
+
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo2.png" width="75px"
-				height="70px">EARTH BOX</a>
+			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
-
 		<ul class="navbar__menu">
-			<strong><li><a href="viewDisplayLogin.do">로그인</a></li></strong>
-			<strong><li><a href="keypad.do">박스열기</a></li></strong>
+			<strong><li><a href="viewDisplayLogin.do">로그아웃</a></li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
+			<strong><li><a href="viewLogin.do">주문내역</a></li></strong>
 		</ul>
-
-
-
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
 	<!---------------------------- nav bar 끝 ------------------>
-
-
-	<!---------------------------- 배너 시작 --------------------->
-	<div class="container h-100">
-		<div class="text-center">
-			<h1>제품 구매</h1>
-			</nav>
-		</div>
-	</div>
-	</div>
-	<!---------------------------- 배너 끝 --------------------->
-
-
-	<!---------------------------- 장바구니 시작 --------------------->
-	<section class="cart_area">
+	
+	<!---------------------------- 제품 리스트 시작 ---------------->
+	<section class="section-margin calc-60px">
 		<div class="container">
-			<div class="cart_inner">
-				<div class="table-responsive">
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col" style="text-align: left !important;"><b>제품</b></th>
-								<th scope="col"><b>가격</b></th>
-								<th scope="col"><b>수량</b></th>
-								<th scope="col"><b>합계</b></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src=${vo.g_img } width="250px" height="250px">
-										</div>
-										<div class="media-body">
-											<p>${vo.g_name }</p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>￦${vo.g_price}</h5>
-								</td>
-								<td>
-									<h5>1</h5>
-								</td>
-								<td>
-									<h5>￦${vo.g_price }</h5>
-								</td>
-							</tr>
-
-
-
-							<tr class="bottom_button">
-								<td><h5 style="text-align: left !important;">포인트</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="cupon_text d-flex align-items-center"
-										style="padding-left: 35px;">
-										<h5 style="font-size: 17px; margin-right: 30px;">
-											현재포인트 :&nbsp;&nbsp;${vo.user_point }
-											<h5>
-												<input type="text" placeholder="사용할 포인트"> <a
-													class="primary-btn" href="#">적용</a>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td><h5 style="text-align: left !important;">총 결제 금액</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<h5>￦${vo.g_price }</h5>
-								</td>
-							</tr>
-							<tr class="shipping_area">
-								<td class="d-none d-md-block"><h5
-										style="text-align: left !important;">결제 방법</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="shipping_box">
-										<ul class="list">
-											<li><input type="radio" name="payment" value="">신용카드</li>
-											<li><input type="radio" name="payment" value="">가상계좌</li>
-											<li><input type="radio" name="payment" value="">카카오페이</li>
-											<li><input type="radio" name="payment" value="">네이버페이</li>
-										</ul>
-									</div>
-								</td>
-							</tr>
-							<tr class="out_button_area">
-								<td class="d-none-l"></td>
-								<td class=""></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="checkout_btn_inner d-flex align-items-center">
-										<a class="gray_btn" href="detail.do">뒤로가기</a>
-										<!-- <a href="#" class="primary-btn ml-2" onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</a> -->
-										<button type="button" class="primary-btn ml-2"
-											onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</button>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+			<div class="section-intro pb-60px">
+				<h4>
+					<b>Earth Box(송암아파트)</b>
+				</h4>
+				<h3>
+					제품 <span class="section-intro__style">목록</span>
+				</h3>
+			</div>
+			<div class="row">
+				<!-- 제품리스트 출력 -->
+				<!-- forEach문 사용 -->
+				<c:forEach items="${list }" var="goodsVo">
+					<div class="col-md-6 col-lg-4 col-xl-3">
+						<div class="card text-center card-product">
+							<div class="card-product__img">
+													<!-- 상품 사진 출력 -->
+								<img class="card-img" src=${goodsVo.g_img} alt="">
+								<ul class="card-product__imgOverlay">
+								<!-- 상세 페이지 보기 -->
+									<li><button type="button" onclick="location.href='detail.do?g_seq=${goodsVo.g_seq}'"><i class="ti-search"></i></button></li>
+								<!-- 장바구니 -->	
+									<li><button type="button" onclick="location.href='buy.do?g_seq=${goodsVo.g_seq}'"><i class="ti-shopping-cart"></i></button></li>
+								<!-- 관심 상품 -->	
+									<li><button><i class="ti-heart"></i></button></li>
+								</ul>
+							</div>
+							<div class="card-body">
+								<!-- 박스 번호 출력 -->
+								<p>No.${goodsVo.gc_seq}</p>
+								<h4 class="card-product__title">
+																	<!-- 상품 이름 출력 -->
+									<a href="single-product.html"><b>${goodsVo.g_name}</b></a>
+								</h4>
+																<!-- 상품 가격 출력 -->
+								<p class="card-product__price">￦ ${goodsVo.g_price}</p>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+				<!-- 제품리스트 출력 끝 -->
 				</div>
 			</div>
 		</div>
+		</div>
+		</div>
 	</section>
-	<!---------------------------- 장바구니 끝 --------------------->
+	<!---------------------------- 제품 리스트 끝 ---------------->
+	
+	<div>
+	</div>
+
 	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
 		<div class="container">
@@ -206,7 +149,7 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" width="90px" height="90px">EARTHBOX
+							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
 						</div>
 					</div>
 				</div>
@@ -248,6 +191,7 @@
 
 
 
+
 	<!-- ========================= SCRIPTS  ============================== -->
 
 
@@ -257,32 +201,7 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.js"></script>
 	<script src="js/script.js"></script>
-	<script src="js/shopmain.js"></script>
-	<script>
-	
-	  function goodsStatusUpdate(g_seq){
-		  
-	 
-		$.ajax({
-			url : "goodsStatusUpdate.do",
-			type : "post",
-			data : {"g_seq" : g_seq},
-			success : function(data){
-				 location.href="/buycom.do?g_seq=${vo.g_seq }"
-						console.log("성공")
-			},
-			error : function(){alert('error')} 
-		});
-  }
-	</script>
-
+	<script src="js/shopmain.js"></script
 </body>
+
 </html>
-
-
-
-
-
-
-
-
