@@ -68,15 +68,15 @@ div {
 
 .pwWrap .numberSection .number {
 	float: left;
-	font-size: 120px;
-	font-weight: 600;
+	font-size: 80px;
+	font-weight: 400;
 	width: 33.33%;
 	border: 5px solid #fff;
-	border-radius: 50px;
-	padding: 12px 0;
+	border-radius: 100px;
+	padding: 40px 0;
 	cursor: pointer;
-	background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
-	color: white;
+	background-color: #e9ecef;
+	color: #495057;
 }
 
 .back {
@@ -87,8 +87,8 @@ div {
 	height: 100px;
 	border: 5px solid #fff;
 	border-radius: 50px;
-	background-color : #557050;
-	color: white;
+	background-color : #599555;
+	color: #f9f9ee;
 }
 
 .check {
@@ -99,13 +99,12 @@ div {
 	height: 100px;
 	border: 5px solid #fff;
 	border-radius: 50px;
-	background-color : #557050;
-	color: white;
+	background-color : #599555;
+	color: #f9f9ee;
 }
 
 
 .pwWrap .numberSection .number:last-child {
-	margin-left: 33.33%;
 }
 
 .pwWrap.error .message {
@@ -132,6 +131,19 @@ div {
 	color: #fff;
 }
 
+.number1{
+	float: left;
+	
+	font-size: 80px;
+	font-weight: 400;
+	width: 33.33%;
+	border: 5px solid #fff;
+	border-radius: 100px;
+	padding: 27px 0;
+	cursor: pointer;
+	background-color: #599555;
+	color: #495057;
+}
 
 </style>
 </head>
@@ -153,16 +165,17 @@ div {
 			<button class="number">7</button>
 			<button class="number">8</button>
 			<button class="number">9</button>
-			<button class="block">a</button>
+			<button class="number1"><img src="images/undo.png" style="width:85px; heigth:85px;"></button>
 			<button class="number">0</button>
-			<button class="number" style="font-size: 114px;">⏎</button>
-			<button class="block">d</button>
-		</div>
+			<button class="number1"><img src="images/tap.png" style="width:85px; heigth:85px;"></button>
 	</div>
+	
+	<!--  
 	<div class="buttonsection">
-		<button class="back" type="button" onclick="location.href='main.do'">뒤로가기</button>
-		<button class="check" type="button" onclick="location.href='orderlist.do'">박스번호조회</button>
+		<button class="back" type="button" onclick="location.href='main.do'"></button>
+		<button class="check" type="button" onclick="location.href='orderlist.do'">입력하기</button>
 	</div>
+	-->
 
 	<script>
 		function PwCheck(pw) {

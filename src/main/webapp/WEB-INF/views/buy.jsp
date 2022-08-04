@@ -92,7 +92,7 @@
 	<!---------------------------- 배너 시작 --------------------->
 	<div class="container h-100">
 		<div class="text-center">
-			<h1>제품 구매</h1>
+			<h1 style="margin-bottom: 30px;">제품 구매</h1>
 			</nav>
 		</div>
 	</div>
@@ -101,103 +101,91 @@
 
 
 	<!---------------------------- 장바구니 시작 --------------------->
-	<section class="cart_area">
-		<div class="container">
-			<div class="cart_inner">
-				<div class="table-responsive">
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="col" style="text-align: left !important;"><b>제품</b></th>
-								<th scope="col"><b>가격</b></th>
-								<th scope="col"><b>수량</b></th>
-								<th scope="col"><b>합계</b></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src=${vo.g_img } width="250px" height="250px">
-										</div>
-										<div class="media-body">
-											<p>${vo.g_name }</p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>￦${vo.g_price}</h5>
-								</td>
-								<td>
-									<h5>1</h5>
-								</td>
-								<td>
-									<h5>￦${vo.g_price }</h5>
-								</td>
-							</tr>
-
-
-
-							<tr class="bottom_button">
-								<td><h5 style="text-align: left !important;">포인트</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="cupon_text d-flex align-items-center"
-										style="padding-left: 35px;">
-										<h5 style="font-size: 17px; margin-right: 30px;">
-											현재포인트 :&nbsp;&nbsp;${vo.user_point }
-											<h5>
-												<input type="text" placeholder="사용할 포인트"> <a
-													class="primary-btn" href="#">적용</a>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td><h5 style="text-align: left !important;">총 결제 금액</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<h5>￦${vo.g_price }</h5>
-								</td>
-							</tr>
-							<tr class="shipping_area">
-								<td class="d-none d-md-block"><h5
-										style="text-align: left !important;">결제 방법</h5></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="shipping_box">
-										<ul class="list">
-											<li><input type="radio" name="payment" value="">신용카드</li>
-											<li><input type="radio" name="payment" value="">가상계좌</li>
-											<li><input type="radio" name="payment" value="">카카오페이</li>
-											<li><input type="radio" name="payment" value="">네이버페이</li>
-										</ul>
-									</div>
-								</td>
-							</tr>
-							<tr class="out_button_area">
-								<td class="d-none-l"></td>
-								<td class=""></td>
-								<td></td>
-								<td></td>
-								<td>
-									<div class="checkout_btn_inner d-flex align-items-center">
-										<a class="gray_btn" href="detail.do">뒤로가기</a>
-										<!-- <a href="#" class="primary-btn ml-2" onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</a> -->
-										<button type="button" class="primary-btn ml-2"
-											onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</button>
-									</div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+	<div class="container">
+		<div class="cart_inner">
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col"><p
+									style="font-size: 35px; font-weight: 500px !important;">${vo.g_name }</p></th>
+						</tr>
+						<tr>
+							<th scope="col"><img src="${vo.g_img}"
+								style="width: 500px; margin-right: 30px; margin-bottom: 50px;"></th>
+						</tr>
+						<tr>
+							<th scope="col"><p
+									style="font-size: 30px; font-height: 500px;">￦${vo.g_price }</p></th>
+						</tr>
+						<tr>
+						</tr>
+					</thead>
+				</table>
 			</div>
 		</div>
-	</section>
+	</div>
+	<div class="container">
+		<div class="cart_inner">
+			<div class="table-responsive">
+				<table class="table">
+					<tr class="bottom_button">
+						<td><h5
+								style="text-align: left !important; padding-right: 400px">포인트</h5></td>
+						<td></td>
+						<td></td>
+						<td>
+							<div class="cupon_text d-flex align-items-center">
+								<h5 style="font-size: 17px; margin-left: 100px">
+									${vo.user_point } point
+									<h5>
+										<input type="text" placeholder="사용할 포인트"> <a
+											class="primary-btn" href="#">적용</a>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td><h5 style="text-align: left !important;">총 결제 금액</h5></td>
+						<td></td>
+						<td></td>
+						<td>
+							<h5>￦${vo.g_price }</h5>
+						</td>
+					</tr>
+					<tr class="shipping_area">
+						<td class="d-none d-md-block"><h5
+								style="text-align: left !important;">결제 방법</h5></td>
+						<td></td>
+						<td></td>
+						<td>
+							<div class="shipping_box">
+								<ul class="list">
+									<li><input type="radio" name="payment" value="">신용카드</li>
+									<li><input type="radio" name="payment" value="">가상계좌</li>
+									<li><input type="radio" name="payment" value="">카카오페이</li>
+									<li><input type="radio" name="payment" value="">네이버페이</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+					<tr class="out_button_area">
+						<td class="d-none-l"></td>
+						<td class=""></td>
+						<td></td>
+						<td></td>
+						<td>
+							<div class="checkout_btn_inner d-flex align-items-center">
+								<a class="gray_btn" href="detail.do">뒤로가기</a>
+								<button type="button" class="primary-btn ml-2"
+									onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</button>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 	<!---------------------------- 장바구니 끝 --------------------->
 	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
@@ -275,7 +263,6 @@
 		});
   }
 	</script>
-
 </body>
 </html>
 

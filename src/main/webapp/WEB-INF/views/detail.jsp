@@ -91,6 +91,7 @@
 			<div class="text-center">
 				<h1>${vo.g_name }</h1>
 				<br>
+				<h1 style="font-size:60px; color:#599555">NO. ${vo.gc_seq }</h1>
 			</div>
 		</div>
 	</div>
@@ -100,7 +101,7 @@
 		<div class="container">
 			<div class="row s_product_inner">
 				<div class="col-lg-6">
-					<img class="col-lg-6" src=${vo.g_img} alt="" style ="width:350px; height:350px; margin-top: 60px;margin-right: 100px;">
+					<img class="col-lg-6" src=${vo.g_img} alt="" style ="width:500px; height:500px; margin-top: 30px; margin-left: 95px;">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
 							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
@@ -115,10 +116,7 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h2>￦ ${vo.g_price }</h2>
-						<ul class="list">
-							<li><a class="active" href="#"><span>박스 번호</span> : NO. ${vo.gc_seq }</a></li>
-						</ul>
+						<h2 style="text-align:center;">￦ ${vo.g_price }</h2>
 						<p>${vo.g_info }</p>
 						<div class="product_count">
 							<button
@@ -129,7 +127,7 @@
 								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 								class="reduced items-count" type="button">
 							</button>
-							<a class="button primary-btn" href="main.do">뒤로 가기</a>
+							<a class="button primary-btn" href="main.do"style="margin-left: 150px;margin-right: 10px;margin-top: 30px;">뒤로 가기</a>
 							<a class="button primary-btn" href="buy.do?g_seq=${vo.g_seq }">구매 하기</a>
 						</div>
 					</div>

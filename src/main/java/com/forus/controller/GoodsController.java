@@ -32,6 +32,7 @@ import com.forus.service.UserService;
 
 @Controller
 public class GoodsController {
+	public static String doorbtn ="";
 
 	@Autowired
 	private GoodsService goodsService;
@@ -193,7 +194,40 @@ public class GoodsController {
 		System.out.println("텍스트 실행");
 		return "text";
 	}
-
+	
+	@RequestMapping("/module.do")
+	@ResponseBody
+	public String Arduino(String keypad) {				
+		return doorbtn;
+	}
+	
+	@RequestMapping("/BoxLed1.do")
+	public String boxled1(String btn) {
+		doorbtn = btn;
+		
+		return "text";
+	}
+	
+	@RequestMapping("/BoxLed2.do")
+	public String boxled2(String btn) {
+		doorbtn = btn;
+			
+		return "text";
+	}
+	
+	@RequestMapping("/BoxLed3.do")
+	public String boxled3(String btn) {
+		doorbtn = btn;
+			
+		return "text";
+	}
+	
+	@RequestMapping("/BoxLed4.do")
+	public String boxled4(String btn) {
+		doorbtn = btn;
+			
+		return "text";
+	}
 	
 }
 

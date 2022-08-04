@@ -1221,14 +1221,15 @@ a {
 
 .button {
     display: inline-block;
-    border: 1px solid #557050;
+    border: 1px solid #599555;
     border-radius: 30px;
     color: #222;
-    font-weight: 500;
-    padding: 12px 50px;
-    background: #557050;
+    font-weight: 600;
+    padding: 14px 60px;
+    background: #599555;
     color: #fff;
-    transition: all .4s ease
+    transition: all .4s ease;
+    font-size:22px;
 }
 
 @media (max-width: 767px) {
@@ -3963,7 +3964,7 @@ a {
 }
 
 .cart_inner .table tbody tr td h5 {
-    font-size: 15px;
+    font-size: 20px;
     color: #222;
     font-family: "Roboto", sans-serif;
     margin-bottom: 0px
@@ -4091,7 +4092,7 @@ a {
     height: 40px;
     line-height: 38px;
     text-transform: uppercase;
-    background: #557050;
+    background: #599555;
     padding: 0px 38px;
     margin-right: 5px;
     margin-left: 10px;
@@ -4216,18 +4217,19 @@ a {
 }
 
 .cart_inner .table tbody tr.out_button_area .checkout_btn_inner {
-    margin-left: -395px
+    margin-left: -500px
 }
 
 .cart_inner .table tbody tr.out_button_area .checkout_btn_inner .primary-btn {
-    height: 40px;
-    padding: 0px 44px;
-    line-height: 38px;
-    text-transform: capitalize;
-    background: #557050;
+    line-height: 40px;
+    background: #599555;
+    border: 1px solid #eeeeee;
     border-radius: 30px;
+    padding: 10px 50px;
+    display: inline-block;
     color: #fff;
-    font-weight: 500
+    text-transform: capitalize;
+    font-weight: 600;
 }
 
 .cart_inner .table tbody tr.out_button_area .checkout_btn_inner .primary-btn:hover:before {
@@ -4235,15 +4237,15 @@ a {
 }
 
 .gray_btn {
-    line-height: 38px;
-    background: #557050;
+    line-height: 40px;
+    background: #599555;
     border: 1px solid #eeeeee;
     border-radius: 30px;
-    padding: 0px 41px;
+    padding: 10px 50px;
     display: inline-block;
     color: #fff;
     text-transform: capitalize;
-    font-weight: 500
+    font-weight: 600;
 }
 
 .product_image_area {
@@ -4338,7 +4340,8 @@ a {
     border-bottom: 1px dotted #eeeeee;
     margin-top: 20px;
     padding-bottom: 26px;
-    margin-bottom: 0
+    margin-bottom: 0;
+    text-align : center;
 }
 
 .s_product_text .card_area {

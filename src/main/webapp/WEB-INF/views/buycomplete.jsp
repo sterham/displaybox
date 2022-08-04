@@ -106,51 +106,28 @@
 		</p>
 		<br />
 		<!----------------------------- 주문 목록 시작 --------------------------->
-		<section class="cart_area">
 			<div class="container">
 				<div class="cart_inner">
 					<div class="table-responsive">
 						<table class="table">
 							<thead>
 								<tr>
-									<th scope="col"><b>제품</b></th>
-									<th scope="col"><b>가격</b></th>
-									<th scope="col"><b>수량</b></th>
-									<th scope="col"><b>합계</b></th>
+									<th scope="col"><img src="${vo.g_img}" style="width:500px; margin-right:30px; margin-bottom:50px;"></th>
+								</tr>
+								<tr>
+									<th scope="col"><p style="font-size: 35px; font-height:500px;">${vo.g_name }</p></th>
+								</tr>
+								<tr>
+									<th scope="col"><p style="font-size: 30px; font-height:500px;">￦${vo.g_price }</p></th>
+								</tr>
+								<tr>
+								
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<div class="media">
-											<div class="d-flex">
-												<img src="${vo.g_img}" alt="">
-											</div>
-											<div class="media-body">
-												<p>${vo.g_name }</p>
-											</div>
-										</div>
-									</td>
-									<td>
-										<h5>￦${vo.g_price }</h5>
-									</td>
-									<td>
-										<h5>1</h5>
-									</td>
-									<td>
-										<h5>￦${vo.g_price }</h5>
-									</td>
-								</tr>
-
-								</div>
-								</td>
-								</tr>
-							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-		</section>
 		<!---------------------------- 주문 목록 끝 --------------------->
 	</div>
 	<!-- 결제정보 -->
