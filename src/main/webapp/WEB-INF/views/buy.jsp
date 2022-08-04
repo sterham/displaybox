@@ -101,6 +101,7 @@
 
 
 	<!---------------------------- 장바구니 시작 --------------------->
+<<<<<<< HEAD
 	<div class="container">
 		<div class="cart_inner">
 			<div class="table-responsive">
@@ -122,6 +123,104 @@
 						</tr>
 					</thead>
 				</table>
+=======
+	<section class="cart_area">
+		<div class="container">
+			<div class="cart_inner">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" style="text-align: left !important;"><b>제품</b></th>
+								<th scope="col"><b>가격</b></th>
+								<th scope="col"><b>수량</b></th>
+								<th scope="col"><b>합계</b></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<div class="media">
+										<div class="d-flex">
+											<img src=${vo.g_img } width="250px" height="250px">
+										</div>
+										<div class="media-body">
+											<p>${vo.g_name }</p>
+										</div>
+									</div>
+								</td>
+								<td>
+									<h5>￦${vo.g_price}</h5>
+								</td>
+								<td>
+									<h5>1</h5>
+								</td>
+								<td>
+									<h5>￦${vo.g_price }</h5>
+								</td>
+							</tr>
+
+
+
+							<tr class="bottom_button">
+								<td><h5 style="text-align: left !important;">포인트</h5></td>
+								<td></td>
+								<td></td>
+								<td>
+									<div class="cupon_text d-flex align-items-center">
+										<a class="button">${vo.user_point } 포인트</a> 
+										<input type="text" placeholder="사용할 포인트 입력" id="inputPoint"> 
+										<button type='button' class="primary-btn" id="pointButton">적용</button>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td><h5 style="text-align: left !important;">총 결제 금액</h5></td>
+								<td></td>
+								<td></td>
+								<td>
+									<h5 id="finalPrice">￦${vo.g_price }</h5>
+									<h6 id="usePoint">사용한 포인트 : 0</h6>
+								</td>
+							</tr>
+							<tr class="shipping_area">
+								<td class="d-none d-md-block"><h5
+										style="text-align: left !important;">결제 방법</h5></td>
+								<td></td>
+								<td></td>
+								<td>
+									<div class="shipping_box">
+										<ul class="list">
+											<li><a href="#">신용카드</a></li>
+											<li><a href="#">가상 계좌</a></li>
+											<li><a href="#">카카오페이</a></li>
+											<li class="active"><a href="#">네이버페이</a></li>
+										</ul>
+										<h6>
+											Calculate Shipping <i class="fa fa-caret-down"
+												aria-hidden="true"></i>
+										</h6>
+
+									</div>
+								</td>
+							</tr>
+							<tr class="out_button_area">
+								<td class="d-none-l"></td>
+								<td class=""></td>
+								<td></td>
+								<td></td>
+								<td>
+									<div class="checkout_btn_inner d-flex align-items-center">
+										<a class="gray_btn" href="detail.do">뒤로가기</a> 
+										<!-- <a href="#" class="primary-btn ml-2" onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</a> -->
+										<button type="button" class="primary-btn ml-2" onclick="goodsStatusUpdate(${vo.g_seq })">결제하기</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+>>>>>>> branch 'master' of https://github.com/HeEwOn96/displaybox.git
 			</div>
 		</div>
 	</div>
@@ -222,9 +321,7 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="copyright_text   wow fadeInUp animated">
-							<p>
-								문의 전화 <i class="fa fa-love"></i><a
-									href="https://bootstrapthemes.co">010-1234-5678</a>
+							<p>문의 전화 <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">010-1234-5678</a>
 							</p>
 						</div>
 					</div>
@@ -261,8 +358,39 @@
 			},
 			error : function(){alert('error')} 
 		});
+		
+		
   }
+	  
+	// 포인트 입력했을 때 내 포인트 선에서 적었는지 판단
+		
+		// 포인트 적용 버튼 누를 때 버튼 적용
+		  $("#pointButton").on("click", function(){
+			  var finalPrice = "";
+			  // 상품 가격 불러오기
+			  let goodsPrice = parseInt("${vo.g_price}")
+			  // maxPoint에 회원이 소유한 포인트 값 대입
+			  let maxPoint = parseInt("${vo.user_point}")
+			  // 입력받은 point 불러오기
+			  let inputPoint = $("#inputPoint").val()
+			  inputPoint = parseInt(inputPoint);
+			  console.log(inputPoint)
+			  
+			  if(inputPoint > maxPoint){
+				  alert('보유한 포인트가 부족합니다.')
+			  }else{
+				  finalPrice = parseInt(goodsPrice - inputPoint)
+				  console.log("최종 결제 금액 : " + finalPrice)
+				  $("#finalPrice").text('W'+finalPrice)
+				  $("#usePoint").text('사용한 포인트 : ' + inputPoint)
+			  }
+			
+		  });
 	</script>
+<<<<<<< HEAD
+=======
+	
+>>>>>>> branch 'master' of https://github.com/HeEwOn96/displaybox.git
 </body>
 </html>
 
