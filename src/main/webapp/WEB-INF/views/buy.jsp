@@ -145,8 +145,8 @@
 								<td></td>
 								<td>
 									<div class="cupon_text d-flex align-items-center">
-										<a class="button">현재포인트 ${vo.user_point }</a> 
-										<input type="text" placeholder="사용할 포인트" id="inputPoint"> 
+										<a class="button">${vo.user_point } 포인트</a> 
+										<input type="text" placeholder="사용할 포인트 입력" id="inputPoint"> 
 										<button type='button' class="primary-btn" id="pointButton">적용</button>
 									</div>
 								</td>
@@ -157,6 +157,7 @@
 								<td></td>
 								<td>
 									<h5 id="finalPrice">￦${vo.g_price }</h5>
+									<h6 id="usePoint">사용한 포인트 : 0</h6>
 								</td>
 							</tr>
 							<tr class="shipping_area">
@@ -285,7 +286,6 @@
 			  let goodsPrice = parseInt("${vo.g_price}")
 			  // maxPoint에 회원이 소유한 포인트 값 대입
 			  let maxPoint = parseInt("${vo.user_point}")
-			  // let inputPoint = document.getElementById('inputPoint').value
 			  // 입력받은 point 불러오기
 			  let inputPoint = $("#inputPoint").val()
 			  inputPoint = parseInt(inputPoint);
@@ -297,6 +297,7 @@
 				  finalPrice = parseInt(goodsPrice - inputPoint)
 				  console.log("최종 결제 금액 : " + finalPrice)
 				  $("#finalPrice").text('W'+finalPrice)
+				  $("#usePoint").text('사용한 포인트 : ' + inputPoint)
 			  }
 			
 		  });
