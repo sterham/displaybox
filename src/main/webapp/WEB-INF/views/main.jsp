@@ -79,7 +79,7 @@
 			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
-			<strong><li><a href="viewDisplayLogin.do">로그아웃</a></li></strong>
+			<strong><li><a href="index.do">로그아웃</a></li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
 			<strong><li><a href="viewLogin.do">주문내역</a></li></strong>
 		</ul>
