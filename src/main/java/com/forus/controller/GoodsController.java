@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
+import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.GoodsVO;
 import com.forus.domain.UserVO;
@@ -148,6 +149,20 @@ public class GoodsController {
 		return "orderlist";
 	}
 
+	// 8. 물건 삭제 페이지
+		@RequestMapping("/getGoods.do")
+		public String getGoodsList(Model model, HttpServletRequest request, HttpSession session) {
+			System.out.println("상품 회수 페이지 실행");
+			
+			// 세션 아이디 받아오기
+			String user_id = (String)session.getAttribute("user_id");
+			System.out.println("상품 회수 페이지 세션 : " + user_id);
+			// 모델에 vo담아주고
+			List<GoodsGetVO> vo = userService.userSellList(user_id);
+			model.addAttribute("vo", vo);
+			session.setAttribute("user_id", user_id);
+			return "getgoods";
+		}
 
 
 	@RequestMapping("/interface.do")

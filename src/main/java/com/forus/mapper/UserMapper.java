@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.forus.domain.DisplayLoginVO;
+import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.UserVO;
 
@@ -20,7 +21,7 @@ public interface UserMapper {
 	// 3. 디스플레이 구매자 로그인
 	public DisplayLoginVO displayLogin(DisplayLoginVO vo);
 	
-	// 4. 포인트 사용 시 사용 포인트 차감
-
+	// 4. 상품 회수 페이지
+	public List<GoodsGetVO> userSellList(String user_id);
 
 }

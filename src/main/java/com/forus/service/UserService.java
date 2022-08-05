@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.forus.domain.DisplayLoginVO;
+import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.GoodsVO;
 import com.forus.domain.UserVO;
@@ -22,16 +23,19 @@ public class UserService {
 	}
 	
 	// 2. 주문내역
-	public  List<GoodsOrderListVO> userOrderList(String user_id) {
+	public List<GoodsOrderListVO> userOrderList(String user_id) {
 		return mapper.userOrderList(user_id);
 	}
 	
 	// 3. 디스플레이 구매자 로그인
 	public DisplayLoginVO displayLoginUser(DisplayLoginVO vo) {
-		System.out.println(mapper.displayLogin(vo));
+		System.out.println("login mapper : " + mapper.displayLogin(vo));
 		return mapper.displayLogin(vo);
 	}
 	
-	// 4. 포인트 차감
+	// 4. 판매 내역(상품 상세페이지)
+	public List<GoodsGetVO> userSellList(String user_id){
+		return mapper.userSellList(user_id);
+	}
 	
 }
