@@ -140,10 +140,14 @@ public class GoodsController {
 	
 	// 7. 주문한 내역 불러오는 페이지
 	@RequestMapping("/orderlist.do")
-	public String userOrderList(String user_id, Model model) {
+	public String userOrderList(Model model, HttpServletRequest request, HttpSession session) {
 		System.out.println("주문내역 실행");
-		 List<GoodsOrderListVO> vo = userService.userOrderList(user_id);
+		
+		String user_id = (String)session.getAttribute("user_id");
+		System.out.println(user_id);
+		List<GoodsOrderListVO> vo = userService.userOrderList(user_id);
 		model.addAttribute("vo", vo);
+		session.setAttribute("user_id", user_id);
 		return "orderlist";
 	}
 
