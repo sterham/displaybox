@@ -67,20 +67,29 @@
 </head>
 
 <body>
+	<%String result = (String)session.getAttribute("user_id");%>
+	<!----------------------------- 로딩중 ------------------------>
+	<div id="preloader">
+		<div id="status">&nbsp;</div>
+	</div>
+	<!----------------------------- 로딩끝 ------------------------>
+
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
-
 		<ul class="navbar__menu">
-			<strong><li><a href="viewDisplayLogin.doogin.do">로그인</a></li></strong>
-			<strong><li><a href="keypad.do">박스열기</a></li></strong>
+			<strong><li>
+			<% if(result == null){ %>
+			<a href="viewLogin.do">로그인</a>
+			<% } else { %>
+			<a href="logoutService.do">로그아웃</a>
+			<% } %>
+			</li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
+			<strong><li><a href=orderlist.do>주문내역</a></li></strong>
 		</ul>
-
-
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
@@ -117,21 +126,21 @@
 								<td>
 									<div class="media">
 										<div class="d-flex">
-											<img src="${vo.g_img }" width="250px" height="250px">
+											<img src=${vo.g_img} width="250px" height="250px">
 										</div>
 										<div class="media-body">
-											<p>${vo.g_name }</p>
+											<p>${vo.g_name}</p>
 										</div>
 									</div>
 								</td>
 								<td>
-									<h5>${vo.v_machine_pw }</h5>
+									<h5>${vo.v_machine_pw}</h5>
 								</td>
 								<td>
-									<h5>${vo.g_price }</h5>
+									<h5>${vo.g_price}</h5>
 								</td>
 								<td>
-									<h5>${vo.g_regdate }</h5>
+									<h5>${vo.g_regdate}</h5>
 								</td>
 							</tr>
 						</tbody>

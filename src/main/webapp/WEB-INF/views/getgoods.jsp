@@ -1,12 +1,11 @@
-<%@page import="org.springframework.ui.Model"%>
-<%@page import="com.forus.domain.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
+
 <!-- nav bar 파일-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nav bar</title>
@@ -18,6 +17,7 @@
 	rel="stylesheet">
 <script src="https://kit.fontawesome.com/b17d4fa9e7.js"
 	crossorigin="anonymous"></script>
+<script src="main.js" defer></script>
 <!-- nav bar end -->
 
 <!-- 제품 리스트 파일-->
@@ -66,9 +66,7 @@
 <!-- 페이지 footer 끝-->
 </head>
 
-
 <body>
-
 	<%String result = (String)session.getAttribute("user_id");%>
 	<!----------------------------- 로딩중 ------------------------>
 	<div id="preloader">
@@ -90,72 +88,77 @@
 			<% } %>
 			</li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li>
-			<% if(result == null){ %>
-			<a href=viewLogin.do>주문내역</a>
-			<% } else { %>
-			<a href=orderlist.do>주문내역</a>
-			<%} %>
-			</li></strong>
+			<strong><li><a href=orderlist.do>주문내역</a></li></strong>
 		</ul>
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
 	<!---------------------------- nav bar 끝 ------------------>
-	<!---------------------------- 제품 리스트 시작 ---------------->
-	<section class="section-margin calc-60px">
+	
+	<!---------------------------- 배너 시작 --------------------->
+	<div class="container h-100">
+		<div class="text-center">
+			<h1>주문 내역</h1>
+		</div>
+	</div>
+	</div>
+	<!---------------------------- 배너 끝 --------------------->
+	
+	<!---------------------------- 장바구니 시작 --------------------->
+	<section class="cart_area">
 		<div class="container">
-			<div class="section-intro pb-60px">
-				<h4>
-					<b>Earth Box(송암아파트)</b>
-				</h4>
-				<h3>
-					제품 <span class="section-intro__style">목록</span>
-				</h3>
-			</div>
-			<div class="row">
-				<!-- 제품리스트 출력 -->
-				<!-- forEach문 사용 -->
-				<c:forEach items="${list }" var="goodsVo">
-					<div class="col-md-6 col-lg-4 col-xl-3">
-						<div class="card text-center card-product">
-							<div class="card-product__img">
-													<!-- 상품 사진 출력 -->
-								<img class="card-img" src=${goodsVo.g_img} alt="">
-								<ul class="card-product__imgOverlay">
-								<!-- 상세 페이지 보기 -->
-									<li><button type="button" onclick="location.href='detail.do?g_seq=${goodsVo.g_seq}'"><i class="ti-search"></i></button></li>
-								<!-- 장바구니 -->	
-									<li><button type="button" onclick="location.href='detail.do?g_seq=${goodsVo.g_seq}'"><i class="ti-shopping-cart"></i></button></li>
-								<!-- 관심 상품 -->	
-									<li><button><i class="ti-heart"></i></button></li>
-								</ul>
-							</div>
-							<div class="card-body">
-								<!-- 박스 번호 출력 -->
-								<p>No.${goodsVo.gc_seq}</p>
-								<h4 class="card-product__title">
-																	<!-- 상품 이름 출력 -->
-									<a href="single-product.html"><b>${goodsVo.g_name}</b></a>
-								</h4>
-																<!-- 상품 가격 출력 -->
-								<p class="card-product__price">￦ ${goodsVo.g_price}</p>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-				<!-- 제품리스트 출력 끝 -->
+			<div class="cart_inner">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col"><b></b></th>
+								<th scope="col"><b>제품</b></th>
+								<th scope="col"><b>비밀번호</b></th>
+								<th scope="col"><b>가격</b></th>
+								<th scope="col"><b>구매날짜</b></th>
+							</tr>
+						</thead>
+						<tbody>
+						
+						<c:forEach items="${vo }" var="vo">
+						
+							<tr>
+								<td>
+								<li><input type="radio" name="payment" value=""></li>
+								</td>
+								<td>
+									<div class="media">
+										<div class="d-flex">
+											<img src=${vo.g_img} width="250px" height="250px">
+										</div>
+										<div class="media-body">
+											<p>${vo.g_name}</p>
+										</div>
+									</div>
+								</td>
+								<td>
+									<h5>${vo.v_machine_pw}</h5>
+								</td>
+								<td>
+									<h5>${vo.g_price}</h5>
+								</td>
+								<td>
+									<h5>${vo.g_regdate}</h5>
+								</td>
+							</tr>
+						</tbody>
+							</c:forEach>
+					</table>
 				</div>
 			</div>
 		</div>
-		</div>
-		</div>
 	</section>
-	<!---------------------------- 제품 리스트 끝 ---------------->
-	
-	<div>
-	</div>
-
+	<br/><br/><br/><br/><br/>
+	<p align="center">
+	<a class="button primary-btn" href="main.do">뒤로가기</a>
+		<a class="button primary-btn" href="keypad.do">박스열기</a>
+	</p>
 	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
 		<div class="container">
@@ -205,8 +208,7 @@
 
 
 
-
-	<!-- ========================= SCRIPTS  ============================== -->
+	<!-- ========================= SCRIPTS ============================== -->
 
 
 	<script src="js/jquery.min.js"></script>
@@ -217,5 +219,4 @@
 	<script src="js/script.js"></script>
 	<script src="js/shopmain.js"></script
 </body>
-
 </html>

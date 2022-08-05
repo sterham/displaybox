@@ -206,6 +206,12 @@ public class GoodsController {
 			
 		return "text";
 	}
+	
+	@RequestMapping("/getgoods.do")
+	public String getgoods() {
+		
+		return "getgoods";
+	}
 
 	
 }
