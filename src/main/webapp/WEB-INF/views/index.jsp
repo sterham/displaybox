@@ -89,8 +89,8 @@
 			<strong><li><a href="viewLogin.do">상품회수</a></li></strong>
 			<% } else { %>
 			<strong><li><a href="logoutService.do">로그아웃</a></li></strong>
-			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li><a href=orderlist.do>주문내역</a></li></strong>
+			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
+			<strong><li><a href=goodsinput.do>상품등록</a></li></strong>
 			<strong><li><a href="getGoods.do">상품회수</a></li></strong>
 			<%} %>
 			
