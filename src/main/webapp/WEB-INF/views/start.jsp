@@ -19,19 +19,18 @@ body{
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  margin-top: 100px;
 }
 
 .container h1:nth-child(1) {
   color: #355c7d;
   font-family: "Work Sans", sans-serif;
   font-weight: 800;
-  font-size: 100px;
+  font-size: 50px;
   margin: 0 0 0 19%;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
-  width: 170%;
+  width: 100%;
   animation: type 1s steps(40,end) forwards;
   margin-block-start: 0.01em;
   line-height : 95%;
@@ -43,8 +42,8 @@ body{
   margin: 0 auto auto auto;
   background-image: linear-gradient(to top, #37ecba 0%, #72afd3 100%);
   font-weight: 800;
-  font-size: 320px;  
-  width: 200%;
+  font-size: 150px;  
+  width: 100%;
   white-space: nowrap;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -98,13 +97,12 @@ body{
 }
 
 .spacebr{
-	margin-top : 1000px;
-	margin-bottom : 1000px;
+	margin-bottom : 100px;
+	margin-right: 500px;
 	}
 
 .spacebr2{
-	margin-top : 1000px;
-	margin-bottom : 1000px;
+	margin-top : 400px;
 	margin-right : 1000px;
 	}
 @import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
@@ -116,26 +114,27 @@ body{
 }
 
 .col1{
-  background-color: #37ecba;
+  background-color: #599555;
   color: white;
   font-weight: 600;
-  font-size: 180px;
+  font-size: 120px;
   text-align: right;
-  margin-left: 430px;
-  width: 170%;
-  line-height : 105%;
+  margin-left: 100px;
+  width: 100%;
+  line-height : 95%;
 }
 
 </style>
 <body>
 <div class = "spacebr container">
+<img src="images/foruslogo.png" alt="" style="width:550px; margin-right:80px">
 </div>
 <div class = "container">
   <h1>자원도 절약하고 환경도 지키는</h1>
   <h1>EARTH BOX</h1>
   <div class = "spacebr2 container">
 </div>
-<div class = "cintainer">
+<div class = "container">
   <h1><a class="col1" href="index.do">사용시작</a></h1>
   </div>
 </div>
