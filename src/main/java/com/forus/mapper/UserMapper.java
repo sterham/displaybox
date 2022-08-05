@@ -25,6 +25,6 @@ public interface UserMapper {
 	public List<GoodsGetVO> userSellList(String user_id);
 	
 	// 5. 상품 삭제하기
-	public int deleteGoods(int g_Seq);
+	public int deleteGoods(int g_seq);
 
 }

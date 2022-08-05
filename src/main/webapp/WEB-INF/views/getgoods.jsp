@@ -77,7 +77,7 @@
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<strong><li>
@@ -122,9 +122,6 @@
 						</thead>
 						<tbody>
 						
-						<script>
-							let i = 0;
-						</script>
 						<c:forEach items="${vo }" var="vo">
 						<form action="deleteGoods.do">
 							<tr>
@@ -149,10 +146,9 @@
 									<h5>${vo.g_regdate}</h5>
 								</td>
 								<td>
-									<button class="btn btn-info btn-sm" onclick="goDelete(${g_seq})">삭제</button>
+									<button class="btn btn-info btn-sm" onclick="goDelete(${vo.g_seq})">삭제</button>
 								</td>
 							</tr>
-							<script>i += 1</script>
 						</form>
 						</tbody>
 							</c:forEach>
@@ -163,7 +159,7 @@
 	</section>
 	<br/><br/><br/><br/><br/>
 	<p align="center">
-	<a class="button primary-btn" href="main.do">뒤로가기</a>
+	<a class="button primary-btn" href="main.do?user_id=${result }">뒤로가기</a>
 	
 	</p>
 	<!-- ------------------------- footer 시작 ------------------>
@@ -180,7 +176,7 @@
 			</div>
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12 text-center   wow fadeInUp animated">
+					<div class="col-md-12 text-center wow fadeInUp animated">
 						<div class="social">
 							<h2>Follow Me on Here</h2>
 							<ul class="icon_list">
@@ -226,8 +222,18 @@
 	<script src="js/script.js"></script>
 	<script src="js/shopmain.js"></script>
 	<script>
-		function goDelete(){
-			$("#")
+		function goDelete(g_seq){
+			console.log(g_seq)
+			$.ajax({
+				url : "deleteGoods.do",
+				type : "post",
+				data : {"g_seq" : g_seq},
+				success : function(data){
+					 location.href="/getGoods.do"
+							console.log("성공")
+				},
+				error : function(){alert('error')} 
+			});
 		}
 	
 	</script>
