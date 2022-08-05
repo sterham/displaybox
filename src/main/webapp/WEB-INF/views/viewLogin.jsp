@@ -17,7 +17,7 @@
 			<img src="img/bg.svg">
 		</div>
 		<div class="login-content">
-			<form action="login.do">
+			<form action="login.do" method='post'>
 				<img src="images/foruslogo.png"  width="300px" height="300px" style= margin-right:100px;>
 				<h2 class="title">EARTH BOX</h2>
            		<div class="input-div one">
