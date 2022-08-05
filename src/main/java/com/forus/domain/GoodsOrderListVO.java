@@ -16,6 +16,7 @@ public class GoodsOrderListVO {
 	private int g_price;
 	private String g_regdate;
 	private String consumer_id;
+	private String seller_id;
 	private int v_machine_pw;
 	private int v_machine_space_no;
 	private String user_id;

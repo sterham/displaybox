@@ -22,7 +22,7 @@ public class UserService {
 	}
 	
 	// 2. 주문내역
-	public  List<GoodsOrderListVO> userOrderList(String user_id) {
+	public List<GoodsOrderListVO> userOrderList(String user_id) {
 		return mapper.userOrderList(user_id);
 	}
 	
@@ -32,6 +32,8 @@ public class UserService {
 		return mapper.displayLogin(vo);
 	}
 	
-	// 4. 포인트 차감
-	
+	// 4. 판매 내역(상품 상세페이지)
+	public List<GoodsOrderListVO> userSellList(String user_id){
+		return mapper.userOrderList(user_id);
+	}
 }
