@@ -174,6 +174,20 @@ public class GoodsController {
 		return "text";
 	}
 	
+	@RequestMapping("/getgoods.do")
+	public String getgoods() {
+		
+		return "getgoods";
+	}
+	
+	@RequestMapping("/goodsinput.do")
+	public String goodsin() {
+		
+		return "goodsinput";
+	}
+	
+	
+	// 아두이노 통신 부분 돈 터치
 	@RequestMapping("/module.do")
 	@ResponseBody
 	public String Arduino(String keypad) {				
@@ -208,12 +222,6 @@ public class GoodsController {
 		return "text";
 	}
 	
-	@RequestMapping("/getgoods.do")
-	public String getgoods() {
-		
-		return "getgoods";
-	}
-
-	
+	// 아두이노 통신 부분 돈 터치
 }
 

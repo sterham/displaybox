@@ -98,7 +98,7 @@
 	<!---------------------------- 배너 시작 --------------------->
 	<div class="container h-100">
 		<div class="text-center">
-			<h1>주문 내역</h1>
+			<h1>상품 회수</h1>
 		</div>
 	</div>
 	</div>
@@ -125,7 +125,7 @@
 						
 							<tr>
 								<td>
-								<li><input type="radio" name="payment" value=""></li>
+								<input type="radio" name="payment" value="">
 								</td>
 								<td>
 									<div class="media">

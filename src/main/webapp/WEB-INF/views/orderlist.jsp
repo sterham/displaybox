@@ -112,6 +112,7 @@
 					<table class="table">
 						<thead>
 							<tr>
+								<th scope="col"></th>
 								<th scope="col"><b>제품</b></th>
 								<th scope="col"><b>비밀번호</b></th>
 								<th scope="col"><b>가격</b></th>
@@ -121,8 +122,11 @@
 						<tbody>
 						
 						<c:forEach items="${vo }" var="vo">
-						
-							<tr>
+							
+							<tr>	
+								<td>
+								<input type="radio" name="payment" value="">
+								</td>
 								<td>
 									<div class="media">
 										<div class="d-flex">
