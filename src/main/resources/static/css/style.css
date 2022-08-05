@@ -26,20 +26,19 @@ body {
 
 a {
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: #599555;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #599555;
+    background: #fff;
     padding: 8px 12px;
 }
-
 .navbar__logo {
     font-size: 24px;
-    color: white;
+    color: #fff;
 }
 
 .navbar__logo i {
