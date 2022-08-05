@@ -28,7 +28,7 @@ public class UserService {
 	
 	// 3. 디스플레이 구매자 로그인
 	public DisplayLoginVO displayLoginUser(DisplayLoginVO vo) {
-		System.out.println(mapper.displayLogin(vo));
+		System.out.println("login mapper : " + mapper.displayLogin(vo));
 		return mapper.displayLogin(vo);
 	}
 	
