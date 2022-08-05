@@ -44,8 +44,6 @@ public class GoodsController {
 	// 1. main 상품리스트
 	@RequestMapping("/main.do")
 	public String mainGoodsList(Model model, HttpServletRequest request, HttpSession session) {
-		String user_addr = request.getParameter("user_addr");
-		 System.out.println(user_addr);
 		 String user_id = request.getParameter("user_id");
 		 System.out.println(user_id);
 
@@ -120,9 +118,8 @@ public class GoodsController {
 	    	  // 암호키를 복호화 함 
 	    	  encoder.matches(vo.getUser_pw(), result.getUser_pw());
 	    	  if(encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
-	    		  model.addAttribute("user_addr", result.getUser_addr());
 	    		  model.addAttribute("user_id", result.getUser_id() );
-	    		  System.out.println("My model: " + model.getAttribute("user_addr"));
+	    		  System.out.println("My model: " + model.getAttribute("user_id"));
 	    		  return new ModelAndView("redirect:/main.do", model);
 	    	  }else {
 	    		  return new ModelAndView("redirect:/viewLogin.do");

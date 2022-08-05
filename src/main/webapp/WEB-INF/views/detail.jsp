@@ -74,21 +74,17 @@
 			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
-			<strong><li>
 			<% if(result == null){ %>
-			<a href="viewLogin.do">로그인</a>
+			<strong><li><a href="viewLogin.do">로그인</a></li></strong>
 			<% } else { %>
-			<a href="logoutService.do">로그아웃</a>
+			<strong><li><a href="logoutService.do">로그아웃</a></li></strong>
 			<% } %>
-			</li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li>
 			<% if(result == null){ %>
-			<a href=viewLogin.do>주문내역</a>
+			<strong><li><a href=viewLogin.do>주문내역</a></li></strong>
 			<% } else { %>
-			<a href=orderlist.do>주문내역</a>
+			<strong><li><a href=orderlist.do>주문내역</a></li></strong>
 			<%} %>
-			</li></strong>
 		</ul>
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
@@ -136,7 +132,7 @@
 								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 								class="reduced items-count" type="button">
 							</button>
-							<a class="button primary-btn" href="main.do"style="margin-left: 150px;margin-right: 10px;margin-top: 30px;">뒤로 가기</a>
+							<a class="button primary-btn" href="main.do?g_seq=${vo.g_seq }"style="margin-left: 150px;margin-right: 10px;margin-top: 30px;">뒤로 가기</a>
 							<a class="button primary-btn" href="buy.do?g_seq=${vo.g_seq }">구매 하기</a>
 						</div>
 					</div>
