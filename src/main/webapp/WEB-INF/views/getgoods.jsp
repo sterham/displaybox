@@ -77,7 +77,7 @@
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<strong><li>
@@ -159,7 +159,7 @@
 	</section>
 	<br/><br/><br/><br/><br/>
 	<p align="center">
-	<a class="button primary-btn" href="main.do">뒤로가기</a>
+	<a class="button primary-btn" href="main.do?user_id=${result }">뒤로가기</a>
 	
 	</p>
 	<!-- ------------------------- footer 시작 ------------------>
@@ -223,6 +223,7 @@
 	<script src="js/shopmain.js"></script>
 	<script>
 		function goDelete(g_seq){
+			console.log(g_seq)
 			$.ajax({
 				url : "deleteGoods.do",
 				type : "post",

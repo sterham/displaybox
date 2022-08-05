@@ -190,10 +190,10 @@ public class GoodsController {
 		public @ResponseBody GoodsVO goodsDelete (int g_seq) {
 			
 			// 통신 됨
-			System.out.println("g_seq : " + g_seq);
+			System.out.println("상품 삭제 페이지 g_seq : " + g_seq);
 			userService.deleteGoods(g_seq);
 			GoodsVO vo = goodsService.detailGoods(g_seq);
-			System.out.println(vo);
+			System.out.println("상품 삭제 성공");
 			return vo;
 		}
 		
