@@ -59,21 +59,33 @@ public class GoodsController {
 	
 	// 2. 제품 상세 페이지
 	@RequestMapping("/detail.do")
-	public String detailGoodsList(int g_seq, Model model) {
+	public String detailGoodsList(int g_seq, Model model, HttpServletRequest request, HttpSession session) {
+		String user_id = request.getParameter("user_id");
+		System.out.println(user_id);
+		 
 		System.out.println("제품 상세페이지 실행");
 		GoodsVO goods = goodsService.detailGoods(g_seq);
 		model.addAttribute("vo", goods);
 		System.out.println(goods);
+		
+		session.setAttribute("user_id", user_id);
+		
 		return "detail";
 	}
 	
 
 	// 3. 제품 구매 페이지
 	@RequestMapping("/buy.do")
-	public String buyGoods(int g_seq, Model model) {
+	public String buyGoods(int g_seq, Model model, HttpServletRequest request, HttpSession session) {
+		 String user_id = request.getParameter("user_id");
+		 System.out.println(user_id);
+		 
 		System.out.println("구매 페이지 실행");
 		GoodsBuyVO goods = goodsService.buyGoods(g_seq);
 		model.addAttribute("vo", goods);
+		
+		session.setAttribute("user_id", user_id);
+		
 		return "buy";
 	}
 	
@@ -91,12 +103,17 @@ public class GoodsController {
 	
 	// 5. 결제 완료 페이지
 	@RequestMapping("/buycom.do")
-	public String buyGoodsComplete(int g_seq, Model model) {
+	public String buyGoodsComplete(int g_seq, Model model, HttpServletRequest request, HttpSession session) {
+		 String user_id = request.getParameter("user_id");
+		 System.out.println(user_id);
+		
 		System.out.println("구매 완료 페이지");
 		
 		GoodsBuyCompleteVO vo = (GoodsBuyCompleteVO) goodsService.buyComplete(g_seq);
 		model.addAttribute("vo", vo);
 		System.out.println(vo);
+		
+		session.setAttribute("user_id", user_id);
 		
 		return "buycomplete";
 	}
@@ -145,7 +162,9 @@ public class GoodsController {
 		System.out.println(user_id);
 		List<GoodsOrderListVO> vo = userService.userOrderList(user_id);
 		model.addAttribute("vo", vo);
+		
 		session.setAttribute("user_id", user_id);
+		
 		return "orderlist";
 	}
 
@@ -160,10 +179,30 @@ public class GoodsController {
 			// 모델에 vo담아주고
 			List<GoodsGetVO> vo = userService.userSellList(user_id);
 			model.addAttribute("vo", vo);
+			
 			session.setAttribute("user_id", user_id);
+			
 			return "getgoods";
 		}
 
+	// 9. 상품 삭제하기
+		@RequestMapping("/deleteGoods.do")
+		public @ResponseBody GoodsVO goodsDelete (int g_seq) {
+			
+			// 통신 됨
+			System.out.println("g_seq : " + g_seq);
+			userService.deleteGoods(g_seq);
+			GoodsVO vo = goodsService.detailGoods(g_seq);
+			System.out.println(vo);
+			return vo;
+		}
+		
+	// 10. 비밀번호 입력 페이지
+		@RequestMapping("/keypad.do")
+		public String keypadOpen() {
+			System.out.println("다이얼 실행");
+			return "keypad";
+		}
 
 	@RequestMapping("/interface.do")
 	public String f6() {
@@ -177,11 +216,7 @@ public class GoodsController {
 		return "manual";
 	}
 
-	@RequestMapping("/keypad.do")
-	public String keypadOpen() {
-		System.out.println("다이얼 실행");
-		return "keypad";
-	}
+	
 
 	@RequestMapping("/text.do")
 	public String f9() {
@@ -223,11 +258,6 @@ public class GoodsController {
 		return "text";
 	}
 	
-	@RequestMapping("/getgoods.do")
-	public String getgoods() {
-		
-		return "getgoods";
-	}
 
 	
 }

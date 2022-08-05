@@ -23,5 +23,8 @@ public interface UserMapper {
 	
 	// 4. 상품 회수 페이지
 	public List<GoodsGetVO> userSellList(String user_id);
+	
+	// 5. 상품 삭제하기
+	public int deleteGoods(int g_Seq);
 
 }

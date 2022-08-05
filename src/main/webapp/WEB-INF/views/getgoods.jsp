@@ -121,11 +121,15 @@
 						</thead>
 						<tbody>
 						
+						<script>
+							let i = 0;
+						</script>
 						<c:forEach items="${vo }" var="vo">
-						
+						<form action="deleteGoods.do">
 							<tr>
+								<input type="hidden" name="g_seq" id="g_seq"+${i} value="${vo.g_seq }">
 								<td>
-								<li><input type="radio" name="payment" value=""></li>
+								<li><input type="radio" name="payment" value="${vo.g_seq }"></li>
 								</td>
 								<td>
 									<div class="media">
@@ -147,6 +151,8 @@
 									<h5>${vo.g_regdate}</h5>
 								</td>
 							</tr>
+							<script>i += 1</script>
+						</form>
 						</tbody>
 							</c:forEach>
 					</table>
@@ -157,7 +163,8 @@
 	<br/><br/><br/><br/><br/>
 	<p align="center">
 	<a class="button primary-btn" href="main.do">뒤로가기</a>
-		<a class="button primary-btn" href="keypad.do">박스열기</a>
+	<a class="button primary-btn" onclick = "goDelete(${g_seq})" href="getGoods.do">삭제</a>
+	
 	</p>
 	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
@@ -217,6 +224,13 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.js"></script>
 	<script src="js/script.js"></script>
-	<script src="js/shopmain.js"></script
+	<script src="js/shopmain.js"></script>
+	<script>
+		function goDelete(){
+			$("#")
+		}
+	
+	</script>
+	
 </body>
 </html>

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GoodsGetVO {
 
+	private int g_seq;
 	private String g_name;
 	private String g_img;
 	private int g_price;

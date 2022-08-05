@@ -38,4 +38,10 @@ public class UserService {
 		return mapper.userSellList(user_id);
 	}
 	
+	// 5. 상품삭제
+	public int deleteGoods(int g_seq) {
+		return mapper.deleteGoods(g_seq);
+	}
+	
+	
 }
