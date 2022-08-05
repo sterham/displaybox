@@ -110,6 +110,7 @@
 							</tr>
 						</thead>
 						<tbody>
+						
 						<c:forEach items="${vo }" var="vo">
 						
 							<tr>

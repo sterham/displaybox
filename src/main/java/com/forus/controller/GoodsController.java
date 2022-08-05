@@ -2,12 +2,9 @@ package com.forus.controller;
 
 
 
-import java.io.PrintWriter;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.forus.domain.DisplayLoginVO;
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
 import com.forus.domain.GoodsOrderListVO;
@@ -33,7 +28,7 @@ import com.forus.service.UserService;
 @Controller
 public class GoodsController {
 	public static String doorbtn ="";
-
+	
 	@Autowired
 	private GoodsService goodsService;
 	@Autowired
@@ -47,21 +42,22 @@ public class GoodsController {
 	}
 	
 	// 1. main 상품리스트
-	@RequestMapping("/index.do")
-	public String mainGoodsList(Model model) {
+	@RequestMapping("/main.do")
+	public String mainGoodsList(Model model, HttpServletRequest request, HttpSession session) {
+		String user_addr = request.getParameter("user_addr");
+		 System.out.println(user_addr);
+		 String user_id = request.getParameter("user_id");
+		 System.out.println(user_id);
+
 		List<GoodsVO> list = goodsService.findAllList();
 		model.addAttribute("list", list);
 		System.out.println(list);
+		session.setAttribute("user_id", user_id);
+	    System.out.println(session.getAttribute("user_id"));
+
 		return "index";
 	}
 	
-	@RequestMapping("/main.do")
-	public String mainGoodsList1(Model model) {
-		List<GoodsVO> list = goodsService.findAllList();
-		model.addAttribute("list", list);
-		System.out.println(list);
-		return "main";
-	}
 	// 2. 제품 상세 페이지
 	@RequestMapping("/detail.do")
 	public String detailGoodsList(int g_seq, Model model) {
@@ -72,33 +68,6 @@ public class GoodsController {
 		return "detail";
 	}
 	
-	// 2-1. displayLogin form 페이지 이동
-	@RequestMapping("/viewDisplayLogin.do")
-	public String displaylogin() {
-		return "displaylogin";
-	}
-	
-	// 2-2. displayLogin 기능 수행
-	@RequestMapping("/displayLogin.do")
-	   public ModelAndView displayLogin(DisplayLoginVO vo, ModelMap model) throws Exception {
-	      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-	      System.out.println("디스플레이 로그인 페이지 진입");
-	      System.out.println(vo.getUser_id());
-	      DisplayLoginVO result = userService.displayLoginUser(vo);
-	      System.out.println("디스플레이 로그인 확인" + result);
-	      
-	      // 암호키를 복호화 함 
-	      encoder.matches(vo.getUser_pw(), result.getUser_pw());
-	      if(encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
-	         model.addAttribute("user_addr", result.getUser_addr());
-	         model.addAttribute("user_id",result.getUser_id() );
-	         System.out.println("My model: " + model.getAttribute("user_addr"));
-	         return new ModelAndView("redirect:/main.do", model);
-	      }else {
-	         return new ModelAndView("displaylogin");
-	      }
-	   
-	   }
 
 	// 3. 제품 구매 페이지
 	@RequestMapping("/buy.do")
@@ -134,28 +103,32 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("/viewLogin.do")
-	public String login() {
-		return "login";
+	public String viewLogin() {
+		System.out.println("viewlogin.do 진입");
+		return "viewLogin";
 	}
 	// 6. login 페이지
-	@RequestMapping("/login.do")
-	   public ModelAndView userLogin(UserVO vo, ModelMap model) throws Exception {
+	@PostMapping("/login.do")
+	   public ModelAndView login(UserVO vo, ModelMap model) throws Exception {
 	      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	      System.out.println("로그인 페이지 진입");
 	      System.out.println(vo.getUser_id());
-	      UserVO result = userService.loginUser(vo);
-	      System.out.println("로그인 확인" + result);
-	      
-	      // 암호키를 복호화 함 
-	      encoder.matches(vo.getUser_pw(), result.getUser_pw());
-	      if(encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
-	         model.addAttribute("user_addr", result.getUser_addr());
-	         model.addAttribute("user_id", result.getUser_id() );
-	         System.out.println("My model: " + model.getAttribute("user_addr"));
-	         return new ModelAndView("redirect:/orderlist.do", model);
-	      }else {
-	         return new ModelAndView("login");
-	      }
+	      if(userService.loginUser(vo) != null) {
+	    	  UserVO result = userService.loginUser(vo);
+	    	  System.out.println("로그인 확인" + result);
+	    	  
+	    	  // 암호키를 복호화 함 
+	    	  encoder.matches(vo.getUser_pw(), result.getUser_pw());
+	    	  if(encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
+	    		  model.addAttribute("user_addr", result.getUser_addr());
+	    		  model.addAttribute("user_id", result.getUser_id() );
+	    		  System.out.println("My model: " + model.getAttribute("user_addr"));
+	    		  return new ModelAndView("redirect:/main.do", model);
+	    	  }else {
+	    		  return new ModelAndView("redirect:/viewLogin.do");
+	    	  }
+	      }return new ModelAndView("redirect:/viewLogin.do");
+
 	   
 	   }
 
@@ -167,7 +140,6 @@ public class GoodsController {
 		model.addAttribute("vo", vo);
 		return "orderlist";
 	}
-
 
 
 
@@ -228,6 +200,7 @@ public class GoodsController {
 			
 		return "text";
 	}
+
 	
 }
 

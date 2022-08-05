@@ -19,5 +19,8 @@ public interface UserMapper {
 	
 	// 3. 디스플레이 구매자 로그인
 	public DisplayLoginVO displayLogin(DisplayLoginVO vo);
+	
+	// 4. 포인트 사용 시 사용 포인트 차감
+
 
 }

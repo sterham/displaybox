@@ -136,7 +136,7 @@ body{
   <div class = "spacebr2 container">
 </div>
 <div class = "cintainer">
-  <h1><a class="col1" href="index.do">사용시작</a></h1>
+  <h1><a class="col1" href="main.do">사용시작</a></h1>
   </div>
 </div>
 

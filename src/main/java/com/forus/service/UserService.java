@@ -32,4 +32,6 @@ public class UserService {
 		return mapper.displayLogin(vo);
 	}
 	
+	// 4. 포인트 차감
+	
 }
