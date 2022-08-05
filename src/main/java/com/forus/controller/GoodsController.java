@@ -107,7 +107,7 @@ public class GoodsController {
 		System.out.println("viewlogin.do 진입");
 		return "viewLogin";
 	}
-	// 6. login 페이지
+	// 6-1. login 페이지
 	@PostMapping("/login.do")
 	   public ModelAndView login(UserVO vo, ModelMap model) throws Exception {
 	      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -129,9 +129,15 @@ public class GoodsController {
 	    	  }
 	      }return new ModelAndView("redirect:/viewLogin.do");
 
-	   
 	   }
 
+	// 6-2. 로그아웃
+	@RequestMapping("/logoutService.do")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/main.do";
+	}
+	
 	// 7. 주문한 내역 불러오는 페이지
 	@RequestMapping("/orderlist.do")
 	public String userOrderList(String user_id, Model model) {
