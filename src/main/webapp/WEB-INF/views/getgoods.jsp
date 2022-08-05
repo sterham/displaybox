@@ -112,11 +112,12 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"><b></b></th>
 								<th scope="col"><b>제품</b></th>
 								<th scope="col"><b>비밀번호</b></th>
 								<th scope="col"><b>가격</b></th>
 								<th scope="col"><b>구매날짜</b></th>
+								<th scope="col"><b>삭제</b></th>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -124,9 +125,6 @@
 						<c:forEach items="${vo }" var="vo">
 						
 							<tr>
-								<td>
-								<input type="radio" name="payment" value="">
-								</td>
 								<td>
 									<div class="media">
 										<div class="d-flex">
@@ -145,6 +143,9 @@
 								</td>
 								<td>
 									<h5>${vo.g_regdate}</h5>
+								</td>
+								<td>
+									<button class="btn btn-info btn-sm" onclick="">삭제</button>
 								</td>
 							</tr>
 						</tbody>
@@ -217,6 +218,6 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.js"></script>
 	<script src="js/script.js"></script>
-	<script src="js/shopmain.js"></script
+	<script src="js/shopmain.js"></script>
 </body>
 </html>
