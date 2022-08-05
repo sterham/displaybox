@@ -130,9 +130,6 @@
 							<tr>
 								<input type="hidden" name="g_seq" id="g_seq"+${i} value="${vo.g_seq }">
 								<td>
-								<li><input type="radio" name="payment" value="${vo.g_seq }"></li>
-								</td>
-								<td>
 									<div class="media">
 										<div class="d-flex">
 											<img src=${vo.g_img} width="250px" height="250px">
