@@ -70,10 +70,7 @@
 <body>
 
 	<%
-	UserVO result = new UserVO();
-	if(session.getAttribute("user_id")!=null){
-		result = (UserVO)session.getAttribute("user_id");
-	}
+		String result = (String)session.getAttribute("user_id");
 	%>
 	<!----------------------------- 로딩중 ------------------------>
 	<div id="preloader">
