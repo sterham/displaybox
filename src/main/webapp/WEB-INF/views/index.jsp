@@ -89,7 +89,7 @@
 			<strong><li><a href="logoutService.do">로그아웃</a></li></strong>
 			<strong><li><a href="manual.do">이용방법</a></li></strong>
 			<strong><li><a href=orderlist.do>주문내역</a></li></strong>
-			<strong><li><a href="getgoods.do">상품회수</a></li></strong>
+			<strong><li><a href="getGoods.do">상품회수</a></li></strong>
 			<%} %>
 		</ul>
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>

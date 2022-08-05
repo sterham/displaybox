@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
+import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.GoodsVO;
 import com.forus.domain.UserVO;
@@ -157,7 +158,9 @@ public class GoodsController {
 			String user_id = (String)session.getAttribute("user_id");
 			System.out.println("상품 회수 페이지 세션 : " + user_id);
 			// 모델에 vo담아주고
-			
+			List<GoodsGetVO> vo = userService.userSellList(user_id);
+			model.addAttribute("vo", vo);
+			session.setAttribute("user_id", user_id);
 			return "getgoods";
 		}
 

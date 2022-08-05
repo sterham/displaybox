@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.forus.domain.DisplayLoginVO;
+import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.GoodsVO;
 import com.forus.domain.UserVO;
@@ -33,7 +34,8 @@ public class UserService {
 	}
 	
 	// 4. 판매 내역(상품 상세페이지)
-	public List<GoodsOrderListVO> userSellList(String user_id){
-		return mapper.userOrderList(user_id);
+	public List<GoodsGetVO> userSellList(String user_id){
+		return mapper.userSellList(user_id);
 	}
+	
 }

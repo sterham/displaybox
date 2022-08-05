@@ -16,7 +16,6 @@
 		from goods_tb g, g_location_tb l, user_tb u
 		where g.loc_seq = l.loc_seq
 		and g.consumer_id = u.user_id
-		and g_seller_id = u.user_id
         and u.user_id = #{user_id}
 	</select>
 	
@@ -28,13 +27,12 @@
 	</select>
 	
 	<!-- 상품 회수 페이지 리스트 불러오기 -->
-	<select id="userSellList" resultType="com.forus.domain.GoodsOrderListVO">
-		select *
+	<select id="userSellList" resultType="com.forus.domain.GoodsGetVO">
+		select g.g_name, g.g_img, g.g_price, g.seller_id, g.g_regdate, l.v_machine_pw, l.v_machine_space_no, u.user_id
 		from goods_tb g, g_location_tb l, user_tb u
 		where g.loc_seq = l.loc_seq
-		and g.consumer_id = u.user_id
-		and g_seller_id = u.user_id
-		and g.seller_id = #{user_id}
+		and seller_id = u.user_id
+		and u.user_id = #{user_id}
 		
 	</select>
 	
