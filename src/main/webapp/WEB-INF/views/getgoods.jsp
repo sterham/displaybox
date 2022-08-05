@@ -98,7 +98,7 @@
 	<!---------------------------- 배너 시작 --------------------->
 	<div class="container h-100">
 		<div class="text-center">
-			<h1>주문 내역</h1>
+			<h1>상품 회수</h1>
 		</div>
 	</div>
 	</div>
@@ -112,11 +112,12 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"><b></b></th>
 								<th scope="col"><b>제품</b></th>
 								<th scope="col"><b>비밀번호</b></th>
 								<th scope="col"><b>가격</b></th>
 								<th scope="col"><b>구매날짜</b></th>
+								<th scope="col"><b>삭제</b></th>
+								
 							</tr>
 						</thead>
 						<tbody>
@@ -150,6 +151,9 @@
 								<td>
 									<h5>${vo.g_regdate}</h5>
 								</td>
+								<td>
+									<button class="btn btn-info btn-sm" onclick="goDelete(${g_seq})">삭제</button>
+								</td>
 							</tr>
 							<script>i += 1</script>
 						</form>
@@ -163,7 +167,6 @@
 	<br/><br/><br/><br/><br/>
 	<p align="center">
 	<a class="button primary-btn" href="main.do">뒤로가기</a>
-	<a class="button primary-btn" onclick = "goDelete(${g_seq})" href="getGoods.do">삭제</a>
 	
 	</p>
 	<!-- ------------------------- footer 시작 ------------------>

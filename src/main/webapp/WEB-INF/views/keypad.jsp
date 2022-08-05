@@ -179,6 +179,11 @@ div {
 	-->
 
 		<script>
+			var link = 'main.do';
+			
+			
+		
+		
 			function PwCheck(pw) {
 				const _this = this;
 				_this.pwStr = pw.toString(); // 문자, 숫자열을 모두 허용하기 위해 무조건 한가지 타입으로 맞춤
@@ -250,6 +255,8 @@ div {
 						_this.parent.classList.add('confirm');
 						_this.message.textContent = _this.msg[1];
 						_this.compChk = true;
+						alert("성공");
+						location.href=link;
 					} else {
 						_this.parent.classList.add('error');
 						_this.message.textContent = _this.msg[0];
@@ -257,7 +264,6 @@ div {
 						_this.passwordNumber = [];
 						_this.cnt = 0;
 						_this.compChk = true; // 일시적인 클릭 방지 
-
 						setTimeout(function() {
 							_this.compChk = false;
 							_this.parent.classList.remove('error');
@@ -272,7 +278,8 @@ div {
 				}();
 			}
 
-			let pwCheck = new PwCheck(1234);
+			var mypw = 5678;
+			let pwCheck = new PwCheck(mypw);
 		</script>
 </body>
 </html>
