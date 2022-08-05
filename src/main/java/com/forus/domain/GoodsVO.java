@@ -21,5 +21,6 @@ public class GoodsVO {
 	private String g_regdate;
 	private String seller_id;
 	private String consumer_id;
+	private String user_id;
 
 }

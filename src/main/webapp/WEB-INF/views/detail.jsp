@@ -68,19 +68,24 @@
 <body>
 
 	<!---------------------------- nav bar 시작 ------------------>
+	<%String result = (String)session.getAttribute("user_id");%>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
-
 		<ul class="navbar__menu">
-			<strong><li><a href="viewDisplayLogin.do">로그인</a></li></strong>
-			<strong><li><a href="buy.do">장바구니</a></li></strong>
-			<strong><li><a href="detail.do">사용설명서</a></li></strong>
-			<strong><li><a href="">마이페이지</a></li></strong>
+			<% if(result == null){ %>
+			<strong><li><a href="viewLogin.do">로그인</a></li></strong>
+			<% } else { %>
+			<strong><li><a href="logoutService.do">로그아웃</a></li></strong>
+			<% } %>
+			<strong><li><a href="manual.do">이용방법</a></li></strong>
+			<% if(result == null){ %>
+			<strong><li><a href=viewLogin.do>주문내역</a></li></strong>
+			<% } else { %>
+			<strong><li><a href=orderlist.do>주문내역</a></li></strong>
+			<%} %>
 		</ul>
-
-
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
@@ -127,7 +132,7 @@
 								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 								class="reduced items-count" type="button">
 							</button>
-							<a class="button primary-btn" href="main.do"style="margin-left: 150px;margin-right: 10px;margin-top: 30px;">뒤로 가기</a>
+							<a class="button primary-btn" href="main.do?g_seq=${vo.g_seq }"style="margin-left: 150px;margin-right: 10px;margin-top: 30px;">뒤로 가기</a>
 							<a class="button primary-btn" href="buy.do?g_seq=${vo.g_seq }">구매 하기</a>
 						</div>
 					</div>
