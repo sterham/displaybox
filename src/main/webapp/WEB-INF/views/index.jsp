@@ -79,7 +79,7 @@
 	<%String result = (String)session.getAttribute("user_id");%>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;"><img src="images/foruslogo.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<% if(result == null){ %>
@@ -105,7 +105,7 @@
 		<div class="container">
 			<div class="section-intro pb-60px">
 				<h4>
-					<b>Earth Box(송암아파트)</b>
+					<b>Earth Box(목련마을 5단지)</b>
 				</h4>
 				<h3>
 					제품 <span class="section-intro__style">목록</span>
@@ -125,13 +125,13 @@
 									<% if(result == null){ %>
 									<li><button type="button" onclick="location.href= 'viewLogin.do'"><i class="ti-search"></i></button></li>
 									<% } else { %>
-									<li><button type="button" onclick="location.href= 'detail.do?g_seq=${goodsVo.g_seq}'"><i class="ti-search"></i></button></li>
+									<li><button type="button" onclick="location.href= 'detail.do?g_seq=${goodsVo.g_seq}&user_id=${result }'"><i class="ti-search"></i></button></li>
 									<% } %>
 								<!-- 장바구니 -->	
 									<% if(result == null){ %>
 									<li><button type="button" onclick="location.href= 'viewLogin.do'"><i class="ti-search"></i></button></li>
 									<% } else { %>
-									<li><button type="button" onclick="location.href= 'detail.do?g_seq=${goodsVo.g_seq}'"><i class="ti-search"></i></button></li>
+									<li><button type="button" onclick="location.href= 'detail.do?g_seq=${goodsVo.g_seq}&user_id=${result }'"><i class="ti-search"></i></button></li>
 									<% } %>
 								<!-- 관심 상품 -->	
 									<li><button><i class="ti-heart"></i></button></li>

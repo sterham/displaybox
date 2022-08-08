@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,7 +67,9 @@
 </head>
 
 <body>
-	<%String result = (String)session.getAttribute("user_id");%>
+	<%
+	String result = (String) session.getAttribute("user_id");
+	%>
 	<!----------------------------- 로딩중 ------------------------>
 	<div id="preloader">
 		<div id="status">&nbsp;</div>
@@ -77,7 +79,10 @@
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }"
+				style="margin-right: 200px; font-weight: 600;"><img
+				src="images/foruslogo.png" width="75px" height="70px">EARTH
+				BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<strong><li>
@@ -87,14 +92,20 @@
 			<a href="logoutService.do">로그아웃</a>
 			<% } %>
 			</li></strong>
-			<strong><li><a href="manual.do">이용방법</a></li></strong>
-			<strong><li><a href=orderlist.do>주문내역</a></li></strong>
+			<strong><li><a href="keypad.do">박스열기</a></li></strong>
+			<strong><li>
+			<% if(result == null){ %>
+			<a href=viewLogin.do>주문내역</a>
+			<% } else { %>
+			<a href=orderlist.do>주문내역</a>
+			<%} %>
+			</li></strong>
 		</ul>
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
 		</a>
 	</nav>
 	<!---------------------------- nav bar 끝 ------------------>
-	
+
 	<!---------------------------- 배너 시작 --------------------->
 	<div class="container h-100">
 		<div class="text-center">
@@ -103,7 +114,7 @@
 	</div>
 	</div>
 	<!---------------------------- 배너 끝 --------------------->
-	
+
 	<!---------------------------- 장바구니 시작 --------------------->
 	<section class="cart_area">
 		<div class="container">
@@ -112,7 +123,6 @@
 					<table class="table">
 						<thead>
 							<tr>
-								<th scope="col"></th>
 								<th scope="col"><b>제품</b></th>
 								<th scope="col"><b>비밀번호</b></th>
 								<th scope="col"><b>가격</b></th>
@@ -120,43 +130,36 @@
 							</tr>
 						</thead>
 						<tbody>
-						
-						<c:forEach items="${vo }" var="vo">
-							
-							<tr>	
-								<td>
-								<input type="radio" name="payment" value="">
-								</td>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src=${vo.g_img} width="250px" height="250px">
-										</div>
-										<div class="media-body">
-											<p>${vo.g_name}</p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>${vo.v_machine_pw}</h5>
-								</td>
-								<td>
-									<h5>${vo.g_price}</h5>
-								</td>
-								<td>
-									<h5>${vo.g_regdate}</h5>
-								</td>
-							</tr>
+
+							<c:forEach items="${vo }" var="vo">
+
+								<tr>
+									<td><img src=${vo.g_img } width="250px" height="250px">
+										<h5>${vo.g_name}</h5></td>
+									<td>
+										<h5>${vo.v_machine_pw}</h5>
+									</td>
+									<td>
+										<h5>${vo.g_price}</h5>
+									</td>
+									<td>
+										<h5>${vo.g_regdate}</h5>
+									</td>
+								</tr>
 						</tbody>
-							</c:forEach>
+						</c:forEach>
 					</table>
 				</div>
 			</div>
 		</div>
 	</section>
-	<br/><br/><br/><br/><br/>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 	<p align="center">
-	<a class="button primary-btn" href="main.do">뒤로가기</a>
+		<a class="button primary-btn" href="main.do?user_id=${result }">뒤로가기</a>
 		<a class="button primary-btn" href="keypad.do">박스열기</a>
 	</p>
 	<!-- ------------------------- footer 시작 ------------------>
@@ -166,7 +169,8 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
+							<img src="images/foruslogo.png" width="90px" height="90px">EARTH
+							BOX
 						</div>
 					</div>
 				</div>

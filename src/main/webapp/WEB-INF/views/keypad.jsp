@@ -179,7 +179,7 @@ div {
 	-->
 
 		<script>
-			var link = 'main.do';
+			var link = "main.do?user_id=${result }";
 			
 			
 		

@@ -69,7 +69,7 @@
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 
 		<ul class="navbar__menu">

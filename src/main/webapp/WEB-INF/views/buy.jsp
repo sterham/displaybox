@@ -71,7 +71,7 @@
 	<%String result = (String)session.getAttribute("user_id");%>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;"><img src="images/foruslogo.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<strong><li>
@@ -263,7 +263,7 @@
 			type : "post",
 			data : {"g_seq" : g_seq},
 			success : function(data){
-				 location.href="/buycom.do?g_seq=${vo.g_seq }"
+				 location.href="/buycom.do?g_seq=${vo.g_seq }&user_id=${result }"
 						console.log("성공")
 			},
 			error : function(){alert('error')} 
