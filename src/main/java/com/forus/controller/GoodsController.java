@@ -203,6 +203,24 @@ public class GoodsController {
 			System.out.println("다이얼 실행");
 			return "keypad";
 		}
+		
+		
+	// 11. 상품 등록 페이지
+		@RequestMapping("/inputGoods.do")
+		public String inputGoodsList(Model model, HttpServletRequest request, HttpSession session) {
+			System.out.println("상품 등록 페이지 실행");
+			
+			// 세션 아이디 받아오기
+			String user_id = (String)session.getAttribute("user_id");
+			System.out.println("상품 등록 페이지 세션 : " + user_id);
+			// 모델에 vo담아주고
+			List<GoodsGetVO> vo = userService.inputGoodsList(user_id);
+			model.addAttribute("vo", vo);
+			
+			session.setAttribute("user_id", user_id);
+			
+			return "goodsinput";
+		}
 
 	@RequestMapping("/interface.do")
 	public String f6() {

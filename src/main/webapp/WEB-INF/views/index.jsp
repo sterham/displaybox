@@ -90,7 +90,7 @@
 			<% } else { %>
 			<strong><li><a href="logoutService.do">로그아웃</a></li></strong>
 			<strong><li><a href="orderlist.do">주문내역</a></li></strong>
-			<strong><li><a href=goodsinput.do>상품등록</a></li></strong>
+			<strong><li><a href=inputGoods.do>상품등록</a></li></strong>
 			<strong><li><a href="getGoods.do">상품회수</a></li></strong>
 			<%} %>
 			

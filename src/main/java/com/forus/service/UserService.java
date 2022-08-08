@@ -43,5 +43,10 @@ public class UserService {
 		return mapper.deleteGoods(g_seq);
 	}
 	
+	// 6. 상품 등록 페이지
+	public List<GoodsGetVO> inputGoodsList(String user_id){
+		return mapper.inputGoodsList(user_id);
+	}
+	
 	
 }
