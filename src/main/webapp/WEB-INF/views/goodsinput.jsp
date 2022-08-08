@@ -77,7 +77,7 @@
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;"><img src="images/foruslogo.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<strong><li>
@@ -98,7 +98,7 @@
 	<!---------------------------- 배너 시작 --------------------->
 	<div class="container h-100">
 		<div class="text-center">
-			<h1>주문 내역</h1>
+			<h1>상품 등록</h1>
 		</div>
 	</div>
 	</div>
@@ -153,7 +153,7 @@
 	</section>
 	<br/><br/><br/><br/><br/>
 	<p align="center">
-	<a class="button primary-btn" href="main.do">뒤로가기</a>
+	<a class="button primary-btn" href="main.do?user_id=${result }">뒤로가기</a>
 		<a class="button primary-btn" href="keypad.do">박스열기</a>
 	</p>
 	<!-- ------------------------- footer 시작 ------------------>

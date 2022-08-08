@@ -71,7 +71,7 @@
 	<%String result = (String)session.getAttribute("user_id");%>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do" style="margin-right: 200px;"><img src="images/foruslogo2.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;"><img src="images/foruslogo.png" width="75px" height="70px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<% if(result == null){ %>
@@ -132,8 +132,8 @@
 								onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 								class="reduced items-count" type="button">
 							</button>
-							<a class="button primary-btn" href="main.do?g_seq=${vo.g_seq }"style="margin-left: 150px;margin-right: 10px;margin-top: 30px;">뒤로 가기</a>
-							<a class="button primary-btn" href="buy.do?g_seq=${vo.g_seq }">구매 하기</a>
+							<a class="button primary-btn" href="main.do?g_seq=${vo.g_seq }&user_id=${result }"style="margin-left: 150px;margin-right: 10px;margin-top: 30px;">뒤로 가기</a>
+							<a class="button primary-btn" href="buy.do?g_seq=${vo.g_seq }&user_id=${result }">구매 하기</a>
 						</div>
 					</div>
 				</div>
