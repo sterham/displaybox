@@ -217,7 +217,7 @@
 	<script src="js/shopmain.js"></script>
 	<script>
 	console.log(${vo.g_seq});
-	/*function inputGoods(g_seq){
+	function inputGoods(g_seq){
 		// 어플에서 등록한 '대기'상태의 상품을 실제로 자판기에서 팔 수 있도록 '판매'상태 만들어주기
 		$.ajax({
 			url : "inputGoodsAdd.do",
@@ -229,7 +229,7 @@
 			error : function(){alert('error')}
 		});
 		
-	}*/
+	}
 	
 	</script>
 </body>
