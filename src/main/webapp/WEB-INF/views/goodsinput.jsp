@@ -113,35 +113,30 @@
 						<thead>
 							<tr>
 								<th scope="col"><b>제품</b></th>
-								<th scope="col"><b>비밀번호</b></th>
+								<th scope="col"><b>박스번호</b></th>
 								<th scope="col"><b>가격</b></th>
 								<th scope="col"><b>구매날짜</b></th>
-								<th scope="col"><b>삭제</b></th>
+								<th scope="col"><b>등록</b></th>
 							</tr>
 						</thead>
 						<tbody>
 						
 						<c:forEach items="${vo }" var="vo">
 							
+								<tr>
+								<td><img src=${vo.g_img } width="250px" height="250px">
+										<h5>${vo.g_name}</h5></td>
 								<td>
-								<td>
-									<div class="media">
-										<div class="d-flex">
-											<img src=${vo.g_img} width="250px" height="250px">
-										</div>
-										<div class="media-body">
-											<p>${vo.g_name}</p>
-										</div>
-									</div>
-								</td>
-								<td>
-									<h5>${vo.v_machine_pw}</h5>
+									<h5>${vo.v_machine_space_no}</h5>
 								</td>
 								<td>
 									<h5>${vo.g_price}</h5>
 								</td>
 								<td>
 									<h5>${vo.g_regdate}</h5>
+								</td>
+								<td>
+									<button class="btn btn-info btn-sm" onclick="">등록</button>
 								</td>
 							</tr>
 						</tbody>

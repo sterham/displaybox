@@ -86,19 +86,13 @@
 		</div>
 		<ul class="navbar__menu">
 			<strong><li>
-			<% if(result == null){ %>
-			<a href="viewLogin.do">로그인</a>
-			<% } else { %>
-			<a href="logoutService.do">로그아웃</a>
-			<% } %>
+					<% if(result == null){ %> <a href="viewLogin.do">로그인</a> <% } else { %>
+					<a href="logoutService.do">로그아웃</a> <% } %>
 			</li></strong>
 			<strong><li><a href="keypad.do">박스열기</a></li></strong>
 			<strong><li>
-			<% if(result == null){ %>
-			<a href=viewLogin.do>주문내역</a>
-			<% } else { %>
-			<a href=orderlist.do>주문내역</a>
-			<%} %>
+					<% if(result == null){ %> <a href=viewLogin.do>주문내역</a> <% } else { %>
+					<a href=orderlist.do>주문내역</a> <%} %>
 			</li></strong>
 		</ul>
 		<a href="#" class="navbar__toogleBtn"> <i class="fas fa-bars"></i>
@@ -127,6 +121,7 @@
 								<th scope="col"><b>비밀번호</b></th>
 								<th scope="col"><b>가격</b></th>
 								<th scope="col"><b>구매날짜</b></th>
+								<th scope="col"><b>꺼내기</b></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -144,6 +139,10 @@
 									</td>
 									<td>
 										<h5>${vo.g_regdate}</h5>
+									</td>
+									<td>
+										<button class="btn btn-info btn-sm"
+											onclick="">꺼내기</button>
 									</td>
 								</tr>
 						</tbody>

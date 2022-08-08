@@ -79,7 +79,8 @@
 	<%String result = (String)session.getAttribute("user_id");%>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;"><img src="images/foruslogo.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;">
+			<img src="images/foruslogo3.png" width="60px" height="60px" style="margin-right: 5px;">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<% if(result == null){ %>
@@ -142,7 +143,7 @@
 								<p>No.${goodsVo.gc_seq}</p>
 								<h4 class="card-product__title">
 																	<!-- 상품 이름 출력 -->
-									<a href="single-product.html"><b>${goodsVo.g_name}</b></a>
+									<a href="detail.do?g_seq=${goodsVo.g_seq}&user_id=${result }"><b>${goodsVo.g_name}</b></a>
 								</h4>
 																<!-- 상품 가격 출력 -->
 								<p class="card-product__price">￦ ${goodsVo.g_price}</p>
@@ -169,7 +170,7 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
+							<img src="images/foruslogo3.png" width="60px" height="60px" style="margin-right: 5px;">EARTH BOX
 						</div>
 					</div>
 				</div>
