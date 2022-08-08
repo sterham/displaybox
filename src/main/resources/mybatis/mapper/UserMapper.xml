@@ -17,13 +17,7 @@
 		where g.loc_seq = l.loc_seq
 		and g.consumer_id = u.user_id
         and u.user_id = #{user_id}
-	</select>
-	
-	<!-- 디스플레이 구매자 로그인 -->
-	<select id="displayLogin" parameterType="com.forus.domain.DisplayLoginVO" resultType="com.forus.domain.DisplayLoginVO">
-		select *
-		from user_tb
-		where user_id = #{user_id}
+        and g.g_status='구매'
 	</select>
 	
 	<!-- 상품 회수 페이지 리스트 불러오기 -->
@@ -48,9 +42,16 @@
 		from goods_tb g, g_location_tb l, user_tb u
 		where g.loc_seq = l.loc_seq
 		and g.seller_id = u.user_id
-		and g.seller_id = 'snow'
+		and g.seller_id = #{seller_id}
 		and g.g_status = '대기'
 	</select>
+	
+	<!-- 실제 상품 등록하기 -->
+	<update id="addGoods" parameterType="com.forus.domain.GoodsVO">
+		update goods_tb
+		set g_status='판매'
+		where g_seq = #{g_seq}	
+	</update>
 	
 </mapper>
 

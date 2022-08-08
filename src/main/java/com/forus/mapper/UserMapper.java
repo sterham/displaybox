@@ -29,5 +29,8 @@ public interface UserMapper {
 	
 	// 6. 상품 등록 페이지
 	public List<GoodsGetVO> inputGoodsList(String user_id);
+	
+	// 7. 실제로 상품 등록하기
+	public int addGoods(int g_seq);
 
 }

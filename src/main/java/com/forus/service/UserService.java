@@ -48,5 +48,10 @@ public class UserService {
 		return mapper.inputGoodsList(user_id);
 	}
 	
+	// 7. 실제 상품 등록
+	public int addGoods(int g_seq) {
+		return mapper.addGoods(g_seq);
+	}
+	
 	
 }

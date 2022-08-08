@@ -210,16 +210,24 @@ public class GoodsController {
 		public String inputGoodsList(Model model, HttpServletRequest request, HttpSession session) {
 			System.out.println("상품 등록 페이지 실행");
 			
-			// 세션 아이디 받아오기
 			String user_id = (String)session.getAttribute("user_id");
 			System.out.println("상품 등록 페이지 세션 : " + user_id);
-			// 모델에 vo담아주고
 			List<GoodsGetVO> vo = userService.inputGoodsList(user_id);
 			model.addAttribute("vo", vo);
 			
 			session.setAttribute("user_id", user_id);
 			
 			return "goodsinput";
+		}
+		
+	// 12. 실제로 상품 등록하기
+		@RequestMapping("/inputGoodsAdd.do")
+		public @ResponseBody GoodsVO inputGoodsAdd(int g_seq) {
+			
+			System.out.println("상품 등록 g_seq : " + g_seq);
+			userService.addGoods(g_seq);
+			GoodsVO vo = goodsService.detailGoods(g_seq);
+			return vo;
 		}
 
 	@RequestMapping("/interface.do")
