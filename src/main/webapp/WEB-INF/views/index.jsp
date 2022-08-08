@@ -79,7 +79,7 @@
 	<%String result = (String)session.getAttribute("user_id");%>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;"><img src="images/foruslogo.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;"><img src="images/foruslogo3.png" width="60px" height="60px">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<% if(result == null){ %>

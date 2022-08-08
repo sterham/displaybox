@@ -116,7 +116,7 @@
 								<th scope="col"><b>비밀번호</b></th>
 								<th scope="col"><b>가격</b></th>
 								<th scope="col"><b>구매날짜</b></th>
-								<th scope="col"><b>삭제</b></th>
+								<th scope="col"><b>등록</b></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -142,6 +142,9 @@
 								</td>
 								<td>
 									<h5>${vo.g_regdate}</h5>
+								</td>
+								<td>
+									<button class="btn btn-info btn-sm" onclick="">등록</button>
 								</td>
 							</tr>
 						</tbody>
