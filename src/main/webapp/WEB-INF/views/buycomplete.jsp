@@ -179,7 +179,7 @@
 	</div>
 	<br /><br />
 	<p align="center">
-		<a class="button primary-btn" href="keypad.do">박스열기</a> <a
+		<a class="button primary-btn" href="keypad.do?g_seq=${vo.g_seq }">박스열기</a> <a
 	</p>
 
 	<!-------------------- 주문 완료 끝 -------------------------------->

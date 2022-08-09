@@ -5,10 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.forus.domain.DisplayLoginVO;
 import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
-import com.forus.domain.GoodsVO;
 import com.forus.domain.UserVO;
 import com.forus.mapper.UserMapper;
 

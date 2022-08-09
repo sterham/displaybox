@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
+import com.forus.domain.GoodsPwVO;
 import com.forus.domain.GoodsVO;
 import com.forus.mapper.GoodsMapper;
 
@@ -38,5 +39,10 @@ public class GoodsService {
 	// 5. buycomplete.do
 	public GoodsBuyCompleteVO buyComplete(int g_seq){
 		return mapper.goodsComplete(g_seq);
+	}
+		
+	// 6. keypad.do
+	public GoodsPwVO goodsPassword(int g_seq) {
+		return mapper.goodsPassword(g_seq);
 	}
 }

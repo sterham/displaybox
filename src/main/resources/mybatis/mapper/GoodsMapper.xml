@@ -45,6 +45,14 @@
         and g_seq = #{g_seq}
 	</select>
 	
+	<!-- 6. 상품 비밀번호 추출하기 -->
+	<select id="goodsPassword" resultType="com.forus.domain.GoodsPwVO">
+		select g.g_seq, l.v_machine_pw
+		from goods_tb g, g_location_tb l
+		where g.loc_seq = l.loc_seq
+		and g.g_seq = #{g_seq}
+	</select>
+	
 
 
 </mapper>

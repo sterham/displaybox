@@ -21,6 +21,7 @@ import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
 import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
+import com.forus.domain.GoodsPwVO;
 import com.forus.domain.GoodsVO;
 import com.forus.domain.UserVO;
 import com.forus.service.GoodsService;
@@ -211,8 +212,11 @@ public class GoodsController {
 		
 	// 10. 비밀번호 입력 페이지
 		@RequestMapping("/keypad.do")
-		public String keypadOpen() {
+		public String keypadOpen(int g_seq, Model model) {
 			System.out.println("다이얼 실행");
+			
+			GoodsPwVO vo = goodsService.goodsPassword(g_seq);
+			model.addAttribute("vo", vo);
 			return "keypad";
 		}
 		

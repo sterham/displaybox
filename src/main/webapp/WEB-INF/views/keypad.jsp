@@ -278,7 +278,8 @@ div {
 				}();
 			}
 
-			var mypw = 5678;
+			var mypw = ${vo.v_machine_pw};
+			console.log('${vo.v_machine_pw}')
 			let pwCheck = new PwCheck(mypw);
 		</script>
 </body>

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
+import com.forus.domain.GoodsPwVO;
 import com.forus.domain.GoodsVO;
 
 @Mapper
@@ -25,6 +26,9 @@ public interface GoodsMapper {
 	
 	// 5. 상품 판매 완료
 	public GoodsBuyCompleteVO goodsComplete(int g_seq);
+	
+	// 6. 상품 비밀번호 추출
+	public GoodsPwVO goodsPassword(int g_seq);
 	
 
 }
