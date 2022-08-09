@@ -68,16 +68,12 @@
 
 <body>
 	<%String result = (String)session.getAttribute("user_id");%>
-	<!----------------------------- 로딩중 ------------------------>
-	<div id="preloader">
-		<div id="status">&nbsp;</div>
-	</div>
-	<!----------------------------- 로딩끝 ------------------------>
 
 	<!---------------------------- nav bar 시작 ------------------>
 	<nav class="navbar">
 		<div class="navbar__logo">
-			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;"><img src="images/foruslogo.png" width="75px" height="70px">EARTH BOX</a>
+			<a href="main.do?user_id=${result }" style="margin-right: 200px; font-weight:600;">
+			<img src="images/foruslogo3.png" width="60px" height="60px" style="margin-right: 5px;">EARTH BOX</a>
 		</div>
 		<ul class="navbar__menu">
 			<strong><li>
@@ -159,7 +155,7 @@
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<div class="footer_logo   wow fadeInUp animated">
-							<img src="images/foruslogo.png" width="90px" height="90px">EARTH BOX
+							<img src="images/foruslogo3.png" width="60px" height="60px" style="margin-right: 5px;">EARTH BOX
 						</div>
 					</div>
 				</div>
@@ -211,21 +207,23 @@
 	<script src="js/wow.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/shopmain.js"></script>
-	<script>
-	function inputGoods1(g_seq){
-		// 어플에서 등록한 '대기'상태의 상품을 실제로 자판기에서 팔 수 있도록 '판매'상태 만들어주기
-		$.ajax({
-			url : "inputGoodsAdd.do",
-			type : "post",
-			data : {"g_seq", g_seq},
-			success : function(data){
-				console.log(data)
-				//location.href="main.do?user_id=${result }"
-			},
-			error : function(){alert('error')}
-		});
+	<script type="text/javascript">
+	
+		var inputGoods1 = function(g_seq){
+			$.ajax({
+				url : "inputGoodsAdd.do",
+				type : "post",
+				data : {"g_seq": g_seq},
+				success : function(data){
+					console.log(data)
+					console.log("test")
+					location.href="main.do?user_id=${result }"
+				},
+				error : function(){alert('error')}
+			});
+		}
 		
-	}
+
 </script>
 </body>
 </html>
