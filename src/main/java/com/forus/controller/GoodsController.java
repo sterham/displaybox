@@ -46,7 +46,7 @@ public class GoodsController {
 	// 1. main 상품리스트
 	@RequestMapping("/main.do")
 	public String mainGoodsList(Model model, HttpServletRequest request, HttpSession session) {
-		 String user_id = request.getParameter("user_id");
+		 String user_id = (String)session.getAttribute("user_id");
 		 System.out.println(user_id);
 
 		List<GoodsVO> list = goodsService.findAllList();
@@ -69,8 +69,6 @@ public class GoodsController {
 		model.addAttribute("vo", goods);
 		System.out.println(goods);
 		
-		session.setAttribute("user_id", user_id);
-		
 		return "detail";
 	}
 	
@@ -84,8 +82,6 @@ public class GoodsController {
 		System.out.println("구매 페이지 실행");
 		GoodsBuyVO goods = goodsService.buyGoods(g_seq);
 		model.addAttribute("vo", goods);
-		
-		session.setAttribute("user_id", user_id);
 		
 		return "buy";
 	}
@@ -114,19 +110,19 @@ public class GoodsController {
 		model.addAttribute("vo", vo);
 		System.out.println(vo);
 		
-		session.setAttribute("user_id", user_id);
-		
 		return "buycomplete";
 	}
 	
+	// 6-1. login 폼 페이지
 	@RequestMapping("/viewLogin.do")
 	public String viewLogin() {
 		System.out.println("viewlogin.do 진입");
 		return "viewLogin";
 	}
-	// 6-1. login 페이지
+	
+	// 6-2. login 기능
 	@PostMapping("/login.do")
-	   public ModelAndView login(UserVO vo, ModelMap model) throws Exception {
+	   public String login(UserVO vo, HttpSession session) throws Exception {
 	      BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	      System.out.println("로그인 페이지 진입");
 	      System.out.println(vo.getUser_id());
@@ -137,13 +133,13 @@ public class GoodsController {
 	    	  // 암호키를 복호화 함 
 	    	  encoder.matches(vo.getUser_pw(), result.getUser_pw());
 	    	  if(encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
-	    		  model.addAttribute("user_id", result.getUser_id() );
-	    		  System.out.println("My model: " + model.getAttribute("user_id"));
-	    		  return new ModelAndView("redirect:/main.do", model);
+	    		  session.setAttribute("user_id", result.getUser_id() );
+	    		  System.out.println("My model: " + session.getAttribute("user_id"));
+	    		  return "redirect:/main.do";
 	    	  }else {
-	    		  return new ModelAndView("redirect:/viewLogin.do");
+	    		  return "redirect:/viewLogin.do";
 	    	  }
-	      }return new ModelAndView("redirect:/viewLogin.do");
+	      }return "redirect:/viewLogin.do";
 
 	   }
 
@@ -163,7 +159,6 @@ public class GoodsController {
 		System.out.println(user_id);
 		List<GoodsOrderListVO> vo = userService.userOrderList(user_id);
 		model.addAttribute("vo", vo);
-		session.setAttribute("user_id", user_id);
 		
 		return "orderlist";
 	}
@@ -185,14 +180,10 @@ public class GoodsController {
 		public String getGoodsList(Model model, HttpServletRequest request, HttpSession session) {
 			System.out.println("상품 회수 페이지 실행");
 			
-			// 세션 아이디 받아오기
 			String user_id = (String)session.getAttribute("user_id");
 			System.out.println("상품 회수 페이지 세션 : " + user_id);
-			// 모델에 vo담아주고
 			List<GoodsGetVO> vo = userService.userSellList(user_id);
 			model.addAttribute("vo", vo);
-			
-			session.setAttribute("user_id", user_id);
 			
 			return "getgoods";
 		}
@@ -229,10 +220,6 @@ public class GoodsController {
 			System.out.println("상품 등록 페이지 세션 : " + user_id);
 			List<GoodsGetVO> vo = userService.inputGoodsList(user_id);
 			model.addAttribute("vo", vo);
-			for(GoodsGetVO vo1 : vo) {
-				System.out.println(vo1);
-			}
-			session.setAttribute("user_id", user_id);
 			
 			return "goodsinput";
 		}

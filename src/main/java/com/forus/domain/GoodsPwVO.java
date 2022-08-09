@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 public class GoodsPwVO {
 
 	private int g_seq;
+	private int v_machine_space_no;
 	private int v_machine_pw;
 }

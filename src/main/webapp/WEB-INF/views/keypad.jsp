@@ -257,6 +257,9 @@ div {
 						_this.compChk = true;
 						alert("성공");
 						location.href=link;
+						if(${vo.v_machine_space_no} == 1){
+							location.href='BoxLed1.do?btn=1'
+						}else if
 					} else {
 						_this.parent.classList.add('error');
 						_this.message.textContent = _this.msg[0];
