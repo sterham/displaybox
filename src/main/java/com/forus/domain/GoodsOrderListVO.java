@@ -11,6 +11,7 @@ public class GoodsOrderListVO {
 
 	// OrderList에 필요한 요소
 	
+	private int g_seq;
 	private String g_name;
 	private String g_img;
 	private int g_price;

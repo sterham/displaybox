@@ -20,6 +20,14 @@
         and g.g_status='구매'
 	</select>
 	
+	<!-- 주문리스트에 있는 상품 실제로 꺼내기 -->
+	<!-- (g_status : '구매' -> '완료') -->
+	<update id="completeBuyGoods" parameterType="com.forus.domain.GoodsVO">
+		update goods_tb
+		set g_status='완료'
+		where g_seq = #{g_seq}
+	</update>
+	
 	<!-- 상품 회수 페이지 리스트 불러오기 -->
 	<select id="userSellList" resultType="com.forus.domain.GoodsGetVO">
 		select g.g_seq, g.g_name, g.g_img, g.g_price, g.seller_id, g.g_regdate, l.v_machine_pw, l.v_machine_space_no, u.user_id

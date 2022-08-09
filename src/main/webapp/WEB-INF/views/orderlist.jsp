@@ -142,7 +142,7 @@
 									</td>
 									<td>
 										<button class="btn btn-info btn-sm"
-											onclick="">꺼내기</button>
+											onclick="completeBuy(${vo.g_seq})">꺼내기</button>
 									</td>
 								</tr>
 						</tbody>
@@ -220,6 +220,22 @@
 	<script src="js/owl.carousel.js"></script>
 	<script src="js/wow.js"></script>
 	<script src="js/script.js"></script>
-	<script src="js/shopmain.js"></script
+	<script src="js/shopmain.js"></script>
+	<script>
+	function completeBuy(g_seq){
+		$.ajax({
+			url : "completeBuy.do",
+			type : "post",
+			data : {"g_seq", g_seq},
+			success : function(data){
+				location.href="keypad.do"
+				console.log('물건 꺼내기 성공')
+			},
+			error : function(){alert('error')}
+		});
+		
+	}
+	
+	</script>
 </body>
 </html>

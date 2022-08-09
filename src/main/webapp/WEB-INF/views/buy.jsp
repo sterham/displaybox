@@ -264,7 +264,7 @@
 			data : {"g_seq" : g_seq},
 			success : function(data){
 				 location.href="/buycom.do?g_seq=${vo.g_seq }&user_id=${result }"
-						console.log("성공")
+						console.log("판매 상태 변경 성공")
 			},
 			error : function(){alert('error')} 
 		});

@@ -167,6 +167,18 @@ public class GoodsController {
 		
 		return "orderlist";
 	}
+	
+	// 7-1 주문한 물건 실제로 꺼내는 기능
+	@RequestMapping("/completeBuy.do")
+	public @ResponseBody GoodsVO completeBuy(int g_seq) {
+		
+		// 통신 됨
+		System.out.println("g_seq : " + g_seq);
+		userService.completeBuyGoods(g_seq);
+		GoodsVO vo = goodsService.detailGoods(g_seq);
+		System.out.println(vo);
+		return vo;
+	} 
 
 	// 8. 물건 삭제 페이지
 		@RequestMapping("/getGoods.do")
@@ -214,7 +226,9 @@ public class GoodsController {
 			System.out.println("상품 등록 페이지 세션 : " + user_id);
 			List<GoodsGetVO> vo = userService.inputGoodsList(user_id);
 			model.addAttribute("vo", vo);
-			
+			for(GoodsGetVO vo1 : vo) {
+				System.out.println(vo1);
+			}
 			session.setAttribute("user_id", user_id);
 			
 			return "goodsinput";

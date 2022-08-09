@@ -27,10 +27,9 @@ public class UserService {
 		return mapper.userOrderList(user_id);
 	}
 	
-	// 3. 디스플레이 구매자 로그인
-	public DisplayLoginVO displayLoginUser(DisplayLoginVO vo) {
-		System.out.println("login mapper : " + mapper.displayLogin(vo));
-		return mapper.displayLogin(vo);
+	// 3. 물건 꺼내기(g_status : '구매' -> '완료')
+	public int completeBuyGoods(int g_seq) {
+		return mapper.completeBuyGoods(g_seq);
 	}
 	
 	// 4. 판매 내역(상품 상세페이지)

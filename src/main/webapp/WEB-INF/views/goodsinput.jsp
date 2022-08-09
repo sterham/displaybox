@@ -120,7 +120,9 @@
 							</tr>
 						</thead>
 						<tbody>
-						
+						<script>
+							console.log('${vo}')
+						</script>
 						<c:forEach items="${vo }" var="vo">
 							
 								<tr>
@@ -136,7 +138,7 @@
 									<h5>${vo.g_regdate}</h5>
 								</td>
 								<td>
-									<button class="btn btn-info btn-sm" onclick="">등록</button>
+									<button type="button" class="btn btn-info btn-sm" onclick="inputGoods1(${vo.g_seq})">등록</button>
 								</td>
 							</tr>
 						</tbody>
@@ -149,7 +151,6 @@
 	<br/><br/><br/><br/><br/>
 	<p align="center">
 	<a class="button primary-btn" href="main.do?user_id=${result }">뒤로가기</a>
-		<button class="button primary-btn" onclick="inputGoods()">제품 등록</button>
 	</p>
 	<!-- ------------------------- footer 시작 ------------------>
 	<footer>
@@ -211,21 +212,20 @@
 	<script src="js/script.js"></script>
 	<script src="js/shopmain.js"></script>
 	<script>
-	console.log(${vo.g_seq});
-	function inputGoods(g_seq){
+	function inputGoods1(g_seq){
 		// 어플에서 등록한 '대기'상태의 상품을 실제로 자판기에서 팔 수 있도록 '판매'상태 만들어주기
 		$.ajax({
 			url : "inputGoodsAdd.do",
 			type : "post",
 			data : {"g_seq", g_seq},
 			success : function(data){
-				location.href="main.do?user_id=${result }"
+				console.log(data)
+				//location.href="main.do?user_id=${result }"
 			},
 			error : function(){alert('error')}
 		});
 		
 	}
-	
-	</script>
+</script>
 </body>
 </html>

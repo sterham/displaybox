@@ -15,11 +15,11 @@ public interface UserMapper {
 	// 1. 앱 구매자 로그인
 	public UserVO loginUser(UserVO vo);
 	
-	// 2. 상품 리스트
+	// 2. 주문 리스트
 	public List<GoodsOrderListVO> userOrderList(String user_id);
 	
-	// 3. 디스플레이 구매자 로그인
-	public DisplayLoginVO displayLogin(DisplayLoginVO vo);
+	// 3. 리스트에 있는 물건 실제로 꺼내기
+	public int completeBuyGoods(int g_seq);
 	
 	// 4. 상품 회수 페이지
 	public List<GoodsGetVO> userSellList(String user_id);
