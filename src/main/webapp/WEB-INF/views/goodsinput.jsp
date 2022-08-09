@@ -217,7 +217,7 @@
 				success : function(data){
 					console.log(data)
 					console.log("test")
-					location.href="main.do?user_id=${result }"
+					location.href="keypad.do"
 				},
 				error : function(){alert('error')}
 			});

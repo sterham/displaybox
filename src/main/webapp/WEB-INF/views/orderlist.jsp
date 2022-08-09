@@ -118,7 +118,7 @@
 						</thead>
 						<tbody>
 
-							<c:forEach items="${vo }" var="vo">
+							<c:forEach items="${vo}" var="vo">
 
 								<tr>
 									<td><img src=${vo.g_img } width="250px" height="250px">
@@ -133,8 +133,7 @@
 										<h5>${vo.g_regdate}</h5>
 									</td>
 									<td>
-										<button class="btn btn-info btn-sm"
-											onclick="completeBuy(${vo.g_seq})">꺼내기</button>
+										<button type="button" class="btn btn-info btn-sm" onclick="completeBuy(${vo.g_seq})">꺼내기</button>
 									</td>
 								</tr>
 						</tbody>
@@ -212,20 +211,22 @@
 	<script src="js/wow.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/shopmain.js"></script>
-	<script>
-	function completeBuy(g_seq){
+	<script type="text/javascript">
+	var completeBuy = function(g_seq){
 		$.ajax({
 			url : "completeBuy.do",
 			type : "post",
-			data : {"g_seq", g_seq},
+			data : {"g_seq": g_seq},
 			success : function(data){
-				location.href="keypad.do"
 				console.log('물건 꺼내기 성공')
+				location.href="keypad.do?g_seq=" + g_seq
 			},
 			error : function(){alert('error')}
 		});
 		
 	}
+	
+
 	
 	</script>
 </body>

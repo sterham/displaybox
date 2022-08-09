@@ -163,16 +163,14 @@ public class GoodsController {
 		System.out.println(user_id);
 		List<GoodsOrderListVO> vo = userService.userOrderList(user_id);
 		model.addAttribute("vo", vo);
-		
 		session.setAttribute("user_id", user_id);
 		
 		return "orderlist";
 	}
 	
 	// 7-1 주문한 물건 실제로 꺼내는 기능
-	@RequestMapping("/completeBuy.do")
+	@PostMapping("/completeBuy.do")
 	public @ResponseBody GoodsVO completeBuy(int g_seq) {
-		
 		// 통신 됨
 		System.out.println("g_seq : " + g_seq);
 		userService.completeBuyGoods(g_seq);
@@ -181,6 +179,7 @@ public class GoodsController {
 		return vo;
 	} 
 
+	
 	// 8. 물건 삭제 페이지
 		@RequestMapping("/getGoods.do")
 		public String getGoodsList(Model model, HttpServletRequest request, HttpSession session) {
@@ -210,15 +209,15 @@ public class GoodsController {
 			return vo;
 		}
 		
-	// 10. 비밀번호 입력 페이지
-		@RequestMapping("/keypad.do")
-		public String keypadOpen(int g_seq, Model model) {
-			System.out.println("다이얼 실행");
-			
-			GoodsPwVO vo = goodsService.goodsPassword(g_seq);
-			model.addAttribute("vo", vo);
-			return "keypad";
-		}
+	 // 10. 비밀번호 입력 페이지
+      @RequestMapping("/keypad.do")
+      public String keypadOpen(int g_seq, Model model) {
+         System.out.println("다이얼 실행");
+         
+         GoodsPwVO vo = goodsService.goodsPassword(g_seq);
+         model.addAttribute("vo", vo);
+         return "keypad";
+      }
 		
 		
 	// 11. 상품 등록 페이지
@@ -239,7 +238,7 @@ public class GoodsController {
 		}
 		
 	// 12. 실제로 상품 등록하기
-		@RequestMapping("/inputGoodsAdd.do")
+		@PostMapping("/inputGoodsAdd.do")
 		public @ResponseBody GoodsVO inputGoodsAdd(int g_seq) {
 			
 			System.out.println("상품 등록 g_seq : " + g_seq);

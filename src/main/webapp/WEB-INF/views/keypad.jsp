@@ -275,7 +275,7 @@ div {
 				_this.init = function() {
 					_this.handleListener();
 					_this.getPw();
-				}();
+				}()
 			}
 
 			var mypw = ${vo.v_machine_pw};
