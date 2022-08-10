@@ -1,5 +1,14 @@
 package com.forus.controller;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -226,6 +235,63 @@ public class GoodsController {
 		userService.addGoods(g_seq);
 		GoodsVO vo = goodsService.detailGoods(g_seq);
 		return vo;
+	}
+	
+	// 13. 카카오페이 결제 api
+	@RequestMapping("/kakaopay.do")
+	
+	public @ResponseBody String kakaopay() {
+		
+		
+		try {
+			URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
+			// 서버 연결
+			HttpURLConnection connection = (HttpURLConnection) address.openConnection();
+			connection.setRequestMethod("POST");
+			connection.setRequestProperty("Authorization", "KakaoAK 413a502dd48aba1035a01b115f59f18c");
+			connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+			// setDoInput 기본값 : true, setDoOutput 기본값 : false이므로 모두 true로 맞춰주자
+			connection.setDoOutput(true);
+			
+			// parameter 설정해주기 홈페이지에 O 표시 되어있는 애들만
+			String parameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=engitem&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8081/buy.do/success&fail_url=http://localhost:8081/buy.do/fail&cancel_url=http://localhost:8081/buy.do/cancel";
+		
+			// parameter를 실제로 서버에 전달해주기
+			// OutputStream = 줄 수 있도록 연결하는 역할
+			OutputStream outputstream = connection.getOutputStream();
+			// data를 주는 역할
+			DataOutputStream datastream = new DataOutputStream(outputstream);
+			// byte 형식으로 전달해야함
+			datastream.writeBytes(parameter);
+			datastream.close();
+			
+			// 통신결과
+			int result = connection.getResponseCode();
+			
+			// 받을 수 있는 역할
+			InputStream inputstream;
+			// 정상 통신을 뜻하는 숫자 200 그 외에는 모두 error
+			if(result == 200) {
+				inputstream = connection.getInputStream();
+			}else {
+				inputstream = connection.getErrorStream();
+			}
+			InputStreamReader reader = new InputStreamReader(inputstream);
+			// byte -> String 형변환
+			BufferedReader buffer = new BufferedReader(reader);
+			
+			//String data = 
+			
+			return buffer.readLine();
+					//"{\"result\" : " + data + "}";
+					
+		
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "{\"result\":\"NO\"}";
 	}
 
 	@RequestMapping("/interface.do")
