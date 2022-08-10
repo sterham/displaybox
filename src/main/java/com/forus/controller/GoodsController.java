@@ -283,9 +283,20 @@ public class GoodsController {
 		return "text";
 	}
 
-	
 	@RequestMapping("/module.do")
 	public ResponseEntity<Object> module(Integer sensor, Boolean isOpend) {
+		if (isOpend == null) {
+			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		}
+		System.out.println("sensor: " + sensor + ", isOpend: " + isOpend);
+		if (isOpend.booleanValue()) {
+		} else {
+		}
+		return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
+	}
+
+	@RequestMapping("/module_warning.do")
+	public ResponseEntity<Object> modulewarning(Integer sensor, Boolean isOpend, Model model) {
 		if(isOpend == null){		
 		    return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 		}
@@ -293,8 +304,32 @@ public class GoodsController {
 		if(isOpend.booleanValue()) {
 		}else {
 		}
+		
+		music(new ResponseEntity<Object>(HttpStatus.NO_CONTENT));
 	    return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
+
 	}
+	
+	@RequestMapping("/music.do")
+	public ResponseEntity<Object> music(ResponseEntity<Object> response) {
+		System.out.println(response);
+		return response;
+	}
+
+//	@RequestMapping("/module_warning.do")
+//	public ResponseEntity<Object> modulewarning(Integer sensor, Boolean isOpend, Model model) {
+//		if(isOpend == null){		
+//		    return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+//		}
+//		System.out.println("sensor: " + sensor + ", isOpend: " + isOpend);
+//		if(isOpend.booleanValue()) {
+//		}else {
+//		}
+//		
+//		
+//	    return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
+//
+//	}
 //	
 //	public ResponseEntity<Object> Waring(int sensor, boolean isOpend) {
 //		
@@ -302,4 +337,3 @@ public class GoodsController {
 //	}
 
 }
-

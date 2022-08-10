@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -105,8 +106,11 @@ background-color : white;
         <button class="number" onclick="location.href='BoxLed3.do?btn=6';">3off</button>
         <button class="number" onclick="location.href='BoxLed4.do?btn=7';">4on</button>
         <button class="number" onclick="location.href='BoxLed4.do?btn=8';">4off</button>
+        <button class="number" onclick="location.href='module_warning.do?sensor=5&isOpend=true';">테스트</button>
     </div>
 </div>
 
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/music.js"></script>
 </body>
 </html>
