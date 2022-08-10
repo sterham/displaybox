@@ -118,6 +118,7 @@
 				<c:forEach items="${list }" var="goodsVo">
 					<div class="col-md-6 col-lg-4 col-xl-3">
 						<div class="card text-center card-product">
+						<p class="card-product__price">${goodsVo.g_status}</p><br>
 							<div class="card-product__img">
 													<!-- 상품 사진 출력 -->
 								<img class="card-img" src=${goodsVo.g_img} alt="">
@@ -147,6 +148,7 @@
 								</h4>
 																<!-- 상품 가격 출력 -->
 								<p class="card-product__price">￦ ${goodsVo.g_price}</p>
+								
 							</div>
 						</div>
 					</div>
