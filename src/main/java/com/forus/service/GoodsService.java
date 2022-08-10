@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
+import com.forus.domain.GoodsInfoVO;
 import com.forus.domain.GoodsPwVO;
 import com.forus.domain.GoodsVO;
 import com.forus.mapper.GoodsMapper;
@@ -17,13 +18,17 @@ public class GoodsService {
 	private GoodsMapper mapper;
 	
 	// 1. main.do
-	public List<GoodsVO> findAllList(){
+	public List<GoodsInfoVO> findAllList(){
 		return mapper.mainGoodsList();
 	}
 	
 	// 2. detail.do
-	public GoodsVO detailGoods(int g_seq){
+	public GoodsInfoVO detailGoods(int g_seq){
 		return mapper.goodsDetail(g_seq);
+	}
+	
+	public GoodsVO goodsOne(int g_seq) {
+		return mapper.goodsOne(g_seq);
 	}
 	
 	// 3. buy.do

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GoodsVO {
+public class GoodsInfoVO {
 	
 	// 상품 정보 vo
 	private int g_seq;
@@ -22,6 +22,6 @@ public class GoodsVO {
 	private String seller_id;
 	private String consumer_id;
 	private String user_id;
+	private int v_machine_space_no;
 	
-
 }

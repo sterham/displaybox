@@ -118,6 +118,7 @@
 				<c:forEach items="${list }" var="goodsVo">
 					<div class="col-md-6 col-lg-4 col-xl-3">
 						<div class="card text-center card-product">
+						<p class="card-product__price">${goodsVo.g_status}</p><br>
 							<div class="card-product__img">
 													<!-- 상품 사진 출력 -->
 								<img class="card-img" src=${goodsVo.g_img} alt="">
@@ -140,13 +141,14 @@
 							</div>
 							<div class="card-body">
 								<!-- 박스 번호 출력 -->
-								<p>No.${goodsVo.loc_seq}</p>
+								<p>No.${goodsVo.v_machine_space_no}</p>
 								<h4 class="card-product__title">
 																	<!-- 상품 이름 출력 -->
 									<a href="detail.do?g_seq=${goodsVo.g_seq}&user_id=${result }"><b>${goodsVo.g_name}</b></a>
 								</h4>
 																<!-- 상품 가격 출력 -->
 								<p class="card-product__price">￦ ${goodsVo.g_price}</p>
+								
 							</div>
 						</div>
 					</div>

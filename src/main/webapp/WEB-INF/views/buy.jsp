@@ -173,6 +173,9 @@
 									<li><input type="radio" name="payment" value="">카카오페이</li>
 									<li><input type="radio" name="payment" value="">네이버페이</li>
 								</ul>
+								<button type="button" id="kakaopay">
+									카카오페이
+								</button>
 							</div>
 						</td>
 					</tr>
@@ -269,7 +272,57 @@
 			},
 			error : function(){alert('error')} 
 		});
-  }
+  	}
+	  /* 
+	  function kakaopay(){
+		  
+			$.ajax({
+				url : 'kakaopay.do',
+				success : function(data){
+					alert(data.tid)
+					var box = data.next_redirect_pc_url;
+					window.open(box)
+				},
+				error : function(){alert('error')} 
+			});
+	  	}
+	 
+	  $(function(){
+		 $('#kakaopay').click(function(){
+			$.ajax({
+				url: 'kakaopay.do',
+				success: function(data){
+					alert(data.tid);
+					//var box = data.next_redirect_pc_url;
+					//window.open(box)
+				},
+				error: function(error){alert(error)}
+			});
+		 });
+	  }); 
+	  
+	  */
+	  	
+	  	$(document).on("click", "#kakaopay", function () {
+		
+	  		$.ajax({
+				url: 'kakaopay.do',
+				type : "post",
+				dataType: 'json',
+				success: function(data){
+					var box = data.next_redirect_pc_url;
+					window.open(box)
+				},
+				error: function(){
+					alert("오류")
+					}
+			});
+	  		
+	  		
+		})
+		
+		
+	  	
 	</script>
 </body>
 </html>
