@@ -95,9 +95,9 @@
 	<div class="container h-100">
 		<div class="blog-banner">
 			<div class="text-center">
-				<h1>${vo.g_name }</h1>
+				<h1 style="font-size:40px; color:#599555">NO. ${vo.v_machine_space_no}</h1>
 				<br>
-				<h1 style="font-size:60px; color:#599555">NO. ${vo.gc_seq }</h1>
+				<h1 style="font-size:40px">${vo.g_name }</h1>
 			</div>
 		</div>
 	</div>

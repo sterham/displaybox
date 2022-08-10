@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
 import com.forus.domain.GoodsGetVO;
+import com.forus.domain.GoodsInfoVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.GoodsPwVO;
 import com.forus.domain.GoodsVO;
@@ -54,7 +55,7 @@ public class GoodsController {
 		String user_id = (String) session.getAttribute("user_id");
 		System.out.println(user_id);
 
-		List<GoodsVO> list = goodsService.findAllList();
+		List<GoodsInfoVO> list = goodsService.findAllList();
 		model.addAttribute("list", list);
 		System.out.println(list);
 		session.setAttribute("user_id", user_id);
@@ -70,7 +71,7 @@ public class GoodsController {
 		System.out.println(user_id);
 
 		System.out.println("제품 상세페이지 실행");
-		GoodsVO goods = goodsService.detailGoods(g_seq);
+		GoodsInfoVO goods = goodsService.detailGoods(g_seq);
 		model.addAttribute("vo", goods);
 		System.out.println(goods);
 
@@ -97,7 +98,7 @@ public class GoodsController {
 		// 통신 됨
 		System.out.println("g_seq : " + g_seq);
 		goodsService.goodsStatusUpdate(g_seq);
-		GoodsVO vo = goodsService.detailGoods(g_seq);
+		GoodsVO vo = goodsService.goodsOne(g_seq);
 		System.out.println(vo);
 		return vo;
 	}
@@ -174,7 +175,7 @@ public class GoodsController {
 		// 통신 됨
 		System.out.println("g_seq : " + g_seq);
 		userService.completeBuyGoods(g_seq);
-		GoodsVO vo = goodsService.detailGoods(g_seq);
+		GoodsVO vo = goodsService.goodsOne(g_seq);
 		System.out.println(vo);
 		return vo;
 	}
@@ -199,7 +200,7 @@ public class GoodsController {
 		// 통신 됨
 		System.out.println("상품 삭제 페이지 g_seq : " + g_seq);
 		userService.deleteGoods(g_seq);
-		GoodsVO vo = goodsService.detailGoods(g_seq);
+		GoodsVO vo = goodsService.goodsOne(g_seq);
 		System.out.println("상품 삭제 성공");
 		return vo;
 	}
@@ -233,7 +234,7 @@ public class GoodsController {
 
 		System.out.println("상품 등록 g_seq : " + g_seq);
 		userService.addGoods(g_seq);
-		GoodsVO vo = goodsService.detailGoods(g_seq);
+		GoodsVO vo = goodsService.goodsOne(g_seq);
 		return vo;
 	}
 	

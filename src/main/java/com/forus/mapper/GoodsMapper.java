@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
+import com.forus.domain.GoodsInfoVO;
 import com.forus.domain.GoodsPwVO;
 import com.forus.domain.GoodsVO;
 
@@ -13,10 +14,12 @@ import com.forus.domain.GoodsVO;
 public interface GoodsMapper {
 	
 	// 1. 상품리스트
-	public List<GoodsVO> mainGoodsList();
+	public List<GoodsInfoVO> mainGoodsList();
 	
 	// 2. 상품 상세 페이지
-	public GoodsVO goodsDetail(int g_seq);
+	public GoodsInfoVO goodsDetail(int g_seq);
+	
+	public GoodsVO goodsOne(int g_seq);
 	
 	// 3. 상품 구매 페이지
 	public GoodsBuyVO goodsBuy(int g_seq);
