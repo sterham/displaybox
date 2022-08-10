@@ -13,6 +13,7 @@
 			(select loc_seq 
 			from g_location_tb 
 			where v_machine_seq=2) 
+		order by loc_seq asc
 	</select>
 	
 	<!-- 2. 선택한 상품 1개 상세페이지 -->

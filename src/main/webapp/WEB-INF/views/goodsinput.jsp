@@ -134,7 +134,7 @@
 									<h5>${vo.g_regdate}</h5>
 								</td>
 								<td>
-									<button type="button" class="btn btn-info btn-sm" onclick="inputGoods1(${vo.g_seq})">등록</button>
+									<button type="button" class="btn btn-info btn-sm" onclick="inputGoods(${vo.g_seq})">등록</button>
 								</td>
 							</tr>
 						</tbody>
@@ -209,7 +209,7 @@
 	<script src="js/shopmain.js"></script>
 	<script type="text/javascript">
 	
-		var inputGoods1 = function(g_seq){
+		var inputGoods = function(g_seq){
 			$.ajax({
 				url : "inputGoodsAdd.do",
 				type : "post",
@@ -217,7 +217,7 @@
 				success : function(data){
 					console.log(data)
 					console.log("test")
-					location.href="keypad.do"
+					location.href="keypad.do?g_seq=" + g_seq;
 				},
 				error : function(){alert('error')}
 			});
