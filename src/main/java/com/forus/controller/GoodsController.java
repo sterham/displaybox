@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -281,7 +283,7 @@ public class GoodsController {
 	
 	
 	// 아두이노 통신 부분 돈 터치
-	@RequestMapping("/module.do")
+	@RequestMapping("/ledmodule.do")
 	@ResponseBody
 	public String Arduino(String keypad) {				
 		return doorbtn;
@@ -315,6 +317,22 @@ public class GoodsController {
 		return "text";
 	}
 	
-	
+	@RequestMapping("/module.do")
+	public ResponseEntity<Object> module(Integer sensor, Boolean isOpend) {
+		if(isOpend == null){		
+		    return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
+		}
+		System.out.println("sensor: " + sensor + ", isOpend: " + isOpend);
+		if(isOpend.booleanValue()) {
+		}else {
+		}
+	    return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
+	}
+//	
+//	public ResponseEntity<Object> Waring(int sensor, boolean isOpend) {
+//		
+//	    return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
+//	}
+
 }
 
