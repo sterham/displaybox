@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,8 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.forus.domain.GoodsBuyCompleteVO;
@@ -32,6 +35,7 @@ import com.forus.domain.GoodsVO;
 import com.forus.domain.UserVO;
 import com.forus.service.GoodsService;
 import com.forus.service.UserService;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 
 @Controller
 public class GoodsController {
@@ -241,9 +245,7 @@ public class GoodsController {
 	// 13. 카카오페이 결제 api
 	@RequestMapping("/kakaopay.do")
 	
-	public @ResponseBody String kakaopay() {
-		
-		
+	public @ResponseBody String kakaopay() {		
 		try {
 			URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
 			// 서버 연결
@@ -255,7 +257,11 @@ public class GoodsController {
 			connection.setDoOutput(true);
 			
 			// parameter 설정해주기 홈페이지에 O 표시 되어있는 애들만
-			String parameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&item_name=engitem&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0&approval_url=http://localhost:8081/buy.do/success&fail_url=http://localhost:8081/buy.do/fail&cancel_url=http://localhost:8081/buy.do/cancel";
+			String parameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id"
+					+ "&item_name=engitem&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0"
+					+ "&approval_url=http://localhost:8081/buySuccess.do"
+					+ "&fail_url=http://localhost:8081/buyFail.do"
+					+ "&cancel_url=http://localhost:8081/buyCancel.do";
 		
 			// parameter를 실제로 서버에 전달해주기
 			// OutputStream = 줄 수 있도록 연결하는 역할
@@ -277,16 +283,10 @@ public class GoodsController {
 			}else {
 				inputstream = connection.getErrorStream();
 			}
-			InputStreamReader reader = new InputStreamReader(inputstream);
-			// byte -> String 형변환
-			BufferedReader buffer = new BufferedReader(reader);
-			
-			//String data = 
-			
-			return buffer.readLine();
-					//"{\"result\" : " + data + "}";
-					
-		
+
+			String jsonStr = new BufferedReader(new InputStreamReader(inputstream)).lines().collect(Collectors.joining("\n"));
+			System.out.print(jsonStr);
+			return jsonStr;					
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -295,6 +295,61 @@ public class GoodsController {
 		return "{\"result\":\"NO\"}";
 	}
 
+	 // 결제 승인 요청
+		@RequestMapping("buySuccess.do")
+		public String kakaopaySuccess(String pg_token, String tid) {
+			try {
+				URL address = new URL("https://kapi.kakao.com/v1/payment/approve");
+				
+				// 서버 연결
+				HttpURLConnection connection = (HttpURLConnection) address.openConnection();
+				connection.setRequestMethod("POST");
+				connection.setRequestProperty("Authorization", "KakaoAK 413a502dd48aba1035a01b115f59f18c");
+				connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+				connection.setDoOutput(true);
+				
+				String parameter = "cid=TC0ONETIME&tid=" + tid + "&partner_order_id=partner_order_id&partner_user_id=partner_user_id&"
+						+ "pg_token=" + pg_token;
+				
+				OutputStream outputstream = connection.getOutputStream();
+				DataOutputStream datastream = new DataOutputStream(outputstream);
+				datastream.writeBytes(parameter);
+				datastream.close();
+				
+				int result = connection.getResponseCode();
+				
+				InputStream inputstream;
+				if(result == 200) {
+					inputstream = connection.getInputStream();
+				}else {
+					inputstream = connection.getErrorStream();
+				}
+				InputStreamReader reader = new InputStreamReader(inputstream);
+				BufferedReader buffer = new BufferedReader(reader);
+				
+				return buffer.readLine();
+				
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			return "redirect:/buy.do";
+		}
+		
+	// 결제 취소시 실행 url
+	@RequestMapping("buyCancel.do")
+	public String payCancel() {
+		return "redirect:/buy.do";
+	}
+    
+	// 결제 실패시 실행 url    	
+	@RequestMapping("buyFail.do")
+	public String payFail() {
+		return "redirect:/buy.do";
+	}
+		
 	@RequestMapping("/interface.do")
 	public String f6() {
 		System.out.println("인터페이스 실행");
