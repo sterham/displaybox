@@ -22,13 +22,13 @@ public class GoodsService {
 		return mapper.mainGoodsList();
 	}
 	
+	public GoodsVO goodsOne(int g_seq) {
+		return mapper.goodsOne(g_seq);
+	}
+	
 	// 2. detail.do
 	public GoodsInfoVO detailGoods(int g_seq){
 		return mapper.goodsDetail(g_seq);
-	}
-	
-	public GoodsVO goodsOne(int g_seq) {
-		return mapper.goodsOne(g_seq);
 	}
 	
 	// 3. buy.do

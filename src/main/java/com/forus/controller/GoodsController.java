@@ -2,6 +2,7 @@ package com.forus.controller;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -9,6 +10,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,14 +34,19 @@ import com.forus.domain.GoodsInfoVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.GoodsPwVO;
 import com.forus.domain.GoodsVO;
+import com.forus.domain.GsonDateAdapter;
+import com.forus.domain.PaymentRequestResponse;
 import com.forus.domain.UserVO;
 import com.forus.service.GoodsService;
 import com.forus.service.UserService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 
 @Controller
 public class GoodsController {
 	public static String doorbtn = "";
+	public static String lastTid = "";
 
 	@Autowired
 	private GoodsService goodsService;
@@ -139,7 +146,7 @@ public class GoodsController {
 			UserVO result = userService.loginUser(vo);
 			System.out.println("로그인 확인" + result);
 
-			// 암호키를 복호화 함
+			// 암호키를 복호화
 			encoder.matches(vo.getUser_pw(), result.getUser_pw());
 			if (encoder.matches(vo.getUser_pw(), result.getUser_pw())) {
 				session.setAttribute("user_id", result.getUser_id());
@@ -241,11 +248,11 @@ public class GoodsController {
 		GoodsVO vo = goodsService.goodsOne(g_seq);
 		return vo;
 	}
-	
+
 	// 13. 카카오페이 결제 api
 	@RequestMapping("/kakaopay.do")
-	
-	public @ResponseBody String kakaopay() {		
+
+	public @ResponseBody String kakaopay() {
 		try {
 			URL address = new URL("https://kapi.kakao.com/v1/payment/ready");
 			// 서버 연결
@@ -255,14 +262,13 @@ public class GoodsController {
 			connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 			// setDoInput 기본값 : true, setDoOutput 기본값 : false이므로 모두 true로 맞춰주자
 			connection.setDoOutput(true);
-			
+
 			// parameter 설정해주기 홈페이지에 O 표시 되어있는 애들만
 			String parameter = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id"
 					+ "&item_name=engitem&quantity=1&total_amount=2200&vat_amount=200&tax_free_amount=0"
-					+ "&approval_url=http://localhost:8081/buySuccess.do"
-					+ "&fail_url=http://localhost:8081/buyFail.do"
+					+ "&approval_url=http://localhost:8081/buySuccess.do" + "&fail_url=http://localhost:8081/buyFail.do"
 					+ "&cancel_url=http://localhost:8081/buyCancel.do";
-		
+
 			// parameter를 실제로 서버에 전달해주기
 			// OutputStream = 줄 수 있도록 연결하는 역할
 			OutputStream outputstream = connection.getOutputStream();
@@ -271,22 +277,27 @@ public class GoodsController {
 			// byte 형식으로 전달해야함
 			datastream.writeBytes(parameter);
 			datastream.close();
-			
+
 			// 통신결과
 			int result = connection.getResponseCode();
-			
+
 			// 받을 수 있는 역할
 			InputStream inputstream;
 			// 정상 통신을 뜻하는 숫자 200 그 외에는 모두 error
-			if(result == 200) {
+			if (result == 200) {
 				inputstream = connection.getInputStream();
-			}else {
+			} else {
 				inputstream = connection.getErrorStream();
 			}
 
-			String jsonStr = new BufferedReader(new InputStreamReader(inputstream)).lines().collect(Collectors.joining("\n"));
+			String jsonStr = new BufferedReader(new InputStreamReader(inputstream)).lines()
+					.collect(Collectors.joining("\n"));
 			System.out.print(jsonStr);
-			return jsonStr;					
+
+			Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new GsonDateAdapter()).create();
+			PaymentRequestResponse paymentRequestResponse = gson.fromJson(jsonStr, PaymentRequestResponse.class);
+			lastTid = paymentRequestResponse.tid;
+			return jsonStr;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -295,61 +306,61 @@ public class GoodsController {
 		return "{\"result\":\"NO\"}";
 	}
 
-	 // 결제 승인 요청
-		@RequestMapping("buySuccess.do")
-		public String kakaopaySuccess(String pg_token, String tid) {
-			try {
-				URL address = new URL("https://kapi.kakao.com/v1/payment/approve");
-				
-				// 서버 연결
-				HttpURLConnection connection = (HttpURLConnection) address.openConnection();
-				connection.setRequestMethod("POST");
-				connection.setRequestProperty("Authorization", "KakaoAK 413a502dd48aba1035a01b115f59f18c");
-				connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-				connection.setDoOutput(true);
-				
-				String parameter = "cid=TC0ONETIME&tid=" + tid + "&partner_order_id=partner_order_id&partner_user_id=partner_user_id&"
-						+ "pg_token=" + pg_token;
-				
-				OutputStream outputstream = connection.getOutputStream();
-				DataOutputStream datastream = new DataOutputStream(outputstream);
-				datastream.writeBytes(parameter);
-				datastream.close();
-				
-				int result = connection.getResponseCode();
-				
-				InputStream inputstream;
-				if(result == 200) {
-					inputstream = connection.getInputStream();
-				}else {
-					inputstream = connection.getErrorStream();
-				}
-				InputStreamReader reader = new InputStreamReader(inputstream);
-				BufferedReader buffer = new BufferedReader(reader);
-				
-				return buffer.readLine();
-				
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
+	// 결제 승인 요청
+	@RequestMapping("buySuccess.do")
+	public String kakaopaySuccess(String pg_token, String tid) {
+		try {
+			URL address = new URL("https://kapi.kakao.com/v1/payment/approve");
+
+			// 서버 연결
+			HttpURLConnection connection = (HttpURLConnection) address.openConnection();
+			connection.setRequestMethod("POST");
+			connection.setRequestProperty("Authorization", "KakaoAK 413a502dd48aba1035a01b115f59f18c");
+			connection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+			connection.setDoOutput(true);
+
+			String parameter = "cid=TC0ONETIME&tid=" + lastTid
+					+ "&partner_order_id=partner_order_id&partner_user_id=partner_user_id&" + "pg_token=" + pg_token;
+
+			OutputStream outputstream = connection.getOutputStream();
+			DataOutputStream datastream = new DataOutputStream(outputstream);
+			datastream.writeBytes(parameter);
+			datastream.close();
+
+			int result = connection.getResponseCode();
+
+			InputStream inputstream;
+			if (result == 200) {
+				inputstream = connection.getInputStream();
+			} else {
+				inputstream = connection.getErrorStream();
 			}
-			
-			return "redirect:/buy.do";
+			InputStreamReader reader = new InputStreamReader(inputstream);
+			BufferedReader buffer = new BufferedReader(reader);
+
+			return buffer.readLine();
+
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
+
+		return "redirect:/buy.do";
+	}
+
 	// 결제 취소시 실행 url
 	@RequestMapping("buyCancel.do")
 	public String payCancel() {
 		return "redirect:/buy.do";
 	}
-    
-	// 결제 실패시 실행 url    	
+
+	// 결제 실패시 실행 url
 	@RequestMapping("buyFail.do")
 	public String payFail() {
 		return "redirect:/buy.do";
 	}
-		
+
 	@RequestMapping("/interface.do")
 	public String f6() {
 		System.out.println("인터페이스 실행");

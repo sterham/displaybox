@@ -284,7 +284,8 @@
 			dataType: 'json',
 			success: function(data){
 				var box = data.next_redirect_pc_url;
-				window.open(box)
+				window.open(box);
+				window.location.href = data.next_redirect_app_url;
 			},
 			error: function(){
 				alert("오류")
