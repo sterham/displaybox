@@ -17,16 +17,16 @@
         order by loc_seq asc
 	</select>
 	
+	<select id="goodsOne" resultType="com.forus.domain.GoodsVO">
+		select * from goods_tb where g_seq=#{g_seq}
+	</select>
+	
 	<!-- 2. 선택한 상품 1개 상세페이지 -->
 	<select id="goodsDetail" resultType="com.forus.domain.GoodsInfoVO">
 		select g.g_seq, g.g_name, g.g_img, g.g_info, g.g_price, g.g_status, l.v_machine_space_no, l.loc_seq
 		from goods_tb g, g_location_tb l
 		where g.loc_seq = l.loc_seq
 		and g.g_seq = #{g_seq}
-	</select>
-	
-	<select id="goodsOne" resultType="com.forus.domain.GoodsVO">
-		select * from goods_tb where g_seq=#{g_seq}
 	</select>
 	
 	<!-- 3. 상품 구매 페이지 -->

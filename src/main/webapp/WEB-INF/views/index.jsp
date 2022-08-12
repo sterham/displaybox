@@ -105,6 +105,7 @@
 	<section class="section-margin calc-60px">
 		<div class="container">
 			<div class="section-intro pb-60px">
+						<span>'구매 중'인 제품은 구매할 수 없습니다.</span>
 				<h4>
 					<b>Earth Box(목련마을 5단지)</b>
 				</h4>
@@ -118,6 +119,7 @@
 				<c:forEach items="${list }" var="goodsVo">
 					<div class="col-md-6 col-lg-4 col-xl-3">
 						<div class="card text-center card-product">
+						<p class="card-product__price" style="color:#599555">${goodsVo.g_status} 중</p><br>
 							<div class="card-product__img">
 													<!-- 상품 사진 출력 -->
 								<img class="card-img" src=${goodsVo.g_img} alt="">

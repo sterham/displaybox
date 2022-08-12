@@ -259,9 +259,9 @@
 	<script src="js/shopmain.js"></script>
 	<script>
 	
-	  function goodsStatusUpdate(g_seq){
-		  
-	 
+	// 상품 상태 업데이트
+	function goodsStatusUpdate(g_seq){
+	
 		$.ajax({
 			url : "goodsStatusUpdate.do",
 			type : "post",
@@ -272,54 +272,26 @@
 			},
 			error : function(){alert('error')} 
 		});
-  	}
-	  /* 
-	  function kakaopay(){
-		  
-			$.ajax({
-				url : 'kakaopay.do',
-				success : function(data){
-					alert(data.tid)
-					var box = data.next_redirect_pc_url;
-					window.open(box)
-				},
-				error : function(){alert('error')} 
-			});
-	  	}
-	 
-	  $(function(){
-		 $('#kakaopay').click(function(){
-			$.ajax({
-				url: 'kakaopay.do',
-				success: function(data){
-					alert(data.tid);
-					//var box = data.next_redirect_pc_url;
-					//window.open(box)
-				},
-				error: function(error){alert(error)}
-			});
-		 });
-	  }); 
-	  
-	  */
-	  	
-	  	$(document).on("click", "#kakaopay", function () {
 		
-	  		$.ajax({
-				url: 'kakaopay.do',
-				type : "post",
-				dataType: 'json',
-				success: function(data){
-					var box = data.next_redirect_pc_url;
-					window.open(box)
-				},
-				error: function(){
-					alert("오류")
-					}
-			});
-	  		
-	  		
-		})
+	}
+
+	// 카카오페이 API
+  	$(document).on("click", "#kakaopay", function () {
+	
+  		$.ajax({
+			url: 'kakaopay.do',
+			type : "post",
+			dataType: 'json',
+			success: function(data){
+				var box = data.next_redirect_pc_url;
+				window.open(box);
+				window.location.href = data.next_redirect_app_url;
+			},
+			error: function(){
+				alert("오류")
+			}
+		});
+	})
 		
 		
 	  	

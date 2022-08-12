@@ -212,6 +212,8 @@
 	<script src="js/script.js"></script>
 	<script src="js/shopmain.js"></script>
 	<script type="text/javascript">
+	
+	
 	var completeBuy = function(g_seq){
 		$.ajax({
 			url : "completeBuy.do",
@@ -225,8 +227,6 @@
 		});
 		
 	}
-	
-
 	
 	</script>
 </body>
