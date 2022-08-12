@@ -61,5 +61,16 @@
 		where g_seq = #{g_seq}	
 	</update>
 	
+	<select id="GetSensorList" resultType="com.forus.domain.sensorVO">
+		select * from sensor_tb
+	</select>
+	
+	<select id="GetSensorStatus" parameterType="int" resultType="com.forus.domain.sensorVO">
+		select * from sensor_tb where sensor_id = #{id}
+	</select>
+	
+	<update id="UpdateSensorStatus" parameterType="com.forus.domain.sensorVO">
+		update sensor_tb set sensor_status=#{sensor_status} where sensor_id=#{sensor_id}
+	</update>
 </mapper>
 

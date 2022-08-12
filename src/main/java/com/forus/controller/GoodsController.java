@@ -9,7 +9,9 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,9 +22,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.forus.domain.GoodsBuyCompleteVO;
 import com.forus.domain.GoodsBuyVO;
@@ -33,6 +39,7 @@ import com.forus.domain.GoodsPwVO;
 import com.forus.domain.GoodsVO;
 import com.forus.domain.UserVO;
 import com.forus.service.GoodsService;
+import com.forus.service.SensorService;
 import com.forus.service.UserService;
 
 @Controller
@@ -43,6 +50,8 @@ public class GoodsController {
 	private GoodsService goodsService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private SensorService sensorService;
 
 	// 초기화면
 	@RequestMapping("/")
@@ -350,37 +359,24 @@ public class GoodsController {
 		return "text";
 	}
 
-	@RequestMapping("/module.do")
-	public ResponseEntity<Object> module(Integer sensor, Boolean isOpend) {
-		if (isOpend == null) {
-			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-		}
-		System.out.println("sensor: " + sensor + ", isOpend: " + isOpend);
-		if (isOpend.booleanValue()) {
-		} else {
-		}
-		return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
-	}
-
-	@RequestMapping("/module_warning.do")
-	public ResponseEntity<Object> modulewarning(Integer sensor, Boolean isOpend, Model model) {
-		if(isOpend == null){		
-		    return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
-		}
-		System.out.println("sensor: " + sensor + ", isOpend: " + isOpend);
-		if(isOpend.booleanValue()) {
-		}else {
-		}
-		
-		music(new ResponseEntity<Object>(HttpStatus.NO_CONTENT));
-	    return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
-
+	@GetMapping("/api/sensor")	
+	@ResponseBody
+	public Object GetSensorList() {
+		return sensorService.GetSensorStatusList();		
 	}
 	
-	@RequestMapping("/music.do")
-	public ResponseEntity<Object> music(ResponseEntity<Object> response) {
-		System.out.println(response);
-		return response;
+	@GetMapping("/api/sensor/{id}")	
+	@ResponseBody
+	public Object GetSensor(@PathVariable Integer id) {
+		return sensorService.GetSensorStatus(id);		
+	}
+	
+	@PutMapping("/api/sensor/{id}")	
+	@ResponseBody
+	public ResponseEntity<Object> PutSensor(@PathVariable Integer id, Integer status) {
+		sensorService.UpdateSensorStatus(id, status);
+		System.out.println("id: " + id + ", status: " + status);
+		return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
 	}
 
 //	@RequestMapping("/module_warning.do")

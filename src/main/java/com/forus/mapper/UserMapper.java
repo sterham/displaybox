@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.UserVO;
+import com.forus.domain.sensorVO;
 
 @Mapper
 public interface UserMapper {
@@ -31,5 +32,11 @@ public interface UserMapper {
 	
 	// 7. 실제로 상품 등록하기
 	public int addGoods(int g_seq);
-
+	
+	// 8. 센서 값 전체 받아오기
+	public List<sensorVO> GetSensorList();
+	
+	public sensorVO GetSensorStatus(int id);
+	
+	public int UpdateSensorStatus(sensorVO sensor);
 }

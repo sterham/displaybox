@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.forus.domain.GoodsGetVO;
 import com.forus.domain.GoodsOrderListVO;
 import com.forus.domain.UserVO;
+import com.forus.domain.sensorVO;
 import com.forus.mapper.UserMapper;
 
 @Service
@@ -50,5 +51,8 @@ public class UserService {
 		return mapper.addGoods(g_seq);
 	}
 	
-	
+	// 8. 센서 상태가져오기
+	public List<sensorVO> sensor(int sesnor_id){
+		return mapper.GetSensorList();
+	}
 }
